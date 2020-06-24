@@ -37,6 +37,17 @@
     repo: https://github.com/oh-my-fish/oh-my-fish.git
     dest: ~/.oh-my-fish
 
+- name: Clone .tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: ~/.tmux
+
+- name: Link .tmux.conf
+  file:
+    src: ~/.tmux/.tmux.conf
+    path: ~/.tmux.conf
+    state: link
+
 - name: Template .zshrc into place
   template:
     src: "{{ playbook_dir }}/stuff/dotfiles/.zshrc.j2"
