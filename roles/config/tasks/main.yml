@@ -41,7 +41,7 @@
     dest: ~/.zshrc
 
 - shell:
-    cmd: "which fish"
+    cmd: which fish
   register: fish
   changed_when: no
 
