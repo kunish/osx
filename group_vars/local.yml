@@ -1,7 +1,9 @@
 ansible_connection: local
+
 casks:
   - homebrew/cask-fonts
   - d12frosted/emacs-plus
+
 packages:
   - go
   - yarn
@@ -20,6 +22,7 @@ packages:
   - editorconfig
   - zsh
   - svn
+
 cask_packages:
   - iterm2
   - postman
@@ -50,6 +53,7 @@ cask_packages:
   - google-chrome
   - the-unarchiver
   - font-ubuntu-mono
+
 yarn_packages:
   - prettier
   - eslint
@@ -59,3 +63,21 @@ yarn_packages:
   - typescript
   - semantic-release
   - create-react-app
+
+dotfiles_base_path: "{{ playbook_dir }}/stuff/dotfiles"
+
+templates:
+  - src: "{{ dotfiles_base_path }}/.gitconfig.j2"
+    dest: "~/.gitconfig"
+
+  - src: "{{ dotfiles_base_path }}/.profile.j2"
+    dest: ~/.profile
+
+  - src: "{{ dotfiles_base_path }}/config.fish.j2"
+    dest: ~/.config/fish/config.fish
+
+  - src: "{{ dotfiles_base_path }}/.tmux.conf.local.j2"
+    dest: ~/.tmux.conf.local
+
+  - src: "{{ dotfiles_base_path }}/.zshrc.j2"
+    dest: ~/.zshrc

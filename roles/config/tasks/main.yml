@@ -33,20 +33,11 @@
     executable: "{{ fish.stdout }}"
   changed_when: no
 
-- name: Template .profile into place
+- name: "Template dotfiles into place"
   template:
-    src: "{{ playbook_dir }}/stuff/dotfiles/.profile.j2"
-    dest: ~/.profile
-
-- name: Template config.fish into place
-  template:
-    src: "{{ playbook_dir }}/stuff/dotfiles/config.fish.j2"
-    dest: ~/.config/fish/config.fish
-
-- name: Template .tmux.conf.local into place
-  template:
-    src: "{{ playbook_dir }}/stuff/dotfiles/.tmux.conf.local.j2"
-    dest: ~/.tmux.conf.local
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items: "{{ templates }}"
 
 - name: Add fish into standard shell
   become: yes
@@ -67,11 +58,6 @@
     src: ~/.tmux/.tmux.conf
     path: ~/.tmux.conf
     state: link
-
-- name: Template .zshrc into place
-  template:
-    src: "{{ playbook_dir }}/stuff/dotfiles/.zshrc.j2"
-    dest: ~/.zshrc
 
 - name: VSCode PressAndHold
   shell:
