@@ -14,6 +14,7 @@
     dest: ~/.tmux.conf.local
 
 - name: Add fish into standard shell
+  become: yes
   lineinfile:
     path: /etc/shells
     line: /usr/local/bin/fish
@@ -21,6 +22,7 @@
     state: present
 
 - name: Change shell
+  become: yes
   user:
     name: "{{ ansible_user }}"
     shell: /usr/local/bin/fish
@@ -58,4 +60,9 @@
     cmd: omf install z fzf bass
   args:
     executable: "{{ fish.stdout }}"
+  changed_when: no
+
+- name: VSCode PressAndHold
+  shell:
+    cmd: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
   changed_when: no

@@ -1,4 +1,7 @@
 ansible_connection: local
+casks:
+  - homebrew/cask-fonts
+  - d12frosted/emacs-plus
 packages:
   - go
   - yarn
@@ -43,6 +46,7 @@ cask_packages:
   - baidunetdisk
   - 1password
   - google-chrome
+  - font-ubuntu-mono
 yarn_packages:
   - prettier
   - eslint

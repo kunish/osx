@@ -1,6 +1,7 @@
 - name: Homebrew tap
   homebrew_tap:
-    name: d12frosted/emacs-plus
+    name: "{{ item }}"
+  with_items: "{{ casks }}"
 
 - name: Update homebrew
   homebrew:
