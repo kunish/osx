@@ -1,0 +1,79 @@
+- name: Homebrew tap
+  homebrew_tap:
+    name: d12frosted/emacs-plus
+
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Update homebrew casks
+  homebrew_cask:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Install list of packages
+  homebrew:
+    name:
+      - go
+      - yarn
+      - node
+      - fish
+      - git
+      - tmux
+      - neovim
+      - rust
+      - openssh
+      - openssl
+      - emacs-plus
+      - htop
+      - ansible-lint
+      - vim
+      - editorconfig
+    state: latest
+
+- name: Install list of casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - iterm2
+    - postman
+    - visual-studio-code
+    - tower
+    - firefox
+    - dingtalk
+    - wechat
+    - thunder
+    - v2rayu
+    - squidman
+    - notion
+    - qqmusic
+    - docker
+    - moom
+    - pock
+    - telegram
+    - qq
+    - mounty
+    - macvim
+    - virtualbox
+    - balenaetcher
+    - hyper
+    - aliwangwang
+    - baidunetdisk
+    - 1password
+
+- name: Install list of yarn pkg global
+  yarn:
+    name: "{{ item }}"
+    state: latest
+    global: yes
+  with_items:
+    - prettier
+    - eslint
+    - nodemon
+    - serve
+    - pm2
+    - typescript
+    - semantic-release
+    - create-react-app
