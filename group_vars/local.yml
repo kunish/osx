@@ -42,7 +42,7 @@ cask_packages:
   - aliwangwang
   - baidunetdisk
   - 1password
-  - launchpad-manager
+  - google-chrome
 yarn_packages:
   - prettier
   - eslint
