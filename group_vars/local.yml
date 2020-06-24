@@ -22,6 +22,16 @@ packages:
   - editorconfig
   - zsh
   - svn
+  - github/gh/gh
+  - nmap
+  - nvm
+  - ssh-copy-id
+  - pv
+  - wget
+  - readline
+  - iperf
+  - sqlite
+  - cowsay
 
 cask_packages:
   - iterm2
@@ -55,6 +65,8 @@ cask_packages:
   - font-ubuntu-mono
   - obs
   - iina
+  - sublime-text
+  - vagrant
 
 yarn_packages:
   - prettier
@@ -69,17 +81,17 @@ yarn_packages:
 dotfiles_base_path: "{{ playbook_dir }}/stuff/dotfiles"
 
 templates:
-  - src: "{{ dotfiles_base_path }}/.gitconfig.j2"
-    dest: "~/.gitconfig"
+  - src: "{{ dotfiles_base_path }}/.gitconfig"
+    dest: "~"
 
-  - src: "{{ dotfiles_base_path }}/.profile.j2"
-    dest: ~/.profile
+  - src: "{{ dotfiles_base_path }}/.profile"
+    dest: "~"
 
-  - src: "{{ dotfiles_base_path }}/config.fish.j2"
-    dest: ~/.config/fish/config.fish
+  - src: "{{ dotfiles_base_path }}/config.fish"
+    dest: ~/.config/fish
 
-  - src: "{{ dotfiles_base_path }}/.tmux.conf.local.j2"
-    dest: ~/.tmux.conf.local
+  - src: "{{ dotfiles_base_path }}/.tmux.conf.local"
+    dest: "~"
 
-  - src: "{{ dotfiles_base_path }}/.zshrc.j2"
-    dest: ~/.zshrc
+  - src: "{{ dotfiles_base_path }}/.zshrc"
+    dest: "~"
