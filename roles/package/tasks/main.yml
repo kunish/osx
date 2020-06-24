@@ -14,66 +14,18 @@
 
 - name: Install list of packages
   homebrew:
-    name:
-      - go
-      - yarn
-      - node
-      - fish
-      - git
-      - tmux
-      - neovim
-      - rust
-      - openssh
-      - openssl
-      - emacs-plus
-      - htop
-      - ansible-lint
-      - vim
-      - editorconfig
+    name: "{{ packages }}"
     state: latest
 
 - name: Install list of casks
   homebrew_cask:
     name: "{{ item }}"
     state: latest
-  with_items:
-    - iterm2
-    - postman
-    - visual-studio-code
-    - tower
-    - firefox
-    - dingtalk
-    - wechat
-    - thunder
-    - v2rayu
-    - squidman
-    - notion
-    - qqmusic
-    - docker
-    - moom
-    - pock
-    - telegram
-    - qq
-    - mounty
-    - macvim
-    - virtualbox
-    - balenaetcher
-    - hyper
-    - aliwangwang
-    - baidunetdisk
-    - 1password
+  with_items: "{{ cask_packages }}"
 
 - name: Install list of yarn pkg global
   yarn:
     name: "{{ item }}"
     state: latest
     global: yes
-  with_items:
-    - prettier
-    - eslint
-    - nodemon
-    - serve
-    - pm2
-    - typescript
-    - semantic-release
-    - create-react-app
+  with_items: "{{ yarn_packages }}"

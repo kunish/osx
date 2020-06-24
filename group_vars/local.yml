@@ -1,0 +1,52 @@
+ansible_connection: local
+packages:
+  - go
+  - yarn
+  - node
+  - fish
+  - git
+  - tmux
+  - neovim
+  - rust
+  - openssh
+  - openssl
+  - emacs-plus
+  - htop
+  - ansible-lint
+  - vim
+  - editorconfig
+cask_packages:
+  - iterm2
+  - postman
+  - visual-studio-code
+  - tower
+  - firefox
+  - dingtalk
+  - wechat
+  - thunder
+  - v2rayu
+  - squidman
+  - notion
+  - qqmusic
+  - docker
+  - moom
+  - pock
+  - telegram
+  - qq
+  - mounty
+  - macvim
+  - virtualbox
+  - balenaetcher
+  - hyper
+  - aliwangwang
+  - baidunetdisk
+  - 1password
+yarn_packages:
+  - prettier
+  - eslint
+  - nodemon
+  - serve
+  - pm2
+  - typescript
+  - semantic-release
+  - create-react-app
