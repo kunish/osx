@@ -61,5 +61,5 @@
 
 - name: VSCode PressAndHold
   shell:
-    cmd: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    cmd: defaults write -g ApplePressAndHoldEnabled -bool false
   changed_when: no
