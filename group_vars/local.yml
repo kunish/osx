@@ -53,6 +53,7 @@ cask_packages:
   - google-chrome
   - the-unarchiver
   - font-ubuntu-mono
+  - obs
 
 yarn_packages:
   - prettier
