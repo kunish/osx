@@ -19,6 +19,7 @@ packages:
   - vim
   - editorconfig
   - zsh
+  - svn
 cask_packages:
   - iterm2
   - postman
