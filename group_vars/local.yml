@@ -47,6 +47,7 @@ cask_packages:
   - baidunetdisk
   - 1password
   - google-chrome
+  - the-unarchiver
   - font-ubuntu-mono
 yarn_packages:
   - prettier
