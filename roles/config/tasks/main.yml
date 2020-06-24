@@ -1,0 +1,26 @@
+- name: Template .profile into place
+  template:
+    src: "{{ playbook_dir }}/stuff/dotfiles/.profile.j2"
+    dest: ~/.profile
+
+- name: Template config.fish into place
+  template:
+    src: "{{ playbook_dir }}/stuff/dotfiles/config.fish.j2"
+    dest: ~/.config/fish/config.fish
+
+- name: Template .tmux.conf.local into place
+  template:
+    src: "{{ playbook_dir }}/stuff/dotfiles/.tmux.conf.local.j2"
+    dest: ~/.tmux.conf.local
+
+- name: Add fish into standard shell
+  lineinfile:
+    path: /etc/shells
+    line: /usr/local/bin/fish
+    regexp: '\/usr\/local\/bin\/fish'
+    state: present
+
+- name: Change shell
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/local/bin/fish
