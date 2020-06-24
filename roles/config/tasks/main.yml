@@ -1,3 +1,38 @@
+- shell:
+    cmd: which fish
+  register: fish
+  changed_when: no
+
+- name: Clone .tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: ~/.tmux
+
+- name: Clone oh-my-zsh
+  git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    dest: ~/.oh-my-zsh
+
+- name: Clone oh-my-fish
+  git:
+    repo: https://github.com/oh-my-fish/oh-my-fish.git
+    dest: ~/.oh-my-fish
+
+- name: Install oh-my-fish
+  shell:
+    chdir: ~/.oh-my-fish
+    cmd: bin/install --offline --noninteractive -y
+  args:
+    executable: "{{ fish.stdout }}"
+  changed_when: no
+
+- name: Install omf plugins
+  shell:
+    cmd: omf install z fzf bass
+  args:
+    executable: "{{ fish.stdout }}"
+  changed_when: no
+
 - name: Template .profile into place
   template:
     src: "{{ playbook_dir }}/stuff/dotfiles/.profile.j2"
@@ -27,21 +62,6 @@
     name: "{{ ansible_user }}"
     shell: /usr/local/bin/fish
 
-- name: Clone oh-my-zsh
-  git:
-    repo: https://github.com/ohmyzsh/ohmyzsh.git
-    dest: ~/.oh-my-zsh
-
-- name: Clone oh-my-fish
-  git:
-    repo: https://github.com/oh-my-fish/oh-my-fish.git
-    dest: ~/.oh-my-fish
-
-- name: Clone .tmux
-  git:
-    repo: https://github.com/gpakosz/.tmux.git
-    dest: ~/.tmux
-
 - name: Link .tmux.conf
   file:
     src: ~/.tmux/.tmux.conf
@@ -52,26 +72,6 @@
   template:
     src: "{{ playbook_dir }}/stuff/dotfiles/.zshrc.j2"
     dest: ~/.zshrc
-
-- shell:
-    cmd: which fish
-  register: fish
-  changed_when: no
-
-- name: Install oh-my-fish
-  shell:
-    chdir: ~/.oh-my-fish
-    cmd: bin/install --offline --noninteractive -y
-  args:
-    executable: "{{ fish.stdout }}"
-  changed_when: no
-
-- name: Install omf plugins
-  shell:
-    cmd: omf install z fzf bass
-  args:
-    executable: "{{ fish.stdout }}"
-  changed_when: no
 
 - name: VSCode PressAndHold
   shell:
