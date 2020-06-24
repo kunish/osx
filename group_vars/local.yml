@@ -54,6 +54,7 @@ cask_packages:
   - the-unarchiver
   - font-ubuntu-mono
   - obs
+  - iina
 
 yarn_packages:
   - prettier
