@@ -29,3 +29,4 @@
     state: latest
     global: yes
   with_items: "{{ yarn_packages }}"
+  changed_when: no
