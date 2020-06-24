@@ -33,6 +33,7 @@ cask_packages:
   - notion
   - qqmusic
   - docker
+  - dozer
   - moom
   - pock
   - telegram

@@ -1,3 +1,8 @@
+- name: Disable spctl master
+  become: yes
+  command:
+    cmd: spctl --master-disable
+
 - name: Homebrew tap
   homebrew_tap:
     name: "{{ item }}"
@@ -19,6 +24,7 @@
     state: latest
 
 - name: Install list of casks
+  become: yes
   homebrew_cask:
     name: "{{ item }}"
     state: latest
