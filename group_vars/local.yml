@@ -12,7 +12,7 @@ packages:
   - git
   - tmux
   - neovim
-  - rust
+  - rustup
   - openssh
   - openssl
   - emacs-plus

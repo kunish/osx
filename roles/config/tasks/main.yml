@@ -59,6 +59,11 @@
     path: ~/.tmux.conf
     state: link
 
+- name: Rustup init
+  shell:
+    cmd: rustup-init -qy --profile default
+  changed_when: no
+
 - name: VSCode PressAndHold
   shell:
     cmd: defaults write -g ApplePressAndHoldEnabled -bool false
