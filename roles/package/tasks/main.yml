@@ -37,3 +37,8 @@
     global: yes
   with_items: "{{ yarn_packages }}"
   changed_when: no
+
+- name: Clone flutter
+  git:
+    repo: https://github.com/flutter/flutter.git
+    dest: ~/work/flutter

@@ -67,6 +67,7 @@ cask_packages:
   - iina
   - sublime-text
   - vagrant
+  - java
 
 yarn_packages:
   - prettier
