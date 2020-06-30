@@ -28,6 +28,7 @@
   homebrew_cask:
     name: "{{ item }}"
     state: latest
+    sudo_password: "{{ ansible_become_pass }}"
   with_items: "{{ cask_packages }}"
 
 - name: Install list of yarn pkg global
