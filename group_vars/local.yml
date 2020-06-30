@@ -69,6 +69,7 @@ cask_packages:
   - vagrant
   - java
   - neteasemusic
+  - wireshark
 
 yarn_packages:
   - prettier
