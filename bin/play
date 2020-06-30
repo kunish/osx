@@ -3,8 +3,10 @@ if ! type $(which brew) > /dev/null; then
     echo Install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
+
 if ! type $(which ansible) > /dev/null; then
     echo Install ansible
     brew install ansible
 fi
-ansible-playbook main.yml --ask-vault-pass
+
+ansible-playbook main.yml
