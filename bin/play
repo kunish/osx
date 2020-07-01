@@ -1,11 +1,11 @@
 #!/bin/bash
-if ! type $(which brew) > /dev/null; then
-    echo Install homebrew
+if ! command -v brew &> /dev/null
+then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-if ! type $(which ansible) > /dev/null; then
-    echo Install ansible
+if ! command -v ansible &> /dev/null
+then
     brew install ansible
 fi
 

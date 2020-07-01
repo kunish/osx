@@ -36,9 +36,11 @@ packages:
   - cowsay
 
 cask_packages:
+  - 1password
+  - font-ubuntu-mono
+  - visual-studio-code
   - iterm2
   - postman
-  - visual-studio-code
   - tower
   - firefox
   - dingtalk
@@ -60,10 +62,8 @@ cask_packages:
   - hyper
   - aliwangwang
   - baidunetdisk
-  - 1password
   - google-chrome
   - the-unarchiver
-  - font-ubuntu-mono
   - obs
   - iina
   - sublime-text
