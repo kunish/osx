@@ -50,7 +50,6 @@ cask_packages:
   - qqmusic
   - docker
   - dozer
-  - moom
   - pock
   - telegram
   - qq
@@ -87,22 +86,22 @@ dotfiles_base_path: "{{ playbook_dir }}/stuff/dotfiles"
 
 templates:
   - src: "{{ dotfiles_base_path }}/.gitconfig"
-    dest: "~"
+    dest: ~/.gitconfig
 
   - src: "{{ dotfiles_base_path }}/.profile"
-    dest: "~"
+    dest: ~/.profile
 
   - src: "{{ dotfiles_base_path }}/config.fish"
-    dest: ~/.config/fish
+    dest: ~/.config/fish/config.fish
 
   - src: "{{ dotfiles_base_path }}/.tmux.conf.local"
-    dest: "~"
+    dest: ~/.tmux.conf.local
 
   - src: "{{ dotfiles_base_path }}/.zshrc"
-    dest: "~"
+    dest: ~/.zshrc
 
   - src: "{{ dotfiles_base_path }}/.vimrc"
-    dest: "~"
+    dest: ~/.vimrc
 
   - src: "{{ dotfiles_base_path }}/init.vim"
-    dest: ~/.config/nvim
+    dest: ~/.config/nvim/init.vim
