@@ -34,6 +34,7 @@ packages:
   - iperf
   - sqlite
   - cowsay
+  - cocoapods
 
 cask_packages:
   - virtualbox
@@ -72,6 +73,7 @@ cask_packages:
   - java
   - neteasemusic
   - wireshark
+  - android-studio
 
 yarn_packages:
   - prettier

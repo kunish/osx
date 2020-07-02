@@ -49,3 +49,9 @@
   git:
     repo: https://github.com/flutter/flutter.git
     dest: ~/work/flutter
+
+- name: Flutter precache
+  command:
+    chdir: ~/work/flutter
+    cmd: ./bin/flutter precache
+  changed_when: no
