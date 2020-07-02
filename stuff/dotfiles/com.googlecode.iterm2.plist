@@ -58630,8 +58630,10 @@
 	<string>0 141 224 275 0 0 2048 1257 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>624 621 799 448 0 0 2048 1257 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>714 663 620 392 0 0 2048 1257 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 915 490 342 0 0 2048 1257 </string>
+	<string>0 58 2048 1199 0 0 2048 1257 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -59235,6 +59237,8 @@
 			<false/>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Mark Indicators</key>
+			<true/>
 			<key>Silence Bell</key>
 			<true/>
 			<key>Sync Title</key>
@@ -59274,12 +59278,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2048, 1280}}</string>
 		<key>topLeft</key>
-		<string>{103, 633}</string>
+		<string>{167, 842}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>F4C1B5D2-A9C5-4332-AF68-75016BA04509</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -59670,6 +59674,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.window</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>id</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -59857,6 +59869,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>window</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>id</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -60019,6 +60039,8 @@
 	<false/>
 	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
 	<false/>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -60028,9 +60050,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-01T15:46:34Z</date>
+	<date>2020-07-02T15:15:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SUUpdateRelaunchingMarker</key>
+	<true/>
+	<key>ShowNewOutputIndicator</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
