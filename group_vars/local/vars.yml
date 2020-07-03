@@ -74,6 +74,7 @@ cask_packages:
   - neteasemusic
   - wireshark
   - android-studio
+  - alt-tab
 
 yarn_packages:
   - prettier
