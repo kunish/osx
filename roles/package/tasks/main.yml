@@ -44,14 +44,6 @@
   register: npm
   changed_when: no
 
-- name: Install yarn using npm
-  npm:
-    name: yarn
-    global: yes
-    state: latest
-    executable: "{{ npm.stdout }}"
-  changed_when: no
-
 - name: Install list of yarn pkg global
   yarn:
     name: "{{ item }}"
