@@ -1,3 +1,33 @@
+- name: Disable spctl master
+  become: yes
+  command:
+    cmd: spctl --master-disable
+  changed_when: no
+
+- name: VSCode PressAndHold
+  shell:
+    cmd: defaults write -g ApplePressAndHoldEnabled -bool false
+  changed_when: no
+
+- name: Install fish shell
+  homebrew:
+    name: fish
+    state: latest
+
+- name: Add fish into standard shell
+  become: yes
+  lineinfile:
+    path: /etc/shells
+    line: /usr/local/bin/fish
+    regexp: '\/usr\/local\/bin\/fish'
+    state: present
+
+- name: Change shell
+  become: yes
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/local/bin/fish
+
 - shell:
     cmd: which fish
   register: fish
@@ -26,12 +56,13 @@
     executable: "{{ fish.stdout }}"
   changed_when: no
 
-- name: Install omf plugins
+- name: Install list of omf package
   shell:
-    cmd: omf install z fzf bass
+    cmd: omf install '{{ item }}'
   args:
     executable: "{{ fish.stdout }}"
   changed_when: no
+  with_items: "{{ omf_packages }}"
 
 - name: Make sure ~/.config folder is there
   file:
@@ -50,20 +81,6 @@
     state: link
     force: yes
   with_items: "{{ templates }}"
-
-- name: Add fish into standard shell
-  become: yes
-  lineinfile:
-    path: /etc/shells
-    line: /usr/local/bin/fish
-    regexp: '\/usr\/local\/bin\/fish'
-    state: present
-
-- name: Change shell
-  become: yes
-  user:
-    name: "{{ ansible_user }}"
-    shell: /usr/local/bin/fish
 
 - name: Link .tmux.conf
   file:

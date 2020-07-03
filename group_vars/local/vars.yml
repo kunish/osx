@@ -7,10 +7,8 @@ casks:
   - d12frosted/emacs-plus
 
 packages:
+  - fzf
   - go
-  - yarn
-  - node
-  - fish
   - git
   - tmux
   - neovim
@@ -75,6 +73,14 @@ cask_packages:
   - wireshark
   - android-studio
   - alt-tab
+
+omf_packages:
+  - z
+  - bass
+  - nvm
+  - fzf
+
+node_version: 12.0.0
 
 yarn_packages:
   - prettier

@@ -1,1 +1,1 @@
-source $HOME/.profile
+bass source $HOME/.profile

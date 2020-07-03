@@ -1,14 +1,3 @@
-- name: Disable spctl master
-  become: yes
-  command:
-    cmd: spctl --master-disable
-  changed_when: no
-
-- name: VSCode PressAndHold
-  shell:
-    cmd: defaults write -g ApplePressAndHoldEnabled -bool false
-  changed_when: no
-
 - name: Homebrew tap
   homebrew_tap:
     name: "{{ item }}"
@@ -23,6 +12,7 @@
   homebrew_cask:
     update_homebrew: yes
     upgrade_all: yes
+    greedy: yes
 
 - name: Install list of packages
   homebrew:
@@ -35,6 +25,32 @@
     state: latest
     sudo_password: "{{ ansible_sudo_pass }}"
   with_items: "{{ cask_packages }}"
+
+- name: Install nvm
+  shell:
+    cmd: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  args:
+    creates: ~/.nvm/nvm.sh
+
+- name: Install node using nvm
+  shell:
+    cmd: nvm install '{{ node_version }}'
+  args:
+    executable: "{{ fish.stdout }}"
+  changed_when: no
+
+- shell:
+    cmd: which npm
+  register: npm
+  changed_when: no
+
+- name: Install yarn using npm
+  npm:
+    name: yarn
+    global: yes
+    state: latest
+    executable: "{{ npm.stdout }}"
+  changed_when: no
 
 - name: Install list of yarn pkg global
   yarn:
