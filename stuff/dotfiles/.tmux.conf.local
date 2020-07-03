@@ -1,3 +1,4 @@
+tmux_conf_new_pane_retain_current_path=true
 tmux_conf_copy_to_os_clipboard=true
 set -gu prefix2
 unbind C-a
