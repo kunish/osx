@@ -58633,11 +58633,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>714 663 620 392 0 0 2048 1257 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 58 2048 1199 0 0 2048 1257 </string>
+	<string>1024 3 1024 1254 0 0 2048 1257 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
+			<true/>
+			<key>ASCII Ligatures</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
@@ -59202,7 +59204,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>UbuntuMono-Regular 12</string>
+			<string>UbuntuMono-Bold 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -59271,6 +59273,7 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
+		<string>3.3.12</string>
 		<string>3.3.11</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
@@ -59280,10 +59283,12 @@
 		<key>topLeft</key>
 		<string>{167, 842}</string>
 	</dict>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>F4C1B5D2-A9C5-4332-AF68-75016BA04509</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -60054,7 +60059,7 @@
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -60064,6 +60069,6 @@
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.11</string>
+	<string>3.3.12</string>
 </dict>
 </plist>
