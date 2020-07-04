@@ -33,6 +33,11 @@
   register: fish
   changed_when: no
 
+- name: Clone spacemacs
+  git:
+    repo: https://github.com/syl20bnr/spacemacs.git
+    dest: ~/.emacs.d
+
 - name: Clone .tmux
   git:
     repo: https://github.com/gpakosz/.tmux.git
