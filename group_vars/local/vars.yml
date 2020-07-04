@@ -74,6 +74,7 @@ cask_packages:
   - wireshark
   - android-studio
   - alt-tab
+  - github
 
 omf_packages:
   - z
