@@ -75,6 +75,7 @@ cask_packages:
   - android-studio
   - alt-tab
   - github
+  - sourcetree
 
 omf_packages:
   - z
