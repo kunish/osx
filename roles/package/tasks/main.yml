@@ -7,6 +7,7 @@
   homebrew:
     update_homebrew: yes
     upgrade_all: yes
+  changed_when: no
 
 - name: Update homebrew casks
   homebrew_cask:
@@ -57,6 +58,11 @@
   git:
     repo: https://github.com/flutter/flutter.git
     dest: ~/work/flutter
+
+- name: Flutter upgrade
+  command:
+    cmd: flutter upgrade
+  changed_when: no
 
 - name: Flutter precache
   command:
