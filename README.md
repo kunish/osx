@@ -2,7 +2,7 @@
 
 CI Status
 
-[![pipeline status](http://gitlab.shikun.info:8009/shikun/osx/badges/master/pipeline.svg)](http://gitlab.shikun.info:8009/shikun/osx/-/commits/master)
+[![Build Status](http://runner.shikun.info:8000/api/badges/shikun/osx/status.svg)](http://runner.shikun.info:8000/shikun/osx)
 
 ### How to use
 
