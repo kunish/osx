@@ -1,8 +1,0 @@
-image: python
-
-test:
-  variables:
-    ANSIBLE_CONFIG: ./ansible.cfg
-  script:
-    - pip3 install ansible-lint
-    - ansible-lint
