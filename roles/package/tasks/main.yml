@@ -69,3 +69,13 @@
     chdir: ~/work/flutter
     cmd: ./bin/flutter precache
   changed_when: no
+
+- name: Rustup init
+  command:
+    cmd: rustup-init -qy --profile default
+  changed_when: no
+
+- name: Rustup update
+  command:
+    cmd: rustup update
+  changed_when: no
