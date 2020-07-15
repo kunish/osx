@@ -40,6 +40,8 @@ cask_packages:
   - soundflower
   - 1password
   - font-ubuntu-mono
+  - font-fira-code
+  - font-source-code-pro
   - visual-studio-code
   - iterm2
   - postman
