@@ -78,6 +78,7 @@ cask_packages:
   - alt-tab
   - github
   - sourcetree
+  - drawio
 
 omf_packages:
   - z
