@@ -37,7 +37,6 @@ packages:
 
 cask_packages:
   - virtualbox
-  - soundflower
   - 1password
   - font-ubuntu-mono
   - font-fira-code
