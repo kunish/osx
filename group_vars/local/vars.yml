@@ -36,6 +36,7 @@ packages:
   - cocoapods
 
 cask_packages:
+  - soundflower
   - virtualbox
   - 1password
   - font-ubuntu-mono
