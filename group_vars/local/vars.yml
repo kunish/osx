@@ -79,6 +79,7 @@ cask_packages:
   - github
   - sourcetree
   - drawio
+  - paper
 
 omf_packages:
   - z
