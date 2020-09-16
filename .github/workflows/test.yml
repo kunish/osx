@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        env:
+          ANSIBLE_CONFIG: ./ansible.cfg
+        run:
+          - pip3 install ansible-lint
+          - ansible-lint
