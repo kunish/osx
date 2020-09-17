@@ -10,6 +10,7 @@ packages:
   - yarn
   - fzf
   - go
+  - java
   - git
   - tmux
   - neovim
@@ -43,6 +44,7 @@ cask_packages:
   - font-ubuntu-mono
   - font-fira-code
   - font-source-code-pro
+  - font-roboto-mono-nerd-font
   - visual-studio-code
   - iterm2
   - postman
@@ -70,7 +72,6 @@ cask_packages:
   - iina
   - sublime-text
   - vagrant
-  - java
   - neteasemusic
   - wireshark
   - android-studio
@@ -81,6 +82,7 @@ cask_packages:
   - paper
 
 omf_packages:
+  - spacefish
   - z
   - bass
   - nvm
