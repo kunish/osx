@@ -80,6 +80,7 @@ cask_packages:
   - sourcetree
   - drawio
   - paper
+  - youku
 
 omf_packages:
   - spacefish
