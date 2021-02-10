@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v2
 
       - name: install dependencies
-        run: pip3 install ansible-lint
+        run: pip3 install ansible ansible-lint
 
       - name: test with ansible-lint
         run: ansible-lint
