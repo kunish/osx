@@ -54,22 +54,6 @@
   with_items: "{{ yarn_packages }}"
   changed_when: no
 
-- name: Clone flutter
-  git:
-    repo: https://github.com/flutter/flutter.git
-    dest: ~/work/flutter
-
-- name: Flutter upgrade
-  command:
-    cmd: flutter upgrade
-  changed_when: no
-
-- name: Flutter precache
-  command:
-    chdir: ~/work/flutter
-    cmd: ./bin/flutter precache
-  changed_when: no
-
 - name: Rustup init
   command:
     cmd: rustup-init -qy --profile default
