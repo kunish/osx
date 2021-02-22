@@ -1,7 +1,8 @@
 skip_list:
-  - 208
-  - 303
-  - 305
-  - 401
-  - 403
-  - 502
+  - command-instead-of-module
+  - command-instead-of-shell
+  - experimental
+  - git-latest
+  - load-failure
+  - package-latest
+  - unnamed-task
