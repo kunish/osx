@@ -12,6 +12,7 @@ set noswapfile
 set nowritebackup
 set go=
 set guicursor+=a:blinkon0
+set clipboard=unnamed
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
