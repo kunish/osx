@@ -26,7 +26,7 @@
   become: yes
   user:
     name: "{{ ansible_user }}"
-    shell: /usr/local/bin/fish
+    shell: /usr/local/bin/zsh
 
 - shell:
     cmd: which fish
