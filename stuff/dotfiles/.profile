@@ -6,6 +6,7 @@ export GOPATH="$HOME/work/go"
 export GOPROXY=https://goproxy.io
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export NVM_DIR="$HOME/.nvm"
