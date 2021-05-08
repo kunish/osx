@@ -51,9 +51,11 @@ Plug 'w0rp/ale'
 call plug#end()
 
 colorscheme onedark
+
+let g:airline_theme = 'onedark'
 let g:NERDTreeShowHidden = 1
-let g:airline_theme='onedark'
 let g:ctrlp_show_hidden = 1
+
 let g:coc_global_extensions = [
       \'coc-css',
       \'coc-cssmodules',
@@ -72,6 +74,7 @@ let g:coc_global_extensions = [
       \'coc-sh',
       \'coc-tsserver',
       \'coc-vetur',
+      \'coc-vimlsp',
       \]
 
 nnoremap <silent> <leader>ff :Files<CR>
@@ -96,8 +99,7 @@ nnoremap <silent> <leader>ss :source %<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader> rn <Plug>(coc-rename)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
