@@ -1,12 +1,7 @@
+[init]
+	defaultBranch = main
+[pull]
+  rebase = false
 [user]
 	name = shikun
-	email = a492809110@gmail.com
-[pull]
-        rebase = false
-[core]
-	excludesfile = /Users/shikun/.gitignore_global
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	email = kunish.butt@gmail.com
