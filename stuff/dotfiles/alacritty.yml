@@ -30,3 +30,7 @@ colors:
     magenta: "#cc00ff"
     cyan: "#00ffff"
     white: "#FFFFFF"
+
+key_bindings:
+  - { key: F, mods: Alt, chars: "\ef" }
+  - { key: B, mods: Alt, chars: "\eb" }
