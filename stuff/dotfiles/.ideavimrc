@@ -1,4 +1,8 @@
 let mapleader=" "
+set ideajoin
+set clipboard=unnamed
+set visualbell
+
 set easymotion
 set surround
 set multiple-cursors
@@ -7,4 +11,3 @@ set ReplaceWithRegister
 set textobj-entire
 set highlightedyank
 set NERDTree
-set visualbell
