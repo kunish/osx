@@ -1,7 +1,9 @@
 let mapleader=" "
 set ideajoin
-set clipboard=unnamed
+set clipboard=unnamed,ideaput
 set visualbell
+set ignorecase
+set incsearch
 
 set easymotion
 set surround
