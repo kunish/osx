@@ -1,12 +1,6 @@
 #!/bin/bash
-if ! command -v brew &> /dev/null
-then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-fi
+command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-if ! command -v ansible &> /dev/null
-then
-    brew install ansible
-fi
+command -v ansible || brew install ansible
 
 ansible-playbook main.yml
