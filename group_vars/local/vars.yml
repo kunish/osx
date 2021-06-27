@@ -5,47 +5,41 @@ ansible_connection: local
 
 casks:
   - homebrew/cask-fonts
-  - d12frosted/emacs-plus
 
 packages:
-  - yarn
+  # command line utilities
+  - ansible-lint
   - fzf
-  - go
-  - java
   - git
   - tmux
   - neovim
-  - rustup
   - openssh
   - openssl
-  - emacs-plus
   - htop
-  - ansible-lint
   - vim
   - editorconfig
   - zsh
-  - svn
-  - github/gh/gh
   - nmap
-  - nvm
+  - github/gh/gh
   - ssh-copy-id
+  - svn
+  - nvm
   - pv
   - wget
   - readline
-  - iperf
-  - sqlite
   - cowsay
+  - iperf
+  # language
+  - go
+  - rustup
+  - java
+  - flutter
   - cocoapods
-  - asimov
-
-cask_packages:
+  - sqlite
+  # applications
   - soundflower
   - virtualbox
   - 1password
-  - font-ubuntu-mono
-  - font-fira-code
-  - font-source-code-pro
-  - font-roboto-mono-nerd-font
   - visual-studio-code
   - iterm2
   - postman
@@ -55,6 +49,7 @@ cask_packages:
   - wechat
   - thunder
   - v2rayu
+  - clashx
   - squidman
   - notion
   - qqmusic
@@ -62,12 +57,9 @@ cask_packages:
   - dozer
   - pock
   - telegram
-  - qq
   - balenaetcher
   - hyper
-  - aliwangwang
   - baidunetdisk
-  - google-chrome
   - the-unarchiver
   - obs
   - iina
@@ -78,22 +70,18 @@ cask_packages:
   - android-studio
   - alt-tab
   - github
-  - sourcetree
   - drawio
   - paper
-  - youku
-  - flutter
-
-omf_packages:
-  - spacefish
-  - z
-  - bass
-  - nvm
-  - fzf
+  # fonts
+  - font-ubuntu-mono
+  - font-fira-code
+  - font-source-code-pro
+  - font-roboto-mono-nerd-font
+  - font-cascadia-mono
 
 nvm_version: HEAD
 
-node_version: 12.0.0
+node_version: node
 
 yarn_packages:
   - prettier
@@ -108,6 +96,9 @@ yarn_packages:
 dotfiles_base_path: "{{ playbook_dir }}/stuff/dotfiles"
 
 templates:
+  - src: "{{ dotfiles_base_path }}/omf"
+    dest: "~/.config/omf"
+
   - src: "{{ dotfiles_base_path }}/.gitconfig"
     dest: ~/.gitconfig
 

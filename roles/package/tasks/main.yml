@@ -20,13 +20,6 @@
     name: "{{ packages }}"
     state: latest
 
-- name: Install list of casks
-  homebrew_cask:
-    name: "{{ item }}"
-    state: latest
-    sudo_password: "{{ ansible_sudo_pass }}"
-  with_items: "{{ cask_packages }}"
-
 - name: Install nvm
   shell:
     cmd: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh | bash"
@@ -40,9 +33,12 @@
     executable: "{{ fish.stdout }}"
   changed_when: no
 
-- shell:
-    cmd: which npm
-  register: npm
+- name: Install yarn using npm
+  npm:
+    name: yarn
+    state: latest
+    global: yes
+    registry: https://registry.npm.taobao.org
   changed_when: no
 
 - name: Install list of yarn pkg global

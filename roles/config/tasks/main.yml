@@ -61,14 +61,6 @@
     executable: "{{ fish.stdout }}"
   changed_when: no
 
-- name: Install list of omf package
-  shell:
-    cmd: omf install '{{ item }}'
-  args:
-    executable: "{{ fish.stdout }}"
-  changed_when: no
-  with_items: "{{ omf_packages }}"
-
 - name: Make sure ~/.config folder is there
   file:
     state: directory
