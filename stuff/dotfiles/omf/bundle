@@ -6,3 +6,4 @@ package node
 package nvm
 package z
 theme default
+theme robbyrussell
