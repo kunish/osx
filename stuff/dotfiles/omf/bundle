@@ -5,5 +5,5 @@ package license
 package node
 package nvm
 package z
+theme clearance
 theme default
-theme robbyrussell
