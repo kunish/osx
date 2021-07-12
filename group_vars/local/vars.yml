@@ -36,6 +36,7 @@ packages:
   - flutter
   - cocoapods
   - sqlite
+  - cloudflare/cloudflare/cloudflared
   # applications
   - soundflower
   - virtualbox
