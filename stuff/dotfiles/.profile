@@ -1,3 +1,4 @@
+alias k=kubectl
 # fish
 export fish_greeting=
 
