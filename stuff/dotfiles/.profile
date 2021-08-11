@@ -1,4 +1,3 @@
-alias k=kubectl
 # fish
 export fish_greeting=
 
@@ -23,3 +22,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # flutter
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+# k8s
+alias k=kubectl
+export PATH="$HOME/.krew/bin:$PATH"
