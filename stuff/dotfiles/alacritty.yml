@@ -31,6 +31,5 @@ colors:
     cyan: "#00ffff"
     white: "#FFFFFF"
 
-key_bindings:
-  - { key: F, mods: Alt, chars: "\ef" }
-  - { key: B, mods: Alt, chars: "\eb" }
+live_config_reload: true
+alt_send_esc: true

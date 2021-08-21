@@ -2,6 +2,7 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
 set background=dark
+set backspace=2
 set clipboard=unnamed
 set expandtab
 set go=
