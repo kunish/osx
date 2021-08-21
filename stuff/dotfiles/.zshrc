@@ -15,6 +15,8 @@ export EDITOR=$VISUAL
 export TERM=screen-256color
 export GOPROXY=https://goproxy.io,direct
 
+export PATH="$PATH:$HOME/.krew/bin"
+
 alias k=kubectl
 
 zinit light Aloxaf/fzf-tab
