@@ -7,7 +7,6 @@ module.exports = {
     uiFontFamily: "Cascadia Mono",
     padding: "0 10px 0",
     bell: false,
-    defaultSSHApp: false,
     shell: "/usr/local/bin/zsh",
     modifierKeys: {
       altIsMeta: true,
