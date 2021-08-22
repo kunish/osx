@@ -10,11 +10,13 @@ source /usr/local/opt/nvm/nvm.sh
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR=$VISUAL
-export TERM=screen-256color
 export GOPROXY=https://goproxy.io,direct
 export PATH="${PATH}:${HOME}/.krew/bin"
+
+export PATH="$PATH:$HOME/.krew/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 alias k=kubectl
 
