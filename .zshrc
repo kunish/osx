@@ -1,1 +1,0 @@
-/Users/shikun/work/osx/stuff/dotfiles/.zshrc
