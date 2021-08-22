@@ -25,4 +25,6 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light romkatv/powerlevel10k
 
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
