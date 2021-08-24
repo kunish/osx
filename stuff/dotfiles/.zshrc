@@ -19,6 +19,7 @@ export PATH="$PATH:$HOME/.krew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 alias k=kubectl
+alias lg=lazygit
 
 zinit light Aloxaf/fzf-tab
 zinit light zdharma/fast-syntax-highlighting
