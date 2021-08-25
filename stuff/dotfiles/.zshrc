@@ -16,6 +16,7 @@ export GOPROXY=https://goproxy.io,direct
 export PATH="${PATH}:${HOME}/.krew/bin"
 
 export PATH="$PATH:$HOME/.krew/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 alias k=kubectl
