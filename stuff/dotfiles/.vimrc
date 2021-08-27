@@ -14,6 +14,7 @@ set nowritebackup
 set number
 set relativenumber
 set shiftwidth=2
+set shortmess=I
 set tabstop=2
 
 let mapleader = "\<Space>"

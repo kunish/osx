@@ -21,8 +21,8 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 alias k=kubectl
 alias lg=lazygit
-alias n=vim
-alias v=nvim
+alias n=nvim
+alias v=vim
 
 zinit light-mode for \
 zinit-zsh/z-a-rust \
