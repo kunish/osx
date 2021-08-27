@@ -77,6 +77,11 @@ let g:coc_global_extensions = [
       \'coc-vimlsp',
       \]
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fl :NERDTreeToggle<CR>
 
