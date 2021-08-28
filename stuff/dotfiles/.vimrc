@@ -18,31 +18,12 @@ set number
 set relativenumber
 set shiftwidth=2
 set shortmess=I
+set splitbelow
+set splitright
 set tabstop=2
 
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
-
-let g:coc_global_extensions=[
-      \'coc-css',
-      \'coc-cssmodules',
-      \'coc-deno',
-      \'coc-docker',
-      \'coc-emmet',
-      \'coc-eslint',
-      \'coc-fzf-preview',
-      \'coc-git',
-      \'coc-html',
-      \'coc-html-css-support',
-      \'coc-jedi',
-      \'coc-json',
-      \'coc-prettier',
-      \'coc-rls',
-      \'coc-sh',
-      \'coc-tsserver',
-      \'coc-vetur',
-      \'coc-vimlsp',
-      \]
 
 call plug#begin()
 " essential
@@ -114,7 +95,43 @@ let g:yankring_history_dir='$VIM'
 let g:go_doc_popup_window=1
 let g:go_echo_command_info=0
 
+" vimfiler start
+call vimfiler#custom#profile('default', 'context', {
+      \ 'auto_expand': 1,
+      \ 'explorer': 1,
+      \ 'explorer-columns': 'type:size',
+      \ 'find': 1,
+      \ 'no_quit' : 1,
+      \ 'parent': 0,
+      \ 'split' : 1,
+      \ 'status' : 0,
+      \ 'winwidth' : 40,
+      \ }
+      \ )
+" vimfiler end
+
 " coc start
+let g:coc_global_extensions=[
+      \'coc-css',
+      \'coc-cssmodules',
+      \'coc-deno',
+      \'coc-docker',
+      \'coc-emmet',
+      \'coc-eslint',
+      \'coc-fzf-preview',
+      \'coc-git',
+      \'coc-html',
+      \'coc-html-css-support',
+      \'coc-jedi',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-rls',
+      \'coc-sh',
+      \'coc-tsserver',
+      \'coc-vetur',
+      \'coc-vimlsp',
+      \]
+
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
