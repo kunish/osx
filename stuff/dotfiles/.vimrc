@@ -185,6 +185,7 @@ map g# <Plug>(incsearch-nohl-g#)
 " incsearch end
 
 nnoremap <silent> <leader>R :source ~/.vimrc<CR>
+nnoremap <silent> <leader>Q :quitall<CR>
 nmap <silent> <leader>gf :Format<CR>
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fa :Ag<CR>
