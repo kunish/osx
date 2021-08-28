@@ -92,12 +92,13 @@ colorscheme onedark
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " style end
 
+let g:EasyMotion_smartcase = 1
 let g:airline_theme='onedark'
+let g:go_doc_popup_window=1
+let g:go_echo_command_info=0
 let g:sneak#label=1
 let g:vimfiler_as_default_explorer=1
 let g:yankring_history_dir='$VIM'
-let g:go_doc_popup_window=1
-let g:go_echo_command_info=0
 
 " vimfiler start
 call vimfiler#custom#profile('default', 'context', {
