@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     verminal: {
-      fontFamily: "Cascadia Mono, Roboto Mono for Powerline",
+      fontFamily: "Cascadia Mono, RobotoMono Nerd Font, Roboto Mono for Powerline",
       fontSize: 12,
     },
     uiFontFamily: "Cascadia Mono",
