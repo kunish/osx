@@ -111,6 +111,7 @@ colorscheme onedark
 let g:airline_theme='onedark'
 let g:sneak#label=1
 let g:vimfiler_as_default_explorer=1
+let g:yankring_history_dir = '$VIM'
 
 " coc start
 command! -nargs=0 Format :call CocAction('format')
