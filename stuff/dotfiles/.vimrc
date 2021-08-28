@@ -32,14 +32,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sensible'
 " language
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
+Plug 'neoclide/jsonc.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
-Plug 'ekalinin/dockerfile.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
