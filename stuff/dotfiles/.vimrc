@@ -21,6 +21,7 @@ set shortmess=I
 set splitbelow
 set splitright
 set tabstop=2
+set visualbell
 
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
@@ -41,7 +42,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'ekalinin/dockerfile.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/rainbow_parentheses.vim'

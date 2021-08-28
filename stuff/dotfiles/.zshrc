@@ -21,6 +21,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 alias k=kubectl
 alias lg=lazygit
+alias m=mvim
 alias n=nvim
 alias v=vim
 
