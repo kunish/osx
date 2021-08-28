@@ -23,8 +23,8 @@ set splitright
 set tabstop=2
 set visualbell
 
-let mapleader="\<Space>"
-let maplocalleader="\<Space>"
+let mapleader='\<Space>'
+let maplocalleader='\<Space>'
 
 call plug#begin()
 " essential
@@ -151,11 +151,11 @@ nmap <silent> <leader>rn <Plug>(coc-rename)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+    execute 'help '.expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    execute '!' . &keywordprg . '' . expand('<cword>')
   endif
 endfunction
 
@@ -167,10 +167,10 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ pumvisible() ? '\<C-n>' :
+      \ <SID>check_back_space() ? '\<TAB>' :
       \ coc#refresh()
-inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent> <expr><S-TAB> pumvisible() ? '\<C-p>' : '\<C-h>'
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
