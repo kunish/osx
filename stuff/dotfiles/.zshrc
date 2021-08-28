@@ -14,7 +14,8 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 export GOPROXY=https://goproxy.io,direct
 export GOPATH=$HOME/work/go
-export FZF_DEFAULT_COMMAND="fd --hidden"
+export FZF_DEFAULT_COMMAND="fd --hidden --follow"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 export PATH="$PATH:$HOME/.krew/bin"
 export PATH="$PATH:$HOME/.local/bin"

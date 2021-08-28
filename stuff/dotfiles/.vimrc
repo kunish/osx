@@ -102,7 +102,7 @@ let g:vimfiler_as_default_explorer=1
 call vimfiler#custom#profile('default', 'context', {
       \ 'auto_expand': 1,
       \ 'explorer': 1,
-      \ 'explorer-columns': 'type:size',
+      \ 'explorer_columns': 'type:size',
       \ 'find': 1,
       \ 'no_quit' : 1,
       \ 'parent': 0,
