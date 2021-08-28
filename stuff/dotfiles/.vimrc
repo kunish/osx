@@ -23,8 +23,8 @@ set splitright
 set tabstop=2
 set visualbell
 
-let mapleader='\<Space>'
-let maplocalleader='\<Space>'
+let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 
 call plug#begin()
 " essential
@@ -167,10 +167,10 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? '\<C-n>' :
-      \ <SID>check_back_space() ? '\<TAB>' :
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <silent> <expr><S-TAB> pumvisible() ? '\<C-p>' : '\<C-h>'
+inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
