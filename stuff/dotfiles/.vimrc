@@ -73,7 +73,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-scripts/YankRing.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'haya14busa/incsearch.vim'
 Plug 'justinmk/vim-sneak'
@@ -98,7 +97,6 @@ let g:go_doc_popup_window=1
 let g:go_echo_command_info=0
 let g:sneak#label=1
 let g:vimfiler_as_default_explorer=1
-let g:yankring_history_dir='$VIM'
 
 " vimfiler start
 call vimfiler#custom#profile('default', 'context', {
