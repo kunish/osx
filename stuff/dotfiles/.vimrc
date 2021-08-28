@@ -86,7 +86,10 @@ Plug 'tpope/vim-commentary'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+" style start
 colorscheme onedark
+highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+" style end
 
 let g:airline_theme='onedark'
 let g:sneak#label=1
