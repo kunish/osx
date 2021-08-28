@@ -32,7 +32,6 @@ let g:coc_global_extensions=[
       \'coc-eslint',
       \'coc-fzf-preview',
       \'coc-git',
-      \'coc-go',
       \'coc-html',
       \'coc-html-css-support',
       \'coc-jedi',
@@ -111,7 +110,9 @@ colorscheme onedark
 let g:airline_theme='onedark'
 let g:sneak#label=1
 let g:vimfiler_as_default_explorer=1
-let g:yankring_history_dir = '$VIM'
+let g:yankring_history_dir='$VIM'
+let g:go_doc_popup_window=1
+let g:go_echo_command_info=0
 
 " coc start
 command! -nargs=0 Format :call CocAction('format')
@@ -167,6 +168,7 @@ nmap <silent> <leader>gf :Format<CR>
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fa :Ag<CR>
 nmap <silent> <leader>fr :Rg<CR>
+nmap <silent> <leader>fs :write<CR>
 nmap <silent> <leader>fl :VimFiler<CR>
 
 nnoremap <silent> <C-h> :wincmd h<CR>
