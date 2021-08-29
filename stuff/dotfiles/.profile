@@ -16,6 +16,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export PEPPA_OUTPUT=$HOME/work/peppa-output
 
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 export PATH="$PATH:$HOME/.krew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$GOPATH/bin"
