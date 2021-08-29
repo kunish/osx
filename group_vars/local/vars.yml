@@ -1,119 +1,143 @@
-ansible_user: "shikun"
-ansible_sudo_pass: "{{ vault_ansible_sudo_pass }}"
-
 ansible_connection: local
+ansible_user: shikun
 
-casks:
+taps:
   - homebrew/cask-fonts
 
-packages:
-  # command line utilities
-  - ansible-lint
-  - fzf
-  - git
-  - tmux
-  - neovim
-  - openssh
-  - openssl
-  - htop
-  - vim
-  - editorconfig
-  - zsh
-  - nmap
-  - github/gh/gh
-  - ssh-copy-id
-  - svn
-  - nvm
-  - pv
-  - wget
-  - readline
-  - cowsay
-  - iperf
-  # language
-  - go
-  - rustup
-  - java
-  - flutter
-  - cocoapods
-  - sqlite
-  - cloudflare/cloudflare/cloudflared
-  # applications
-  - soundflower
-  - virtualbox
+casks:
   - 1password
-  - visual-studio-code
-  - iterm2
-  - postman
-  - tower
-  - firefox
-  - dingtalk
-  - wechat
-  - thunder
-  - v2rayu
+  - alacritty
+  - android-studio
+  - baidunetdisk
+  - balenaetcher
   - clashx
-  - squidman
-  - notion
-  - qqmusic
+  - dingtalk
+  - discord
   - docker
   - dozer
-  - pock
-  - telegram
-  - balenaetcher
-  - hyper
-  - baidunetdisk
-  - the-unarchiver
-  - obs
-  - iina
-  - sublime-text
-  - vagrant
-  - neteasemusic
-  - wireshark
-  - android-studio
-  - alt-tab
-  - github
   - drawio
-  - paper
-  # fonts
-  - font-ubuntu-mono
-  - font-fira-code
-  - font-source-code-pro
-  - font-roboto-mono-nerd-font
+  - emacs-mac
+  - firefox
+  - flutter
   - font-cascadia-mono
+  - font-fira-code
+  - font-roboto-mono-for-powerline
+  - font-roboto-mono-nerd-font
+  - font-source-code-pro
+  - font-ubuntu-mono
+  - github
+  - hyper
+  - iina
+  - iterm2
+  - kitty
+  - lens
+  - macvim
+  - neteasemusic
+  - notion
+  - nrlquaker-winbox
+  - obs
+  - paper
+  - postman
+  - qqmusic
+  - squidman
+  - sublime-text
+  - telegram
+  - the-unarchiver
+  - thunder
+  - thunderbird
+  - v2rayu
+  - vagrant
+  - virtualbox
+  - visual-studio-code
+  - wechat
+  - wireshark
+  - youdaodict
+  - zerotier-one
 
-nvm_version: HEAD
-
-node_version: node
-
-yarn_packages:
-  - prettier
-  - eslint
-  - nodemon
-  - serve
-  - pm2
-  - typescript
-  - semantic-release
-  - create-react-app
+packages:
+  - ack
+  - ansible-lint
+  - arping
+  - bat
+  - cloudflare/cloudflare/cloudflared
+  - cocoapods
+  - cowsay
+  - deno
+  - editorconfig
+  - fd
+  - figlet
+  - fish
+  - fzf
+  - git
+  - git-delta
+  - github/gh/gh
+  - go
+  - htop
+  - ipcalc
+  - iperf
+  - iperf3
+  - java
+  - jq
+  - krew
+  - kubectl
+  - lazygit
+  - links
+  - lynx
+  - minikube
+  - mysql
+  - neofetch
+  - neovim
+  - nmap
+  - nvm
+  - openssh
+  - openssl
+  - pulumi
+  - ranger
+  - readline
+  - redis
+  - ripgrep
+  - rustup
+  - sqlite
+  - ssh-copy-id
+  - stow
+  - svn
+  - terraform
+  - terraform-ls
+  - tmate
+  - tmux
+  - vault
+  - vim
+  - wget
+  - yq
+  - zinit
+  - zsh
 
 dotfiles_base_path: "{{ playbook_dir }}/stuff/dotfiles"
 
 templates:
-  - src: "{{ dotfiles_base_path }}/omf"
-    dest: "~/.config/omf"
-
   - src: "{{ dotfiles_base_path }}/.gitconfig"
     dest: ~/.gitconfig
 
   - src: "{{ dotfiles_base_path }}/.profile"
     dest: ~/.profile
 
+  - src: "{{ dotfiles_base_path }}/.profile"
+    dest: ~/.bashrc
+
+  - src: "{{ dotfiles_base_path }}/.profile"
+    dest: ~/.zshrc
+
+  - src: "{{ dotfiles_base_path }}/.p10k.zsh"
+    dest: ~/.p10k.zsh
+
+  - src: "{{ dotfiles_base_path }}/omf"
+    dest: "~/.config/omf"
+
   - src: "{{ dotfiles_base_path }}/config.fish"
     dest: ~/.config/fish/config.fish
 
-  - src: "{{ dotfiles_base_path }}/.tmux.conf.local"
-    dest: ~/.tmux.conf.local
-
-  - src: "{{ dotfiles_base_path }}/.zshrc"
-    dest: ~/.zshrc
+  - src: "{{ dotfiles_base_path }}/.tmux.conf"
+    dest: ~/.tmux.conf
 
   - src: "{{ dotfiles_base_path }}/.vimrc"
     dest: ~/.vimrc
@@ -121,5 +145,3 @@ templates:
   - src: "{{ dotfiles_base_path }}/init.vim"
     dest: ~/.config/nvim/init.vim
 
-  - src: "{{ dotfiles_base_path }}/.spacemacs"
-    dest: ~/.spacemacs

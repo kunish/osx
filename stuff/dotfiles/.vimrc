@@ -1,3 +1,6 @@
+if has('nvim')
+  set termguicolors
+endif
 set background=dark
 set backspace=2
 set clipboard=unnamed
@@ -51,7 +54,6 @@ Plug 'rust-lang/rust.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -201,10 +203,11 @@ map g# <Plug>(incsearch-nohl-g#)
 nnoremap <silent> <leader>R :source $MYVIMRC<CR>
 nnoremap <silent> <leader>Q :quitall<CR>
 nmap <silent> <leader>gf :Format<CR>
+nmap <silent> <leader>fs :write<CR>
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fa :Ag<CR>
 nmap <silent> <leader>fr :Rg<CR>
-nmap <silent> <leader>fs :write<CR>
+nmap <silent> <leader>fb :Buffers<CR>
 nmap <silent> <leader>fl :VimFiler<CR>
 
 nnoremap <silent> <C-h> :wincmd h<CR>

@@ -32,4 +32,3 @@ colors:
     white: "#FFFFFF"
 
 live_config_reload: true
-alt_send_esc: true

@@ -1,7 +1,7 @@
 - name: Homebrew tap
   homebrew_tap:
     name: "{{ item }}"
-  with_items: "{{ casks }}"
+  with_items: "{{ taps }}"
 
 - name: Update homebrew
   homebrew:
@@ -9,53 +9,17 @@
     upgrade_all: yes
   changed_when: no
 
-- name: Update homebrew casks
-  homebrew_cask:
-    update_homebrew: yes
-    upgrade_all: yes
-    greedy: yes
-
-- name: Install list of packages
+- name: Install list of homebrew packages
   homebrew:
     name: "{{ packages }}"
     state: latest
 
-- name: Install nvm
-  shell:
-    cmd: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh | bash"
-  args:
-    creates: ~/.nvm/nvm.sh
-
-- name: Install node using nvm
-  shell:
-    cmd: nvm install '{{ node_version }}'
-  args:
-    executable: "{{ fish.stdout }}"
+- name: Update homebrew casks
+  homebrew_cask:
+    upgrade_all: yes
   changed_when: no
 
-- name: Install yarn using npm
-  npm:
-    name: yarn
+- name: Install list of homebrew casks
+  homebrew_cask:
+    name: "{{ casks }}"
     state: latest
-    global: yes
-    registry: https://registry.npm.taobao.org
-  changed_when: no
-
-- name: Install list of yarn pkg global
-  yarn:
-    name: "{{ item }}"
-    state: latest
-    global: yes
-    registry: https://registry.npm.taobao.org
-  with_items: "{{ yarn_packages }}"
-  changed_when: no
-
-- name: Rustup init
-  command:
-    cmd: rustup-init -qy --profile default
-  changed_when: no
-
-- name: Rustup update
-  command:
-    cmd: rustup update
-  changed_when: no

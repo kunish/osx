@@ -9,11 +9,6 @@
     cmd: defaults write -g ApplePressAndHoldEnabled -bool false
   changed_when: no
 
-- name: Install fish shell
-  homebrew:
-    name: fish
-    state: latest
-
 - name: Add fish into standard shell
   become: yes
   lineinfile:
@@ -22,26 +17,19 @@
     regexp: '\/usr\/local\/bin\/fish'
     state: present
 
+- name: Add zsh into standard shell
+  become: yes
+  lineinfile:
+    path: /etc/shells
+    line: /usr/local/bin/zsh
+    regexp: '\/usr\/local\/bin\/zsh'
+    state: present
+
 - name: Change shell
   become: yes
   user:
     name: "{{ ansible_user }}"
     shell: /usr/local/bin/zsh
-
-- shell:
-    cmd: which fish
-  register: fish
-  changed_when: no
-
-- name: Clone spacemacs
-  git:
-    repo: https://github.com/syl20bnr/spacemacs.git
-    dest: ~/.emacs.d
-
-- name: Clone .tmux
-  git:
-    repo: https://github.com/gpakosz/.tmux.git
-    dest: ~/.tmux
 
 - name: Clone oh-my-zsh
   git:
@@ -52,14 +40,6 @@
   git:
     repo: https://github.com/oh-my-fish/oh-my-fish.git
     dest: ~/.oh-my-fish
-
-- name: Install oh-my-fish
-  shell:
-    chdir: ~/.oh-my-fish
-    cmd: bin/install --offline --noninteractive -y
-  args:
-    executable: "{{ fish.stdout }}"
-  changed_when: no
 
 - name: Make sure ~/.config folder is there
   file:
@@ -79,28 +59,3 @@
     force: yes
   with_items: "{{ templates }}"
 
-- name: Link .tmux.conf
-  file:
-    src: ~/.tmux/.tmux.conf
-    path: ~/.tmux.conf
-    state: link
-
-- name: Make sure vim autoload folder is there
-  file:
-    state: directory
-    path: ~/.vim/autoload
-
-- name: Install vim-plug into vim autoload
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: ~/.vim/autoload/plug.vim
-
-- name: Make sure neovim autoload folder is there
-  file:
-    state: directory
-    path: ~/.local/share/nvim/site/autoload
-
-- name: Install vim-plug into neovim autoload
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: ~/.local/share/nvim/site/autoload/plug.vim
