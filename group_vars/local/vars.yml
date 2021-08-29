@@ -3,6 +3,7 @@ ansible_user: shikun
 
 taps:
   - homebrew/cask-fonts
+  - railwaycat/emacsmacport
 
 casks:
   - 1password
@@ -16,7 +17,7 @@ casks:
   - docker
   - dozer
   - drawio
-  - emacs
+  - emacs-mac
   - firefox
   - flutter
   - font-cascadia-mono
