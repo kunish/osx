@@ -28,10 +28,10 @@ source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/nvm/nvm.sh
 
 alias k=kubectl
-alias lg=lazygit
 alias m=mvim
 alias n=nvim
 alias v=vim
+alias lg=lazygit
 
 zinit light-mode for \
 zinit-zsh/z-a-rust \
