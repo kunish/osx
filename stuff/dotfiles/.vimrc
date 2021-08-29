@@ -48,6 +48,10 @@ Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 Plug 'neoclide/jsonc.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
@@ -55,7 +59,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'joshdick/onedark.vim'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'osyo-manga/vim-over'
 Plug 'shougo/unite.vim'
@@ -161,6 +164,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gf :Format<CR>
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
 
@@ -199,15 +203,17 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " incsearch end
-
-nnoremap <silent> <leader>R :source $MYVIMRC<CR>
-nnoremap <silent> <leader>Q :quitall<CR>
-nmap <silent> <leader>gf :Format<CR>
-nmap <silent> <leader>fs :write<CR>
+"
+" fzf start
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fa :Ag<CR>
 nmap <silent> <leader>fr :Rg<CR>
 nmap <silent> <leader>fb :Buffers<CR>
+" fzf end
+
+nnoremap <silent> <leader>R :source $MYVIMRC<CR>
+nnoremap <silent> <leader>Q :quitall<CR>
+nmap <silent> <leader>fs :write<CR>
 nmap <silent> <leader>fl :VimFiler<CR>
 
 nnoremap <silent> <C-h> :wincmd h<CR>
@@ -215,12 +221,4 @@ nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
 
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
 inoremap <silent> jk <Esc>
-
-autocmd VimEnter * RainbowParenthesesActivate
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
