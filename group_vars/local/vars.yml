@@ -16,7 +16,7 @@ casks:
   - docker
   - dozer
   - drawio
-  - emacs-mac
+  - emacs
   - firefox
   - flutter
   - font-cascadia-mono
