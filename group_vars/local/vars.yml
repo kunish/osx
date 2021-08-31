@@ -104,6 +104,7 @@ packages:
   - svn
   - terraform
   - terraform-ls
+  - the_silver_searcher
   - tmate
   - tmux
   - vault
