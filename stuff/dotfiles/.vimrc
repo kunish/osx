@@ -66,6 +66,7 @@ Plug 'shougo/vimfiler.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'mhinz/vim-startify'
 " tools
+Plug 'ianva/vim-youdao-translater'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'glts/vim-textobj-comment'
