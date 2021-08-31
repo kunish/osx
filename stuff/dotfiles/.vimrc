@@ -92,7 +92,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'shougo/deoplete.nvim'
-Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
 " always last
 Plug 'ryanoasis/vim-devicons'
@@ -149,6 +148,7 @@ let g:coc_global_extensions=[
       \'coc-prettier',
       \'coc-rls',
       \'coc-sh',
+      \'coc-snippets',
       \'coc-tsserver',
       \'coc-vetur',
       \'coc-vimlsp',
@@ -189,6 +189,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent> <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
