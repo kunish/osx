@@ -141,6 +141,7 @@ let g:coc_global_extensions=[
       \'coc-docker',
       \'coc-emmet',
       \'coc-eslint',
+      \'coc-flutter',
       \'coc-fzf-preview',
       \'coc-git',
       \'coc-highlight',
