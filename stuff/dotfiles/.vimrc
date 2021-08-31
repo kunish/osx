@@ -134,6 +134,7 @@ call vimfiler#custom#profile('default', 'context', {
 
 " coc start
 let g:coc_global_extensions=[
+      \'coc-angular',
       \'coc-css',
       \'coc-cssmodules',
       \'coc-deno',
@@ -142,6 +143,7 @@ let g:coc_global_extensions=[
       \'coc-eslint',
       \'coc-fzf-preview',
       \'coc-git',
+      \'coc-highlight',
       \'coc-html',
       \'coc-html-css-support',
       \'coc-jedi',
@@ -150,6 +152,8 @@ let g:coc_global_extensions=[
       \'coc-rls',
       \'coc-sh',
       \'coc-snippets',
+      \'coc-sql',
+      \'coc-toml',
       \'coc-tsserver',
       \'coc-vetur',
       \'coc-vimlsp',
