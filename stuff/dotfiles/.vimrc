@@ -1,6 +1,3 @@
-if has('nvim')
-  set termguicolors
-endif
 set background=dark
 set backspace=2
 set clipboard=unnamed
@@ -25,6 +22,9 @@ set splitbelow
 set splitright
 set tabstop=2
 set visualbell
+if has('nvim')
+  set termguicolors
+endif
 
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
@@ -153,21 +153,20 @@ let g:coc_global_extensions=[
       \]
 
 command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gf :Format<CR>
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'help '.expand('<cword>')
+    execute 'help' . ' ' . expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
   else
@@ -203,20 +202,19 @@ map g# <Plug>(incsearch-nohl-g#)
 " incsearch end
 "
 " fzf start
-nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fa :Ag<CR>
-nmap <silent> <leader>fr :Rg<CR>
 nmap <silent> <leader>fb :Buffers<CR>
+nmap <silent> <leader>ff :Files<CR>
+nmap <silent> <leader>fr :Rg<CR>
 " fzf end
 
-nnoremap <silent> <leader>R :source $MYVIMRC<CR>
-nnoremap <silent> <leader>Q :quitall<CR>
-nmap <silent> <leader>fs :write<CR>
 nmap <silent> <leader>fl :VimFiler<CR>
 
+" custom keybinding start
+inoremap <silent> jk <Esc>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
-
-inoremap <silent> jk <Esc>
+nnoremap <silent> <leader>R :source $MYVIMRC<CR>
+" custom keybinding end
