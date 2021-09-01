@@ -57,14 +57,14 @@ Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'joshdick/onedark.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mhinz/vim-startify'
+Plug 'morhetz/gruvbox'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimfiler.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'mhinz/vim-startify'
 " tools
 Plug 'ianva/vim-youdao-translater'
 Plug 'andrewradev/splitjoin.vim'
@@ -106,12 +106,12 @@ autocmd VimEnter *
 " vimplug end
 
 " style start
-colorscheme onedark
+colorscheme gruvbox
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " style end
 
 let g:EasyMotion_smartcase = 1
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:go_doc_popup_window=1
 let g:go_echo_command_info=0
 let g:sneak#label=1
