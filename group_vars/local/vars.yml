@@ -11,6 +11,7 @@ casks:
   - android-studio
   - baidunetdisk
   - balenaetcher
+  - brave-browser
   - clashx
   - dingtalk
   - discord
@@ -79,6 +80,7 @@ packages:
   - iperf3
   - java
   - jq
+  - k3sup
   - krew
   - kubectl
   - lazygit
@@ -98,6 +100,7 @@ packages:
   - redis
   - ripgrep
   - rustup
+  - shfmt
   - sqlite
   - ssh-copy-id
   - stow
