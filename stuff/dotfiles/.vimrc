@@ -51,7 +51,6 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
