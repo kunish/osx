@@ -42,14 +42,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-sensible'
 " language
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'mattn/emmet-vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'neoclide/jsonc.vim'
-Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
@@ -140,6 +137,7 @@ let g:coc_global_extensions=[
       \'coc-flutter',
       \'coc-fzf-preview',
       \'coc-git',
+      \'coc-graphql',
       \'coc-highlight',
       \'coc-html',
       \'coc-html-css-support',
