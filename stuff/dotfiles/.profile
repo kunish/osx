@@ -20,13 +20,13 @@ export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 export PATH="$PATH:$HOME/.krew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/opt/zinit/zinit.zsh
 source /usr/local/opt/fzf/shell/key-bindings.zsh
 source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/nvm/nvm.sh
+source $HOME/.cargo/env
 
 alias k=kubectl
 alias m=mvim
