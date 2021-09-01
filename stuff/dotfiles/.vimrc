@@ -45,9 +45,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'mattn/emmet-vim'
-Plug 'jparise/vim-graphql'
 Plug 'neoclide/jsonc.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
@@ -137,7 +137,6 @@ let g:coc_global_extensions=[
       \'coc-flutter',
       \'coc-fzf-preview',
       \'coc-git',
-      \'coc-graphql',
       \'coc-highlight',
       \'coc-html',
       \'coc-html-css-support',
