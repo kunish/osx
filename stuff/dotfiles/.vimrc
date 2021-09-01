@@ -45,11 +45,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
-Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'neoclide/jsonc.vim'
