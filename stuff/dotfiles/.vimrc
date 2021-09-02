@@ -46,7 +46,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/jsonc.vim'
-Plug 'rust-lang/rust.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 " interface
 Plug 'airblade/vim-gitgutter'
