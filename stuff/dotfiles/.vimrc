@@ -45,7 +45,6 @@ let g:coc_global_extensions=[
       \'coc-emmet',
       \'coc-eslint',
       \'coc-flutter',
-      \'coc-fzf-preview',
       \'coc-git',
       \'coc-highlight',
       \'coc-html',
