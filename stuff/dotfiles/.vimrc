@@ -14,8 +14,6 @@ set noswapfile
 set notimeout
 set nowrap
 set nowritebackup
-set number
-set relativenumber
 set shiftwidth=2
 set shortmess=I
 set splitbelow
