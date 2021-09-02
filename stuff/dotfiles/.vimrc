@@ -96,17 +96,17 @@ autocmd VimEnter *
 
 " style start
 colorscheme gruvbox
-highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+" highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " style end
 
 let g:EasyMotion_smartcase = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='dark'
 let g:go_doc_popup_window=1
 let g:go_echo_command_info=0
 let g:sneak#label=1
-let g:vimfiler_as_default_explorer=1
 
 " vimfiler start
+let g:vimfiler_as_default_explorer=1
 call vimfiler#custom#profile('default', 'context', {
       \ 'auto_expand': 1,
       \ 'explorer': 1,
@@ -119,6 +119,9 @@ call vimfiler#custom#profile('default', 'context', {
       \ 'winwidth' : 40,
       \ }
       \ )
+autocmd VimEnter * if !argc() | VimFiler | endif
+autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
+      \ && &filetype ==# 'vimfiler') | quit | endif
 " vimfiler end
 
 " coc start
