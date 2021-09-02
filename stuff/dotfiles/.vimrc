@@ -20,15 +20,49 @@ set splitbelow
 set splitright
 set tabstop=2
 set visualbell
-if has('nvim')
+if (has('nvim'))
   set termguicolors
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+let g:EasyMotion_smartcase = 1
+let g:airline_theme='dark'
+let g:go_doc_popup_window=1
+let g:go_echo_command_info=0
+let g:incsearch#auto_nohlsearch = 1
+let g:sneak#label=1
+let g:vimfiler_as_default_explorer=1
+let g:coc_global_extensions=[
+      \'coc-angular',
+      \'coc-css',
+      \'coc-cssmodules',
+      \'coc-deno',
+      \'coc-docker',
+      \'coc-emmet',
+      \'coc-eslint',
+      \'coc-flutter',
+      \'coc-fzf-preview',
+      \'coc-git',
+      \'coc-highlight',
+      \'coc-html',
+      \'coc-html-css-support',
+      \'coc-jedi',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-rls',
+      \'coc-sh',
+      \'coc-snippets',
+      \'coc-sql',
+      \'coc-toml',
+      \'coc-tsserver',
+      \'coc-vetur',
+      \'coc-vimlsp',
+      \]
 
 " vimplug start
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -49,6 +83,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'kaicataldo/material.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
 Plug 'shougo/unite.vim'
@@ -98,14 +134,7 @@ autocmd VimEnter *
 colorscheme gruvbox
 " style end
 
-let g:EasyMotion_smartcase = 1
-let g:airline_theme='dark'
-let g:go_doc_popup_window=1
-let g:go_echo_command_info=0
-let g:sneak#label=1
-
 " vimfiler start
-let g:vimfiler_as_default_explorer=1
 call vimfiler#custom#profile('default', 'context', {
       \ 'auto_expand': 1,
       \ 'explorer': 1,
@@ -124,33 +153,6 @@ autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
 " vimfiler end
 
 " coc start
-let g:coc_global_extensions=[
-      \'coc-angular',
-      \'coc-css',
-      \'coc-cssmodules',
-      \'coc-deno',
-      \'coc-docker',
-      \'coc-emmet',
-      \'coc-eslint',
-      \'coc-flutter',
-      \'coc-fzf-preview',
-      \'coc-git',
-      \'coc-highlight',
-      \'coc-html',
-      \'coc-html-css-support',
-      \'coc-jedi',
-      \'coc-json',
-      \'coc-prettier',
-      \'coc-rls',
-      \'coc-sh',
-      \'coc-snippets',
-      \'coc-sql',
-      \'coc-toml',
-      \'coc-tsserver',
-      \'coc-vetur',
-      \'coc-vimlsp',
-      \]
-
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -191,7 +193,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
 
 " incsearch start
-let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
