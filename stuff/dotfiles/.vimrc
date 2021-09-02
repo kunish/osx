@@ -96,7 +96,6 @@ autocmd VimEnter *
 
 " style start
 colorscheme gruvbox
-" highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 " style end
 
 let g:EasyMotion_smartcase = 1
