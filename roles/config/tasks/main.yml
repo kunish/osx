@@ -41,6 +41,11 @@
     repo: https://github.com/oh-my-fish/oh-my-fish.git
     dest: ~/.oh-my-fish
 
+- name: Make sure ~/.vim folder is there
+  file:
+    state: directory
+    path: ~/.vim
+
 - name: Make sure ~/.config folder is there
   file:
     state: directory

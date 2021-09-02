@@ -30,6 +30,7 @@ let maplocalleader="\<Space>"
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 let g:EasyMotion_smartcase = 1
 let g:airline_theme='dark'
+let g:coc_config_home = '~/.vim'
 let g:go_doc_popup_window=1
 let g:go_echo_command_info=0
 let g:incsearch#auto_nohlsearch = 1
@@ -64,7 +65,7 @@ let g:coc_global_extensions=[
 
 " vimplug start
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  silent execute '!curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 

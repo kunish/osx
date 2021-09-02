@@ -150,3 +150,6 @@ templates:
   - src: "{{ dotfiles_base_path }}/init.vim"
     dest: ~/.config/nvim/init.vim
 
+  - src: "{{ dotfiles_base_path }}/coc-settings.json"
+    dest: ~/.vim/coc-settings.json
+
