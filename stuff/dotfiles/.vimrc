@@ -131,7 +131,7 @@ autocmd VimEnter *
 " vimplug end
 
 " style start
-colorscheme gruvbox
+silent! colorscheme gruvbox
 " style end
 
 " vimfiler start

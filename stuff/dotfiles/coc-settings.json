@@ -1,6 +1,16 @@
 {
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "html",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "yaml"
+  ],
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
