@@ -8,7 +8,7 @@ export GOPROXY=https://goproxy.io,direct
 export GOPATH=$HOME/work/go
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-export FZF_DEFAULT_COMMAND="fd --hidden --follow"
+export FZF_DEFAULT_COMMAND='fd --hidden --follow'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export PEPPA_OUTPUT=$HOME/work/peppa-output
 
@@ -25,4 +25,7 @@ alias k=kubectl
 alias m=mvim
 alias n=nvim
 alias v=vim
+alias ls=exa
+alias ll='exa -l'
+alias la='exa -al'
 alias lg=lazygit
