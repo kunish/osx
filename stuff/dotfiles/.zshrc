@@ -2,8 +2,8 @@ plugins=(git z)
 
 export ZSH="$HOME/.oh-my-zsh"
 
-source $HOME/.profile
 source $ZSH/oh-my-zsh.sh
+source $HOME/.profile
 source /usr/local/opt/fzf/shell/key-bindings.zsh
 source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/zinit/zinit.zsh
