@@ -126,10 +126,10 @@ templates:
   - src: "{{ dotfiles_base_path }}/.profile"
     dest: ~/.profile
 
-  - src: "{{ dotfiles_base_path }}/.profile"
+  - src: "{{ dotfiles_base_path }}/.bashrc"
     dest: ~/.bashrc
 
-  - src: "{{ dotfiles_base_path }}/.profile"
+  - src: "{{ dotfiles_base_path }}/.zshrc"
     dest: ~/.zshrc
 
   - src: "{{ dotfiles_base_path }}/.p10k.zsh"
@@ -152,4 +152,3 @@ templates:
 
   - src: "{{ dotfiles_base_path }}/coc-settings.json"
     dest: ~/.vim/coc-settings.json
-

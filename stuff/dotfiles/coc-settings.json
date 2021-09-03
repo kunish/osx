@@ -1,6 +1,7 @@
 {
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
+  "coc.preferences.messageLevel": "error",
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
