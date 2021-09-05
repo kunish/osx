@@ -86,6 +86,7 @@ packages:
   - kubectl
   - lazygit
   - links
+  - luajit
   - lynx
   - minikube
   - mysql
@@ -112,6 +113,7 @@ packages:
   - the_silver_searcher
   - tmate
   - tmux
+  - treesitter
   - vault
   - vim
   - wget
