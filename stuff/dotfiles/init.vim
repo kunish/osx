@@ -9,6 +9,7 @@ set guioptions=
 set hidden
 set hlsearch
 set ignorecase
+set lazyredraw
 set nobackup
 set noswapfile
 set notimeout
