@@ -1,13 +1,16 @@
 {
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
+  "python.analysis.typeCheckingMode": "off",
   "coc.preferences.messageLevel": "error",
   "coc.preferences.formatOnSaveFiletypes": [
+    "html",
     "javascript",
     "javascriptreact",
     "json",
-    "html",
     "markdown",
+    "python",
+    "rust",
     "typescript",
     "typescriptreact",
     "yaml"

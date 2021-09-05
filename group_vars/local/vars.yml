@@ -96,6 +96,7 @@ packages:
   - openssh
   - openssl
   - pulumi
+  - pyenv
   - ranger
   - readline
   - redis
