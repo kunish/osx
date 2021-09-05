@@ -82,7 +82,6 @@ Plug 'tpope/vim-sensible'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/jsonc.vim'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
