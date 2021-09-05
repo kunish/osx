@@ -113,7 +113,7 @@ packages:
   - the_silver_searcher
   - tmate
   - tmux
-  - treesitter
+  - tree-sitter
   - vault
   - vim
   - wget
