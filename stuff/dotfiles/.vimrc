@@ -75,15 +75,14 @@ endif
 
 call plug#begin()
 " essential
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'tpope/vim-sensible'
 " language
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'hashivim/vim-terraform'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/jsonc.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
 " interface
 Plug 'airblade/vim-gitgutter'
 Plug 'machakann/vim-highlightedyank'
@@ -198,6 +197,17 @@ inoremap <silent> <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
+
+" treesitter start
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+" treesitter end
 
 " incsearch start
 map n <Plug>(incsearch-nohl-n)
