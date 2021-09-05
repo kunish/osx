@@ -30,7 +30,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
-let g:EasyMotion_smartcase = 1
 let g:airline_theme='dark'
 let g:incsearch#auto_nohlsearch = 1
 let g:sneak#label=1
@@ -72,54 +71,48 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data') . '/plugged')
-" essential
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'tpope/vim-sensible'
-" language
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/emmet-vim'
-" interface
-Plug 'machakann/vim-highlightedyank'
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'kaicataldo/material.vim'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'osyo-manga/vim-over'
-Plug 'shougo/unite.vim'
-Plug 'shougo/vimfiler.vim'
-Plug 'vim-airline/vim-airline'
-" tools
-Plug 'ianva/vim-youdao-translater'
 Plug 'andrewradev/splitjoin.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'glts/vim-textobj-comment'
+Plug 'haya14busa/incsearch.vim'
+Plug 'honza/vim-snippets'
 Plug 'houtsnip/vim-emacscommandline'
+Plug 'ianva/vim-youdao-translater'
+Plug 'jiangmiao/auto-pairs'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
+Plug 'kaicataldo/material.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-user'
-Plug 'wellle/targets.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'osyo-manga/vim-over'
+Plug 'phaazon/hop.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'shougo/deoplete.nvim'
+Plug 'shougo/unite.vim'
+Plug 'shougo/vimfiler.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/matchit.zip'
-Plug 'haya14busa/incsearch.vim'
-Plug 'justinmk/vim-sneak'
-" completion
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'shougo/deoplete.nvim'
-Plug 'tpope/vim-commentary'
-" always last
-Plug 'ryanoasis/vim-devicons'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 command! PU PlugUpdate | PlugUpgrade
@@ -149,7 +142,31 @@ call vimfiler#custom#profile('default', 'context', {
 autocmd VimEnter * if !argc() | VimFiler | endif
 autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
       \ && &filetype ==# 'vimfiler') | quit | endif
+nmap <silent> <leader>fl :VimFiler<CR>
 " vimfiler end
+
+" hop start
+lua << EOF
+require'hop'.setup()
+EOF
+
+nnoremap <silent> <leader><leader>j :HopLineStartAC<CR>
+nnoremap <silent> <leader><leader>k :HopLineStartBC<CR>
+nnoremap <silent> <leader><leader>w :HopWordAC<CR>
+nnoremap <silent> <leader><leader>s :HopChar1AC<CR>
+nnoremap <silent> <leader><leader>S :HopChar1BC<CR>
+" hop end
+
+" treesitter start
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true
+  }
+}
+EOF
+" treesitter end
 
 " coc start
 command! -nargs=0 Format :call CocAction('format')
@@ -193,17 +210,6 @@ inoremap <silent> <expr><CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
 
-" treesitter start
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true
-  }
-}
-EOF
-" treesitter end
-
 " incsearch start
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
@@ -212,15 +218,13 @@ map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " incsearch end
-"
+
 " fzf start
 nmap <silent> <leader>fa :Ag<CR>
 nmap <silent> <leader>fb :Buffers<CR>
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fr :Rg<CR>
 " fzf end
-
-nmap <silent> <leader>fl :VimFiler<CR>
 
 " custom keybinding start
 inoremap <silent> jk <Esc>
