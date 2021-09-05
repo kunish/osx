@@ -31,8 +31,6 @@ let maplocalleader="\<Space>"
 
 let g:EasyMotion_smartcase = 1
 let g:airline_theme='dark'
-let g:go_doc_popup_window=1
-let g:go_echo_command_info=0
 let g:incsearch#auto_nohlsearch = 1
 let g:sneak#label=1
 let g:vimfiler_as_default_explorer=1
@@ -47,6 +45,7 @@ let g:coc_global_extensions=[
       \'coc-eslint',
       \'coc-flutter',
       \'coc-git',
+      \'coc-go',
       \'coc-highlight',
       \'coc-html',
       \'coc-html-css-support',
@@ -78,7 +77,6 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'tpope/vim-sensible'
 " language
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'mattn/emmet-vim'
 " interface
 Plug 'machakann/vim-highlightedyank'
