@@ -98,7 +98,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'osyo-manga/vim-over'
 Plug 'phaazon/hop.nvim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimfiler.vim'
@@ -113,6 +112,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 command! PU PlugUpdate | PlugUpgrade
