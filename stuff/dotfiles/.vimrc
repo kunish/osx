@@ -1,6 +1,7 @@
 set background=dark
 set backspace=2
 set clipboard=unnamed
+set cmdheight=2
 set encoding=UTF-8
 set expandtab
 set guicursor=a:blinkon0
@@ -15,10 +16,13 @@ set notimeout
 set nowrap
 set nowritebackup
 set shiftwidth=2
+set shortmess+=c
 set shortmess=I
+set signcolumn=number
 set splitbelow
 set splitright
 set tabstop=2
+set updatetime=300
 set visualbell
 if (has('nvim'))
   set termguicolors
@@ -60,6 +64,7 @@ let g:coc_global_extensions=[
       \'coc-tsserver',
       \'coc-vetur',
       \'coc-vimlsp',
+      \'coc-yaml',
       \]
 
 " vimplug start
@@ -165,6 +170,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gy <Plug>(coc-type-definition)
 
+inoremap <silent><expr> <c-j> coc#refresh()
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'help' . ' ' . expand('<cword>')
@@ -193,10 +200,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
 
 " incsearch start
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
+map n <Plug>(incsearch-nohl-n)
+map N <Plug>(incsearch-nohl-N)
+map * <Plug>(incsearch-nohl-*)
+map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " incsearch end
