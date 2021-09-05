@@ -146,11 +146,8 @@ templates:
   - src: "{{ dotfiles_base_path }}/.tmux.conf"
     dest: ~/.tmux.conf
 
-  - src: "{{ dotfiles_base_path }}/.vimrc"
-    dest: ~/.vimrc
-
   - src: "{{ dotfiles_base_path }}/init.vim"
     dest: ~/.config/nvim/init.vim
 
   - src: "{{ dotfiles_base_path }}/coc-settings.json"
-    dest: ~/.vim/coc-settings.json
+    dest: ~/.config/nvim/coc-settings.json
