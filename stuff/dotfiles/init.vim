@@ -30,39 +30,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
-let g:airline_theme='dark'
-let g:incsearch#auto_nohlsearch = 1
-let g:sneak#label=1
-let g:vimfiler_as_default_explorer=1
-let g:coc_config_home = '~/.vim'
-let g:coc_global_extensions=[
-      \'coc-angular',
-      \'coc-css',
-      \'coc-cssmodules',
-      \'coc-deno',
-      \'coc-docker',
-      \'coc-emmet',
-      \'coc-eslint',
-      \'coc-flutter',
-      \'coc-git',
-      \'coc-go',
-      \'coc-highlight',
-      \'coc-html',
-      \'coc-html-css-support',
-      \'coc-json',
-      \'coc-prettier',
-      \'coc-pyright',
-      \'coc-rls',
-      \'coc-sh',
-      \'coc-snippets',
-      \'coc-sql',
-      \'coc-toml',
-      \'coc-tsserver',
-      \'coc-vetur',
-      \'coc-vimlsp',
-      \'coc-yaml',
-      \]
-
 " vimplug start
 let data_dir = stdpath('data') . '/site'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -84,7 +51,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
 Plug 'kaicataldo/material.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
@@ -129,6 +95,8 @@ silent! colorscheme gruvbox
 " style end
 
 " vimfiler start
+let g:vimfiler_as_default_explorer=1
+
 call vimfiler#custom#profile('default', 'context', {
       \ 'auto_expand': 1,
       \ 'explorer': 1,
@@ -141,10 +109,12 @@ call vimfiler#custom#profile('default', 'context', {
       \ 'winwidth' : 40,
       \ }
       \ )
+
+nmap <silent> <leader>fl :VimFiler<CR>
+
 autocmd VimEnter * if !argc() | VimFiler | endif
 autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
       \ && &filetype ==# 'vimfiler') | quit | endif
-nmap <silent> <leader>fl :VimFiler<CR>
 " vimfiler end
 
 " whichkey start
@@ -177,6 +147,35 @@ EOF
 " treesitter end
 
 " coc start
+let g:coc_config_home = '~/.vim'
+let g:coc_global_extensions=[
+      \'coc-angular',
+      \'coc-css',
+      \'coc-cssmodules',
+      \'coc-deno',
+      \'coc-docker',
+      \'coc-emmet',
+      \'coc-eslint',
+      \'coc-flutter',
+      \'coc-git',
+      \'coc-go',
+      \'coc-highlight',
+      \'coc-html',
+      \'coc-html-css-support',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-pyright',
+      \'coc-rls',
+      \'coc-sh',
+      \'coc-snippets',
+      \'coc-sql',
+      \'coc-toml',
+      \'coc-tsserver',
+      \'coc-vetur',
+      \'coc-vimlsp',
+      \'coc-yaml',
+      \]
+
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -219,6 +218,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc end
 
 " incsearch start
+let g:incsearch#auto_nohlsearch = 1
+
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
 map * <Plug>(incsearch-nohl-*)
