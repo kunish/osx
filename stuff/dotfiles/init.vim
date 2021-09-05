@@ -12,7 +12,6 @@ set ignorecase
 set lazyredraw
 set nobackup
 set noswapfile
-set notimeout
 set nowrap
 set nowritebackup
 set shiftwidth=2
@@ -23,6 +22,7 @@ set splitbelow
 set splitright
 set tabstop=2
 set termguicolors
+set timeoutlen=500
 set updatetime=300
 set visualbell
 
@@ -73,6 +73,7 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'folke/which-key.nvim'
 Plug 'glts/vim-textobj-comment'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
@@ -112,6 +113,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
+" always last
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -145,6 +147,12 @@ autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
 nmap <silent> <leader>fl :VimFiler<CR>
 " vimfiler end
 
+" whichkey start
+lua << EOF
+require("which-key").setup {}
+EOF
+" whichkey end
+
 " hop start
 lua << EOF
 require'hop'.setup()
@@ -173,13 +181,13 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-nmap <silent> <leader>gr <Plug>(coc-references)
-nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>cgi <Plug>(coc-implementation)
+nmap <silent> <leader>cgr <Plug>(coc-references)
+nmap <silent> <leader>cgy <Plug>(coc-type-definition)
+nmap <silent> <leader>crn <Plug>(coc-rename)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gy <Plug>(coc-type-definition)
 
 inoremap <silent><expr> <c-j> coc#refresh()
 
