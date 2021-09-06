@@ -201,6 +201,8 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 
+nmap <silent> <leader>cf :Format<CR>
+
 inoremap <silent><expr> <c-j> coc#refresh()
 
 function! s:show_documentation()
@@ -246,9 +248,9 @@ lua << EOF
 require('telescope').setup {}
 EOF
 
-nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <silent> <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <silent> <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <silent> <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
 " telescope end
 
 " custom keybinding start
