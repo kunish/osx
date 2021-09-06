@@ -15,8 +15,7 @@ set noswapfile
 set nowrap
 set nowritebackup
 set shiftwidth=2
-set shortmess+=c
-set shortmess=I
+set shortmess+=Ic
 set signcolumn=number
 set splitbelow
 set splitright
@@ -44,17 +43,18 @@ Plug 'folke/which-key.nvim'
 Plug 'glts/vim-textobj-comment'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'houtsnip/vim-emacscommandline'
 Plug 'ianva/vim-youdao-translater'
 Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kaicataldo/material.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-user'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
@@ -62,12 +62,13 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'osyo-manga/vim-over'
 Plug 'phaazon/hop.nvim'
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/unite.vim'
-Plug 'shougo/vimfiler.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -75,12 +76,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
-" always last
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 command! PU PlugUpdate | PlugUpgrade
@@ -94,28 +92,28 @@ autocmd VimEnter *
 silent! colorscheme gruvbox
 " style end
 
-" vimfiler start
-let g:vimfiler_as_default_explorer=1
+" devicons start
+lua << EOF
+require'nvim-web-devicons'.setup {
+  default = true
+}
+EOF
+" devicons end
 
-call vimfiler#custom#profile('default', 'context', {
-      \ 'auto_expand': 1,
-      \ 'explorer': 1,
-      \ 'explorer_columns': 'type:size',
-      \ 'find': 1,
-      \ 'no_quit' : 1,
-      \ 'parent': 0,
-      \ 'split' : 1,
-      \ 'status' : 0,
-      \ 'winwidth' : 40,
-      \ }
-      \ )
+" lualine start
+lua << EOF
+require('lualine').setup {}
+EOF
+" lualine end
 
-nmap <silent> <leader>fl :VimFiler<CR>
+" nvimtree start
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_follow = 1
+let g:nvim_tree_quit_on_open = 1
+let g:nvim_tree_highlight_opened_files = 1
 
-autocmd VimEnter * if !argc() | VimFiler | endif
-autocmd BufEnter * if (!has('vim_starting') && winnr('$') == 1
-      \ && &filetype ==# 'vimfiler') | quit | endif
-" vimfiler end
+nnoremap <silent> <leader>fl <cmd>NvimTreeToggle<CR>
+" nvimtree end
 
 " whichkey start
 lua << EOF
@@ -125,14 +123,14 @@ EOF
 
 " hop start
 lua << EOF
-require'hop'.setup()
+require'hop'.setup {}
 EOF
 
-nnoremap <silent> <leader><leader>j :HopLineStartAC<CR>
-nnoremap <silent> <leader><leader>k :HopLineStartBC<CR>
-nnoremap <silent> <leader><leader>w :HopWordAC<CR>
-nnoremap <silent> <leader><leader>s :HopChar1AC<CR>
-nnoremap <silent> <leader><leader>S :HopChar1BC<CR>
+nnoremap <silent> <leader><leader>j <cmd>HopLineStartAC<CR>
+nnoremap <silent> <leader><leader>k <cmd>HopLineStartBC<CR>
+nnoremap <silent> <leader><leader>w <cmd>HopWordAC<CR>
+nnoremap <silent> <leader><leader>s <cmd>HopChar1AC<CR>
+nnoremap <silent> <leader><leader>S <cmd>HopChar1BC<CR>
 " hop end
 
 " treesitter start
@@ -220,26 +218,28 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " incsearch start
 let g:incsearch#auto_nohlsearch = 1
 
-map n <Plug>(incsearch-nohl-n)
-map N <Plug>(incsearch-nohl-N)
-map * <Plug>(incsearch-nohl-*)
-map # <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+map <silent> n <Plug>(incsearch-nohl-n)
+map <silent> N <Plug>(incsearch-nohl-N)
+map <silent> * <Plug>(incsearch-nohl-*)
+map <silent> # <Plug>(incsearch-nohl-#)
+map <silent> g* <Plug>(incsearch-nohl-g*)
+map <silent> g# <Plug>(incsearch-nohl-g#)
 " incsearch end
 
-" fzf start
-nmap <silent> <leader>fa :Ag<CR>
-nmap <silent> <leader>fb :Buffers<CR>
-nmap <silent> <leader>ff :Files<CR>
-nmap <silent> <leader>fr :Rg<CR>
-" fzf end
+" telescope start
+lua << EOF
+require('telescope').setup {}
+EOF
+
+nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>fb <cmd>Telescope buffers<cr>
+" telescope end
 
 " custom keybinding start
 inoremap <silent> jk <Esc>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
-nnoremap <silent> <leader>R :source $MYVIMRC<CR>
+nnoremap <silent> <C-h> <cmd>wincmd h<CR>
+nnoremap <silent> <C-j> <cmd>wincmd j<CR>
+nnoremap <silent> <C-k> <cmd>wincmd k<CR>
+nnoremap <silent> <C-l> <cmd>wincmd l<CR>
 " custom keybinding end
