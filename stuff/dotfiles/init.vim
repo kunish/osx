@@ -40,7 +40,6 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'folke/which-key.nvim'
-Plug 'glts/vim-textobj-comment'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'hoob3rt/lualine.nvim'
@@ -50,9 +49,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kaicataldo/material.vim'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-user'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'machakann/vim-highlightedyank'
@@ -65,6 +61,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'osyo-manga/vim-over'
 Plug 'phaazon/hop.nvim'
 Plug 'shougo/deoplete.nvim'
@@ -78,7 +75,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/matchit.zip'
-Plug 'wellle/targets.vim'
 call plug#end()
 
 command! PU PlugUpdate | PlugUpgrade
@@ -138,8 +134,28 @@ lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   highlight = {
-    enable = true
-  }
+    enable = true,
+  },
+  textobjects = {
+    lsp_interop = { enable = true },
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["ab"] = "@block.outer",
+        ["ac"] = "@class.outer",
+        ["af"] = "@function.outer",
+        ["ak"] = "@comment.outer",
+        ["al"] = "@loop.outer",
+        ["ap"] = "@parameter.outer",
+        ["ib"] = "@block.inner",
+        ["ic"] = "@class.inner",
+        ["if"] = "@function.inner",
+        ["il"] = "@loop.inner",
+        ["ip"] = "@parameter.inner",
+      },
+    },
+  },
 }
 EOF
 " treesitter end
