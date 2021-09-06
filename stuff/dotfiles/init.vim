@@ -161,7 +161,6 @@ EOF
 " treesitter end
 
 " coc start
-let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions=[
       \'coc-angular',
       \'coc-css',
