@@ -1,3 +1,4 @@
+set autoindent
 set background=dark
 set backspace=2
 set clipboard=unnamed
@@ -17,6 +18,7 @@ set nowritebackup
 set shiftwidth=2
 set shortmess+=Ic
 set signcolumn=number
+set smartindent
 set splitbelow
 set splitright
 set tabstop=2
@@ -131,9 +133,8 @@ nnoremap <silent> <leader><leader>s <cmd>HopChar1<CR>
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-  },
+  highlight = { enable = true },
+  indent = { enable = true },
   textobjects = {
     lsp_interop = { enable = true },
     select = {
