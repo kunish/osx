@@ -242,4 +242,6 @@ nnoremap <silent> <C-h> <cmd>wincmd h<CR>
 nnoremap <silent> <C-j> <cmd>wincmd j<CR>
 nnoremap <silent> <C-k> <cmd>wincmd k<CR>
 nnoremap <silent> <C-l> <cmd>wincmd l<CR>
+nnoremap <silent> <Tab> <cmd>bnext<CR>
+nnoremap <silent> <S-Tab> <cmd>bprev<CR>
 " custom keybinding end
