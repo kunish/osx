@@ -28,4 +28,5 @@ alias v=vim
 alias ls=exa
 alias ll='exa -l'
 alias la='exa -al'
+alias ld=lazydocker
 alias lg=lazygit

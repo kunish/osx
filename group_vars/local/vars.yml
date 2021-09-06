@@ -84,6 +84,7 @@ packages:
   - k3sup
   - krew
   - kubectl
+  - lazydocker
   - lazygit
   - links
   - luajit
