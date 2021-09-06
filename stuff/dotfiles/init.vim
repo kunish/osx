@@ -255,6 +255,7 @@ nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
 " custom keybinding start
 inoremap <silent> jk <Esc>
 nnoremap <silent> Y y$
+nnoremap <silent> <C-s> :w<CR>
 nnoremap <silent> <C-h> <cmd>wincmd h<CR>
 nnoremap <silent> <C-j> <cmd>wincmd j<CR>
 nnoremap <silent> <C-k> <cmd>wincmd k<CR>
