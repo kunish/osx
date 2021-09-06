@@ -5,6 +5,7 @@
   "yaml.validate": false,
   "coc.preferences.messageLevel": "error",
   "coc.preferences.formatOnSaveFiletypes": [
+    "go",
     "html",
     "javascript",
     "javascriptreact",

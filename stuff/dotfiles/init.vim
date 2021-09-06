@@ -122,11 +122,9 @@ lua << EOF
 require'hop'.setup {}
 EOF
 
-nnoremap <silent> <leader><leader>j <cmd>HopLineStartAC<CR>
-nnoremap <silent> <leader><leader>k <cmd>HopLineStartBC<CR>
-nnoremap <silent> <leader><leader>w <cmd>HopWordAC<CR>
-nnoremap <silent> <leader><leader>s <cmd>HopChar1AC<CR>
-nnoremap <silent> <leader><leader>S <cmd>HopChar1BC<CR>
+nnoremap <silent> <leader><leader>j <cmd>HopLineStart<CR>
+nnoremap <silent> <leader><leader>w <cmd>HopWord<CR>
+nnoremap <silent> <leader><leader>s <cmd>HopChar1<CR>
 " hop end
 
 " treesitter start
