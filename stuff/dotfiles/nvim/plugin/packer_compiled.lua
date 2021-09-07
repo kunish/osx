@@ -153,6 +153,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["undotree.vim"] = {
+    loaded = true,
+    path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/undotree.vim"
+  },
   ["vim-better-whitespace"] = {
     loaded = true,
     path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-better-whitespace"

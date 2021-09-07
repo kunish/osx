@@ -31,18 +31,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'folke/which-key.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'phaazon/hop.nvim'
-  use 'hoob3rt/lualine.nvim'
-  use 'kyazdani42/nvim-tree.lua'
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-lua/plenary.nvim'
-
   use 'editorconfig/editorconfig-vim'
-  use 'honza/vim-snippets'
   use 'haya14busa/incsearch.vim'
+  use 'honza/vim-snippets'
   use 'houtsnip/vim-emacscommandline'
   use 'jiangmiao/auto-pairs'
   use 'machakann/vim-highlightedyank'
@@ -57,6 +48,16 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'vim-scripts/ReplaceWithRegister'
+  use 'vim-scripts/undotree.vim'
+
+  use 'wbthomason/packer.nvim'
+  use 'folke/which-key.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'phaazon/hop.nvim'
+  use 'hoob3rt/lualine.nvim'
+  use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
@@ -70,6 +71,12 @@ require('packer').startup(function()
 end)
 
 cmd('silent! colorscheme gruvbox')
+
+require'nvim-web-devicons'.setup { default = true }
+require'lualine'.setup {}
+require'telescope'.setup {}
+require'hop'.setup {}
+require'which-key'.setup {}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained',
@@ -102,13 +109,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require'lualine'.setup {}
-require'telescope'.setup {}
-require'hop'.setup {}
-require'which-key'.setup {}
-require'nvim-web-devicons'.setup { default = true }
-
-local nvim_lsp = require'lspconfig'
+-- lspconfig
+local lspconfig = require'lspconfig'
 local cmp = require'cmp'
 local luasnip = require'luasnip'
 
@@ -141,6 +143,7 @@ local servers = {
   'ansiblels',
   'bashls',
   'cssls',
+  'diagnosticls',
   'dockerls',
   'gopls',
   'graphql',
@@ -159,15 +162,90 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
   }
 end
 
+lspconfig.diagnosticls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  filetypes = {
+    'css',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'markdown',
+    'scss',
+    'typescript',
+    'typescriptreact',
+    'yaml',
+  },
+  init_options = {
+    filetypes = {
+      javascript = 'eslint',
+      javascriptreact = 'eslint',
+      typescript = 'eslint',
+      typescriptreact = 'eslint',
+    },
+    formatFiletypes = {
+      css = 'prettier',
+      html = 'prettier',
+      javascript = 'prettier',
+      javascriptreact = 'prettier',
+      markdown = 'prettier',
+      scss = 'prettier',
+      typescript = 'prettier',
+      typescriptreact = 'prettier',
+      yaml = 'prettier',
+    },
+    linters = {
+      eslint = {
+        command = 'eslint',
+        args = {
+          '--stdin',
+          '--stdin-filename',
+          '%filepath',
+          '--format',
+          'json',
+        },
+        sourceName = 'eslint',
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '${message} [${ruleId}]',
+          security = 'severity',
+        },
+        securities = {
+          [1] = 'warning',
+          [2] = 'error',
+        },
+      },
+    },
+    formatters = {
+      prettier = {
+        command = 'prettier',
+        args = {
+          '--stdin-filepath',
+          '%filepath',
+        },
+      },
+    },
+  },
+}
+--
+
+-- cmp
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -210,6 +288,7 @@ cmp.setup {
     { name = 'buffer' },
   },
 }
+--
 
 -- nvimtree
 let.nvim_tree_width = 36
