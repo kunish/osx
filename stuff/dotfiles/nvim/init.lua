@@ -152,7 +152,6 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'terraformls',
-  'tsserver',
   'vimls',
   'vuels',
   'yamlls',
@@ -170,6 +169,19 @@ for _, lsp in ipairs(servers) do
     },
   }
 end
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+}
 
 lspconfig.diagnosticls.setup {
   on_attach = on_attach,
