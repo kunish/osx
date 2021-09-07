@@ -16,6 +16,7 @@ set.splitright = true
 set.swapfile = false
 set.tabstop = 2
 set.termguicolors = true
+set.undofile = true
 set.updatetime = 300
 set.wrap = false
 
@@ -72,12 +73,9 @@ cmd('silent! colorscheme gruvbox')
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained',
-  highlight = {
-    enable = true,
-  },
-  matchup = {
-    enable = true,
-  },
+  highlight = { enable = true, },
+  indent = { enable = true },
+  matchup = { enable = true, },
   textobjects = {
     lsp_interop = { enable = true },
     select = {
@@ -97,6 +95,10 @@ require'nvim-treesitter.configs'.setup {
         ['ip'] = '@parameter.inner',
       },
     },
+    move = {
+      enable = true,
+      set_jumps = true,
+    }
   },
 }
 
@@ -113,8 +115,6 @@ local luasnip = require'luasnip'
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local opts = { noremap = true, silent = true }
 
@@ -155,9 +155,13 @@ local servers = {
   'yamlls',
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     }
