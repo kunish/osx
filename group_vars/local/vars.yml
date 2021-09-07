@@ -146,6 +146,9 @@ templates:
   - src: "{{ dotfiles_base_path }}/config.fish"
     dest: ~/.config/fish/config.fish
 
+  - src: "{{ dotfiles_base_path }}/kitty"
+    dest: ~/.config/kitty
+
   - src: "{{ dotfiles_base_path }}/.tmux.conf"
     dest: ~/.tmux.conf
 
