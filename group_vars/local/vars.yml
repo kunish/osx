@@ -141,7 +141,7 @@ templates:
     dest: ~/.p10k.zsh
 
   - src: "{{ dotfiles_base_path }}/omf"
-    dest: "~/.config/omf"
+    dest: ~/.config/omf
 
   - src: "{{ dotfiles_base_path }}/config.fish"
     dest: ~/.config/fish/config.fish
@@ -149,8 +149,6 @@ templates:
   - src: "{{ dotfiles_base_path }}/.tmux.conf"
     dest: ~/.tmux.conf
 
-  - src: "{{ dotfiles_base_path }}/init.vim"
-    dest: ~/.config/nvim/init.vim
+  - src: "{{ dotfiles_base_path }}/nvim"
+    dest: ~/.config/nvim
 
-  - src: "{{ dotfiles_base_path }}/coc-settings.json"
-    dest: ~/.config/nvim/coc-settings.json

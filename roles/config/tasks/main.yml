@@ -46,11 +46,6 @@
     state: directory
     path: ~/.config
 
-- name: Make sure ~/.config/nvim folder is there
-  file:
-    state: directory
-    path: ~/.config/nvim
-
 - name: Link dotfiles into place
   file:
     src: "{{ item.src }}"

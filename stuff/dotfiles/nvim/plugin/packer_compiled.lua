@@ -173,6 +173,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+  },
   ["vim-highlightedyank"] = {
     loaded = true,
     path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-highlightedyank"

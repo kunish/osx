@@ -49,6 +49,7 @@ require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'vim-scripts/ReplaceWithRegister'
   use 'vim-scripts/undotree.vim'
+  use 'airblade/vim-gitgutter'
 
   use 'wbthomason/packer.nvim'
   use 'folke/which-key.nvim'
