@@ -27,6 +27,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'folke/which-key.nvim'
+Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'houtsnip/vim-emacscommandline'
