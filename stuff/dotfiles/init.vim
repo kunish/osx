@@ -1,33 +1,18 @@
-set autoindent
-set background=dark
 set backspace=2
 set clipboard=unnamed
-set encoding=UTF-8
 set expandtab
-set guicursor=a:blinkon0
-set guifont=RobotoMono\ Nerd\ Font\:h12
-set guioptions=
-set hidden
-set hlsearch
 set ignorecase
 set lazyredraw
-set nobackup
 set noswapfile
 set nowrap
-set nowritebackup
 set shiftwidth=2
 set shortmess+=Ic
-set signcolumn=number
-set smartindent
 set splitbelow
 set splitright
 set tabstop=2
 set termguicolors
-set timeoutlen=500
 set updatetime=300
-set visualbell
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
@@ -42,15 +27,12 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'andrewradev/splitjoin.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'folke/which-key.nvim'
-Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'houtsnip/vim-emacscommandline'
-Plug 'ianva/vim-youdao-translater'
 Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'kaicataldo/material.vim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'machakann/vim-highlightedyank'
@@ -64,7 +46,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'osyo-manga/vim-over'
 Plug 'phaazon/hop.nvim'
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/unite.vim'
@@ -254,7 +235,6 @@ nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
 
 " custom keybinding start
 inoremap <silent> jk <Esc>
-nnoremap <silent> Y y$
 nnoremap <silent> <C-s> :w<CR>
 nnoremap <silent> <C-h> <cmd>wincmd h<CR>
 nnoremap <silent> <C-j> <cmd>wincmd j<CR>
