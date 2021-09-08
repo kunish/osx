@@ -8,6 +8,8 @@ set.completeopt = "menuone,noselect"
 set.expandtab = true
 set.ignorecase = true
 set.lazyredraw = true
+set.number = true
+set.relativenumber = true
 set.shiftwidth = 2
 set.shortmess:append("Ic")
 set.splitbelow = true
