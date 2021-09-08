@@ -26,5 +26,6 @@ alias ll='exa -l'
 alias la='exa -al'
 alias ld=lazydocker
 alias lg=lazygit
+alias s='kitty +kitten ssh'
 alias d='kitty +kitten diff'
 alias icat='kitty +kitten icat'
