@@ -219,6 +219,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
 		},
+		vimspector = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vimspector",
+		},
 		["which-key.nvim"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/which-key.nvim",
