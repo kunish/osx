@@ -69,7 +69,6 @@ packages:
   - exa
   - fd
   - figlet
-  - fish
   - fzf
   - git
   - git-delta
@@ -139,12 +138,6 @@ templates:
 
   - src: "{{ dotfiles_base_path }}/.p10k.zsh"
     dest: ~/.p10k.zsh
-
-  - src: "{{ dotfiles_base_path }}/omf"
-    dest: ~/.config/omf
-
-  - src: "{{ dotfiles_base_path }}/config.fish"
-    dest: ~/.config/fish/config.fish
 
   - src: "{{ dotfiles_base_path }}/kitty"
     dest: ~/.config/kitty

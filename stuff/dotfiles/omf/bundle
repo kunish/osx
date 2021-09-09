@@ -1,9 +1,0 @@
-package bass
-package foreign-env
-package fzf
-package license
-package node
-package nvm
-package z
-theme clearance
-theme default

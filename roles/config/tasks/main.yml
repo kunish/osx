@@ -9,14 +9,6 @@
     cmd: defaults write -g ApplePressAndHoldEnabled -bool false
   changed_when: no
 
-- name: Add fish into standard shell
-  become: yes
-  lineinfile:
-    path: /etc/shells
-    line: /usr/local/bin/fish
-    regexp: '\/usr\/local\/bin\/fish'
-    state: present
-
 - name: Add zsh into standard shell
   become: yes
   lineinfile:
@@ -35,11 +27,6 @@
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: ~/.oh-my-zsh
-
-- name: Clone oh-my-fish
-  git:
-    repo: https://github.com/oh-my-fish/oh-my-fish.git
-    dest: ~/.oh-my-fish
 
 - name: Make sure ~/.config folder is there
   file:
