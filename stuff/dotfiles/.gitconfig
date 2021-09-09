@@ -1,19 +1,19 @@
 [core]
   ignorecase = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [pull]
   rebase = false
 [user]
-	name = shikun
-	email = kunish.butt@gmail.com
+  name = shikun
+  email = kunish.butt@gmail.com
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [merge]
-	tool = smerge
+  tool = smerge
 [mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+  trustExitCode = true
