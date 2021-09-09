@@ -1,5 +1,6 @@
 require("telescope").setup({})
 require("hop").setup({})
+require("nvim-autopairs").setup({})
 
 local noremap_opts = { noremap = true, silent = true }
 -- telescope

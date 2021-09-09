@@ -83,10 +83,6 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
 		},
-		["auto-pairs"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/auto-pairs",
-		},
 		["cmp-buffer"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -122,6 +118,10 @@ local no_errors, error_msg = pcall(function()
 		["lualine.nvim"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+		},
+		["nvim-autopairs"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
 		},
 		["nvim-cmp"] = {
 			loaded = true,

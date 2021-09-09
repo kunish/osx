@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 	matchup = { enable = true },
+	autopairs = { enable = true },
 	textobjects = {
 		lsp_interop = { enable = true },
 		select = {
@@ -11,15 +12,16 @@ require("nvim-treesitter.configs").setup({
 			lookahead = true,
 			keymaps = {
 				["ab"] = "@block.outer",
-				["ac"] = "@class.outer",
-				["af"] = "@function.outer",
-				["ak"] = "@comment.outer",
-				["al"] = "@loop.outer",
-				["ap"] = "@parameter.outer",
 				["ib"] = "@block.inner",
+				["ac"] = "@class.outer",
 				["ic"] = "@class.inner",
+				["af"] = "@function.outer",
 				["if"] = "@function.inner",
+				["ak"] = "@comment.outer",
+				["ik"] = "@comment.inner",
+				["al"] = "@loop.outer",
 				["il"] = "@loop.inner",
+				["ap"] = "@parameter.outer",
 				["ip"] = "@parameter.inner",
 			},
 		},
@@ -174,6 +176,7 @@ lspconfig.diagnosticls.setup({
 					"--format",
 					"json",
 				},
+				debounce = 100,
 				sourceName = "eslint",
 				parseJson = {
 					errorsRoot = "[0].messages",
@@ -181,7 +184,7 @@ lspconfig.diagnosticls.setup({
 					column = "column",
 					endLine = "endLine",
 					endColumn = "endColumn",
-					message = "${message} [${ruleId}]",
+					message = "[eslint] ${message} [${ruleId}]",
 					security = "severity",
 				},
 				securities = {
