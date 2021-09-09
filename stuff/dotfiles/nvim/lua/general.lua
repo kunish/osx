@@ -6,6 +6,7 @@ local set = vim.opt
 set.clipboard = "unnamed"
 set.completeopt = "menuone,noselect"
 set.expandtab = true
+set.hidden = true
 set.ignorecase = true
 set.lazyredraw = true
 set.mouse = "a"
