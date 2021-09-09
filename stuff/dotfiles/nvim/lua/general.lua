@@ -28,7 +28,7 @@ vim.cmd("silent! colorscheme gruvbox")
 -- custom keybindings
 local noremap_opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<C-s>", ":write<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>write<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<C-h>", "<cmd>wincmd h<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>wincmd j<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>wincmd k<CR>", noremap_opts)

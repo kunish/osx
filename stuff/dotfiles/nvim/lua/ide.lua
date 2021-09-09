@@ -78,7 +78,7 @@ local on_attach = function(client, bufnr)
 	--
 end
 
-local servers = {
+local language_servers = {
 	"ansiblels",
 	"bashls",
 	"cssls",
@@ -99,7 +99,7 @@ local servers = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-for _, lsp in ipairs(servers) do
+for _, lsp in ipairs(language_servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
@@ -130,11 +130,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 
 lspconfig.diagnosticls.setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
-	flags = {
-		debounce_text_changes = 150,
-	},
 	filetypes = {
 		"css",
 		"html",
