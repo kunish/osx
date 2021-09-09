@@ -90,7 +90,7 @@ local servers = {
 	"rust_analyzer",
 	"terraformls",
 	"vimls",
-	"vuels",
+	"volar",
 	"yamlls",
 }
 
