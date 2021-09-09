@@ -95,10 +95,6 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
 		},
-		["editorconfig-vim"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
-		},
 		["emmet-vim"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -206,10 +202,6 @@ local no_errors, error_msg = pcall(function()
 		["vim-sensible"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-sensible",
-		},
-		["vim-snippets"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-snippets",
 		},
 		["vim-surround"] = {
 			loaded = true,
