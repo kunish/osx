@@ -91,6 +91,14 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
 		},
+		["cmp-nvim-lua"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+		},
+		["cmp-path"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp-path",
+		},
 		cmp_luasnip = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
