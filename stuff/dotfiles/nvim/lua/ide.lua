@@ -160,7 +160,7 @@ lspconfig.diagnosticls.setup({
 		},
 		linters = {
 			eslint = {
-				command = "eslint",
+				command = "./node_modules/.bin/eslint",
 				args = {
 					"--stdin",
 					"--stdin-filename",
@@ -186,7 +186,7 @@ lspconfig.diagnosticls.setup({
 		},
 		formatters = {
 			prettier = {
-				command = "prettier",
+				command = "./node_modules/.bin/prettier",
 				args = {
 					"--stdin-filepath",
 					"%filepath",
