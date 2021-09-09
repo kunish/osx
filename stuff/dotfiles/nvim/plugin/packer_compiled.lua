@@ -127,6 +127,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-cmp",
 		},
+		["nvim-comment"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-comment",
+		},
 		["nvim-lspconfig"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -170,10 +174,6 @@ local no_errors, error_msg = pcall(function()
 		["vim-better-whitespace"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
-		},
-		["vim-commentary"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-commentary",
 		},
 		["vim-emacscommandline"] = {
 			loaded = true,
