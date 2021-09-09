@@ -138,6 +138,7 @@ lspconfig.diagnosticls.setup({
 		"scss",
 		"typescript",
 		"typescriptreact",
+		"json",
 		"yaml",
 	},
 	init_options = {
@@ -156,6 +157,7 @@ lspconfig.diagnosticls.setup({
 			scss = "prettier",
 			typescript = "prettier",
 			typescriptreact = "prettier",
+			json = "prettier",
 			yaml = "prettier",
 		},
 		linters = {
