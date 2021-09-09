@@ -8,6 +8,7 @@ set.completeopt = "menuone,noselect"
 set.expandtab = true
 set.ignorecase = true
 set.lazyredraw = true
+set.mouse = "a"
 set.number = true
 set.relativenumber = true
 set.shiftwidth = 2
