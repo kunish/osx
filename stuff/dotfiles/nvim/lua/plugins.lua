@@ -18,6 +18,7 @@ require("packer").startup(function()
 	use("vim-scripts/ReplaceWithRegister")
 	use("vim-scripts/undotree.vim")
 	use("lewis6991/gitsigns.nvim")
+	use("p00f/nvim-ts-rainbow")
 
 	use("folke/which-key.nvim")
 	use("kyazdani42/nvim-web-devicons")

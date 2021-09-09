@@ -5,6 +5,7 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 	matchup = { enable = true },
 	autopairs = { enable = true },
+	rainbow = { enable = true, extended_mode = true },
 	textobjects = {
 		lsp_interop = { enable = true },
 		select = {

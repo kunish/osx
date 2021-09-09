@@ -147,6 +147,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
 		},
+		["nvim-ts-rainbow"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+		},
 		["nvim-web-devicons"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
