@@ -83,6 +83,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
 		},
+		["barbar.nvim"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+		},
 		["cmp-buffer"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/cmp-buffer",
