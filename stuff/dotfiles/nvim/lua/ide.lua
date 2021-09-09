@@ -1,6 +1,3 @@
-local api = vim.api
-local fn = vim.fn
-
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "maintained",
@@ -41,10 +38,10 @@ local luasnip = require("luasnip")
 
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
-		api.nvim_buf_set_keymap(bufnr, ...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 	local function buf_set_option(...)
-		api.nvim_buf_set_option(bufnr, ...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
 	local opts = { noremap = true, silent = true }
@@ -121,6 +118,13 @@ lspconfig.tsserver.setup({
 			disableSuggestions = true,
 		},
 	},
+})
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	signs = true,
+	underline = true,
+	virtual_text = false,
+	update_in_insert = true,
 })
 
 lspconfig.diagnosticls.setup({
@@ -218,19 +222,19 @@ cmp.setup({
 			select = true,
 		}),
 		["<Tab>"] = function(fallback)
-			if fn.pumvisible() == 1 then
-				fn.feedkeys(api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
+			if vim.fn.pumvisible() == 1 then
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
 			elseif luasnip.expand_or_jumpable() then
-				fn.feedkeys(api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
 			else
 				fallback()
 			end
 		end,
 		["<S-Tab>"] = function(fallback)
-			if fn.pumvisible() == 1 then
-				fn.feedkeys(api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
+			if vim.fn.pumvisible() == 1 then
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
 			elseif luasnip.jumpable(-1) then
-				fn.feedkeys(api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
 			else
 				fallback()
 			end
