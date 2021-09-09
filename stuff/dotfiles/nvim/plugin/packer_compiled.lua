@@ -151,6 +151,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/packer.nvim",
 		},
+		playground = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/playground",
+		},
 		["plenary.nvim"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/plenary.nvim",
