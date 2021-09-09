@@ -1,5 +1,6 @@
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
 
 	use("gruvbox-community/gruvbox")
 	use("haya14busa/incsearch.vim")
@@ -16,7 +17,7 @@ require("packer").startup(function()
 	use("tpope/vim-unimpaired")
 	use("vim-scripts/ReplaceWithRegister")
 	use("vim-scripts/undotree.vim")
-	use("airblade/vim-gitgutter")
+	use("lewis6991/gitsigns.nvim")
 
 	use("folke/which-key.nvim")
 	use("kyazdani42/nvim-web-devicons")
@@ -24,7 +25,6 @@ require("packer").startup(function()
 	use("hoob3rt/lualine.nvim")
 	use("kyazdani42/nvim-tree.lua")
 	use("nvim-telescope/telescope.nvim")
-	use("nvim-lua/plenary.nvim")
 
 	use("honza/vim-snippets")
 	use("editorconfig/editorconfig-vim")

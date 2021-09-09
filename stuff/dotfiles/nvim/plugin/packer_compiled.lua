@@ -103,6 +103,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/emmet-vim",
 		},
+		["gitsigns.nvim"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+		},
 		gruvbox = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -182,10 +186,6 @@ local no_errors, error_msg = pcall(function()
 		["vim-fugitive"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-		},
-		["vim-gitgutter"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
 		},
 		["vim-highlightedyank"] = {
 			loaded = true,
