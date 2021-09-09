@@ -3,6 +3,11 @@ require("hop").setup({})
 require("nvim-autopairs").setup({})
 require("nvim_comment").setup()
 
+-- emmet
+vim.g.user_emmet_mode = "i"
+vim.g.user_emmet_leader_key = "<C-z>"
+--
+
 local noremap_opts = { noremap = true, silent = true }
 -- telescope
 vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", noremap_opts)
