@@ -23,8 +23,6 @@ vim.opt.wrap = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd("silent! colorscheme gruvbox")
-
 -- custom keybindings
 vim.api.nvim_set_keymap("n", "<C-S>", "<cmd>write<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", { noremap = true, silent = true })

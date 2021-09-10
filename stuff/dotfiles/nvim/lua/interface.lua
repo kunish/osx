@@ -3,6 +3,12 @@ require("lualine").setup()
 require("gitsigns").setup()
 require("nvim-web-devicons").setup({ default = true })
 
+-- gruvbox
+vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_improved_strings = 1
+vim.g.gruvbox_improved_warnings = 1
+vim.cmd("silent! colorscheme gruvbox")
+--
 -- nvimtree
 vim.g.nvim_tree_width = 36
 vim.g.nvim_tree_auto_close = 1
