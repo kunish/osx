@@ -86,6 +86,7 @@ packages:
   - lazydocker
   - lazygit
   - links
+  - lolcat
   - luajit
   - lynx
   - minikube
