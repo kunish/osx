@@ -34,4 +34,6 @@ vim.api.nvim_set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>bnext<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>bprev<CR>", noremap_opts)
+vim.api.nvim_set_keymap("i", "<C-A>", "<C-O>^", noremap_opts)
+vim.api.nvim_set_keymap("i", "<C-E>", "<C-O>$", noremap_opts)
 --
