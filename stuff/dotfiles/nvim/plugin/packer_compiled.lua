@@ -223,10 +223,6 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-surround",
 		},
-		["vim-unimpaired"] = {
-			loaded = true,
-			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
-		},
 		vimspector = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/vimspector",

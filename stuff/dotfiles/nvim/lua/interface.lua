@@ -1,7 +1,7 @@
-require("which-key").setup({})
-require("lualine").setup({})
-require("nvim-web-devicons").setup({ default = true })
+require("which-key").setup()
+require("lualine").setup()
 require("gitsigns").setup()
+require("nvim-web-devicons").setup({ default = true })
 
 -- nvimtree
 vim.g.nvim_tree_width = 36

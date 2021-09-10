@@ -13,7 +13,6 @@ require("packer").startup(function()
 	use("tpope/vim-repeat")
 	use("tpope/vim-sensible")
 	use("tpope/vim-surround")
-	use("tpope/vim-unimpaired")
 	use("vim-scripts/ReplaceWithRegister")
 	use("vim-scripts/undotree.vim")
 
