@@ -4,8 +4,7 @@ require("nvim-autopairs").setup({})
 require("nvim_comment").setup()
 
 -- emmet
-vim.g.user_emmet_mode = "i"
-vim.g.user_emmet_leader_key = "<C-z>"
+vim.g.user_emmet_leader_key = "<C-Z>"
 --
 
 local noremap_opts = { noremap = true, silent = true }
