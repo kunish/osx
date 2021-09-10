@@ -12,3 +12,16 @@ vim.g.nvim_tree_highlight_opened_files = 1
 
 vim.api.nvim_set_keymap("n", "<leader>fl", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
 --
+
+-- barbar
+vim.g.bufferline = {
+	animation = false,
+	auto_hide = true,
+}
+
+vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bo", "<cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bh", "<cmd>BufferCloseBuffersLeft<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bl", "<cmd>BufferCloseBuffersRight<CR>", { noremap = true, silent = true })
+--

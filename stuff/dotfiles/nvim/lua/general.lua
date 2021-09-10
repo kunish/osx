@@ -26,12 +26,9 @@ vim.g.maplocalleader = " "
 vim.cmd("silent! colorscheme gruvbox")
 
 -- custom keybindings
-local noremap_opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<C-S>", "<cmd>write<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<C-J>", "<cmd>wincmd j<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>bnext<CR>", noremap_opts)
-vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>bprev<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-S>", "<cmd>write<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-J>", "<cmd>wincmd j<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", { noremap = true, silent = true })
 --
