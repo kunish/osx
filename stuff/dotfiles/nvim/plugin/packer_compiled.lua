@@ -179,6 +179,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/plenary.nvim",
 		},
+		["popup.nvim"] = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/popup.nvim",
+		},
 		["telescope.nvim"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/telescope.nvim",
