@@ -54,6 +54,7 @@ casks:
   - hyper
   - iina
   - iterm2
+  - keycastr
   - kitty
   - lens
   - macvim
