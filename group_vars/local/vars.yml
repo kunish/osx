@@ -13,6 +13,7 @@ casks:
   - balenaetcher
   - brave-browser
   - clashx
+  - cmake
   - dingtalk
   - discord
   - docker
@@ -27,6 +28,7 @@ casks:
   - font-roboto-mono-nerd-font
   - font-source-code-pro
   - font-ubuntu-mono
+  - font-ubuntu-mono-nerd-font
   - github
   - hyper
   - iina
