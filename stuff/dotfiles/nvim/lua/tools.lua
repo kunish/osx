@@ -1,7 +1,21 @@
-require("telescope").setup()
 require("hop").setup()
 require("nvim_comment").setup()
 require("nvim-autopairs").setup({ check_ts = true })
+require("nvim-autopairs.completion.cmp").setup({
+	map_cr = true,
+	map_complete = true,
+	auto_select = true,
+})
+require("telescope").setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<C-U>"] = false,
+				["<C-D>"] = false,
+			},
+		},
+	},
+})
 
 -- emmet
 vim.g.user_emmet_leader_key = "<C-Z>"

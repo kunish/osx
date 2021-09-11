@@ -13,7 +13,6 @@ require("paq")({
 	"haya14busa/incsearch.vim",
 	"houtsnip/vim-emacscommandline",
 	"windwp/nvim-autopairs",
-	"machakann/vim-highlightedyank",
 	"ntpeters/vim-better-whitespace",
 	"terryma/vim-multiple-cursors",
 	"tpope/vim-fugitive",
