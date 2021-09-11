@@ -131,18 +131,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 
 lspconfig.diagnosticls.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = {
-		"css",
-		"html",
 		"javascript",
 		"javascriptreact",
-		"markdown",
-		"scss",
 		"typescript",
 		"typescriptreact",
-		"json",
-		"yaml",
 	},
 	init_options = {
 		filetypes = {
@@ -150,18 +145,6 @@ lspconfig.diagnosticls.setup({
 			javascriptreact = "eslint",
 			typescript = "eslint",
 			typescriptreact = "eslint",
-		},
-		formatFiletypes = {
-			css = "prettier",
-			html = "prettier",
-			javascript = "prettier",
-			javascriptreact = "prettier",
-			markdown = "prettier",
-			scss = "prettier",
-			typescript = "prettier",
-			typescriptreact = "prettier",
-			json = "prettier",
-			yaml = "prettier",
 		},
 		linters = {
 			eslint = {
@@ -187,15 +170,6 @@ lspconfig.diagnosticls.setup({
 				securities = {
 					[1] = "warning",
 					[2] = "error",
-				},
-			},
-		},
-		formatters = {
-			prettier = {
-				command = "./node_modules/.bin/prettier",
-				args = {
-					"--stdin-filepath",
-					"%filepath",
 				},
 			},
 		},
@@ -251,10 +225,10 @@ cmp.setup({
 --
 
 -- neoformat
-vim.cmd([[
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-]])
+vim.g["neoformat_basic_format_align"] = 1
+vim.g["neoformat_basic_format_retab"] = 1
+vim.g["neoformat_basic_format_trim"] = 1
+vim.g["neoformat_try_node_exe"] = 1
+
+vim.api.nvim_set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", { noremap = true, silent = true })
 --

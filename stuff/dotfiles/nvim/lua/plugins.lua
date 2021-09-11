@@ -1,46 +1,57 @@
-require("packer").startup(function()
-	use("wbthomason/packer.nvim")
-	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
+local install_path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
 
-	use("gruvbox-community/gruvbox")
-	use("haya14busa/incsearch.vim")
-	use("houtsnip/vim-emacscommandline")
-	use("windwp/nvim-autopairs")
-	use("machakann/vim-highlightedyank")
-	use("ntpeters/vim-better-whitespace")
-	use("terryma/vim-multiple-cursors")
-	use("tpope/vim-fugitive")
-	use("tpope/vim-repeat")
-	use("tpope/vim-sensible")
-	use("tpope/vim-surround")
-	use("vim-scripts/ReplaceWithRegister")
-	use("vim-scripts/undotree.vim")
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	vim.fn.system({ "git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", install_path })
+end
 
-	use("folke/which-key.nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("phaazon/hop.nvim")
-	use("hoob3rt/lualine.nvim")
-	use("kyazdani42/nvim-tree.lua")
-	use("nvim-telescope/telescope.nvim")
-	use("lewis6991/gitsigns.nvim")
-	use("romgrk/barbar.nvim")
-	use("terrortylor/nvim-comment")
+require("paq")({
+	"savq/paq-nvim",
+	"nvim-lua/popup.nvim",
+	"nvim-lua/plenary.nvim",
 
-	use("neovim/nvim-lspconfig")
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("nvim-treesitter/playground")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("saadparwaiz1/cmp_luasnip")
-	use("L3MON4D3/LuaSnip")
-	use("andymass/vim-matchup")
-	use("p00f/nvim-ts-rainbow")
-	use("mattn/emmet-vim")
-	use("puremourning/vimspector")
-	use("sbdchd/neoformat")
-end)
+	"gruvbox-community/gruvbox",
+	"haya14busa/incsearch.vim",
+	"houtsnip/vim-emacscommandline",
+	"windwp/nvim-autopairs",
+	"machakann/vim-highlightedyank",
+	"ntpeters/vim-better-whitespace",
+	"terryma/vim-multiple-cursors",
+	"tpope/vim-fugitive",
+	"tpope/vim-repeat",
+	"tpope/vim-sensible",
+	"tpope/vim-surround",
+	"vim-scripts/ReplaceWithRegister",
+	"vim-scripts/undotree.vim",
+
+	"folke/which-key.nvim",
+	"kyazdani42/nvim-web-devicons",
+	"phaazon/hop.nvim",
+	"hoob3rt/lualine.nvim",
+	"kyazdani42/nvim-tree.lua",
+	"nvim-telescope/telescope.nvim",
+	"lewis6991/gitsigns.nvim",
+	"romgrk/barbar.nvim",
+	"terrortylor/nvim-comment",
+
+	"neovim/nvim-lspconfig",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			vim.cmd("TSUpdate")
+		end,
+	},
+	"nvim-treesitter/playground",
+	"nvim-treesitter/nvim-treesitter-textobjects",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"saadparwaiz1/cmp_luasnip",
+	"L3MON4D3/LuaSnip",
+	"andymass/vim-matchup",
+	"p00f/nvim-ts-rainbow",
+	"mattn/emmet-vim",
+	"puremourning/vimspector",
+	"sbdchd/neoformat",
+})
