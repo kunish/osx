@@ -14,12 +14,6 @@
     name: "{{ packages }}"
     state: latest
 
-- name: Update homebrew casks
-  homebrew_cask:
-    upgrade_all: yes
-  changed_when: no
-
 - name: Install list of homebrew casks
   homebrew_cask:
     name: "{{ casks }}"
-    state: latest

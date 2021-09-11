@@ -1,7 +1,9 @@
 require("telescope").setup({})
 require("hop").setup({})
-require("nvim-autopairs").setup({})
 require("nvim_comment").setup()
+require("nvim-autopairs").setup({
+	check_ts = true,
+})
 
 -- emmet
 vim.g.user_emmet_leader_key = "<C-Z>"
