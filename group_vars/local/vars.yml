@@ -24,7 +24,6 @@ node_pacakges:
 
 taps:
   - homebrew/cask-fonts
-  - railwaycat/emacsmacport
 
 casks:
   - 1password
@@ -40,7 +39,7 @@ casks:
   - docker
   - dozer
   - drawio
-  - emacs-mac
+  - emacs
   - firefox
   - flutter
   - font-cascadia-mono
