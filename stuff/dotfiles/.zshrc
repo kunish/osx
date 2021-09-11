@@ -21,4 +21,3 @@ zinit light-mode for \
 
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 bindkey \^U backward-kill-line
-

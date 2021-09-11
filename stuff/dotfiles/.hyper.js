@@ -1,7 +1,8 @@
 module.exports = {
   config: {
     verminal: {
-      fontFamily: "Ubuntu Mono, RobotoMono Nerd Font, Roboto Mono for Powerline",
+      fontFamily:
+        "Ubuntu Mono, RobotoMono Nerd Font, Roboto Mono for Powerline",
       fontSize: 16,
     },
     uiFontFamily: "Ubuntu Mono",

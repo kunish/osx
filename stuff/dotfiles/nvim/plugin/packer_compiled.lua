@@ -131,6 +131,10 @@ local no_errors, error_msg = pcall(function()
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/lualine.nvim",
 		},
+		neoformat = {
+			loaded = true,
+			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/neoformat",
+		},
 		["nvim-autopairs"] = {
 			loaded = true,
 			path = "/Users/shikun/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
