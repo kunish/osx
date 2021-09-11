@@ -136,6 +136,7 @@ packages:
   - terraform
   - terraform-ls
   - the_silver_searcher
+  - tldr
   - tmate
   - tmux
   - tree-sitter
