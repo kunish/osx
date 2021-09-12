@@ -34,7 +34,7 @@ vim.api.nvim_set_keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<CR>", norem
 --
 
 -- hop
-vim.api.nvim_set_keymap("n", "<Leader><Leader>j", "<cmd>HopLineStart<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader><Leader><Leader>", "<cmd>HopLineStart<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader><Leader>w", "<cmd>HopWord<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader><Leader>s", "<cmd>HopChar1<CR>", noremap_opts)
 --
