@@ -1,4 +1,11 @@
 require("which-key").setup()
+require("colorizer").setup(nil, {
+	RRGGBBAA = true,
+	css = true,
+	css_fn = true,
+	rgb_fn = true,
+	hsl_fn = true,
+})
 require("lualine").setup({
 	options = { disabled_filetypes = { "NvimTree" } },
 })

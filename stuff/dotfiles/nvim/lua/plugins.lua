@@ -19,6 +19,7 @@ require("paq")({
 	"romgrk/barbar.nvim",
 	"kyazdani42/nvim-tree.lua",
 	"hoob3rt/lualine.nvim",
+	"norcalli/nvim-colorizer.lua",
 	--
 
 	-- tool
