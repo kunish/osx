@@ -90,7 +90,6 @@ local language_servers = {
 	"gopls",
 	"graphql",
 	"html",
-	"jsonls",
 	"pyright",
 	"rust_analyzer",
 	"terraformls",
@@ -108,6 +107,26 @@ for _, lsp in ipairs(language_servers) do
 		capabilities = capabilities,
 	})
 end
+
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = {
+				{
+					fileMatch = { "tsconfig.json" },
+					url = "https://json.schemastore.org/tsconfig",
+				},
+			},
+		},
+	},
+	get_language_id = function(bufnr, filetype)
+		if vim.tbl_contains({ "json" }, filetype) then
+			return "jsonc"
+		end
+		return filetype
+	end,
+})
 
 lspconfig.tsserver.setup({
 	on_attach = on_attach,
