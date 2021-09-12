@@ -5,33 +5,40 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require("paq")({
+	-- essential
 	"savq/paq-nvim",
 	"nvim-lua/popup.nvim",
 	"nvim-lua/plenary.nvim",
+	"tpope/vim-sensible",
+	--
 
+	-- interface
 	"gruvbox-community/gruvbox",
+	"kyazdani42/nvim-web-devicons",
+	"lewis6991/gitsigns.nvim",
+	"romgrk/barbar.nvim",
+	"kyazdani42/nvim-tree.lua",
+	"hoob3rt/lualine.nvim",
+	--
+
+	-- tool
+	"folke/which-key.nvim",
+	"tpope/vim-surround",
 	"haya14busa/incsearch.vim",
 	"houtsnip/vim-emacscommandline",
-	"windwp/nvim-autopairs",
 	"ntpeters/vim-better-whitespace",
+	"nvim-telescope/telescope.nvim",
+	"phaazon/hop.nvim",
+	"terrortylor/nvim-comment",
 	"terryma/vim-multiple-cursors",
 	"tpope/vim-fugitive",
 	"tpope/vim-repeat",
-	"tpope/vim-sensible",
-	"tpope/vim-surround",
 	"vim-scripts/ReplaceWithRegister",
 	"vim-scripts/undotree.vim",
+	"windwp/nvim-autopairs",
+	--
 
-	"folke/which-key.nvim",
-	"kyazdani42/nvim-web-devicons",
-	"phaazon/hop.nvim",
-	"hoob3rt/lualine.nvim",
-	"kyazdani42/nvim-tree.lua",
-	"nvim-telescope/telescope.nvim",
-	"lewis6991/gitsigns.nvim",
-	"romgrk/barbar.nvim",
-	"terrortylor/nvim-comment",
-
+	-- ide
 	"neovim/nvim-lspconfig",
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -52,4 +59,5 @@ require("paq")({
 	"p00f/nvim-ts-rainbow",
 	"mattn/emmet-vim",
 	"sbdchd/neoformat",
+	--
 })
