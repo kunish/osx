@@ -45,11 +45,10 @@ casks:
   - firefox
   - flutter
   - font-cascadia-mono
-  - font-fira-code
-  - font-roboto-mono-for-powerline
+  - font-fira-code-nerd-font
+  - font-jetbrains-mono-nerd-font
   - font-roboto-mono-nerd-font
   - font-source-code-pro
-  - font-ubuntu-mono
   - font-ubuntu-mono-nerd-font
   - github
   - hyper
