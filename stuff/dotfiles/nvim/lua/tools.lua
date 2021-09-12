@@ -1,3 +1,5 @@
+local noremap_opts = { noremap = true, silent = true }
+
 require("hop").setup()
 require("nvim_comment").setup()
 require("nvim-autopairs").setup({ check_ts = true })
@@ -21,7 +23,6 @@ require("telescope").setup({
 vim.g.user_emmet_leader_key = "<C-Z>"
 --
 
-local noremap_opts = { noremap = true, silent = true }
 -- telescope
 vim.api.nvim_set_keymap("n", "<Leader>bs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader>fa", "<cmd>Telescope builtin<CR>", noremap_opts)

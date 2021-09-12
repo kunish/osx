@@ -26,11 +26,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- custom keybindings
-vim.api.nvim_set_keymap("n", "<C-S>", "<cmd>write<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-J>", "<cmd>wincmd j<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-A>", "<C-O>^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-E>", "<C-O>$", { noremap = true, silent = true })
+local noremap_opts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap("n", "<C-S>", "<cmd>write<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-J>", "<cmd>wincmd j<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", noremap_opts)
+vim.api.nvim_set_keymap("i", "<C-A>", "<C-O>^", noremap_opts)
+vim.api.nvim_set_keymap("i", "<C-E>", "<C-O>$", noremap_opts)
 --

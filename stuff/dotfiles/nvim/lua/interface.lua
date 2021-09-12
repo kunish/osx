@@ -1,3 +1,5 @@
+local noremap_opts = { noremap = true, silent = true }
+
 require("which-key").setup()
 require("colorizer").setup(nil, {
 	RRGGBBAA = true,
@@ -30,18 +32,18 @@ vim.g.nvim_tree_show_icons = {
 	git = 1,
 }
 
-vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", noremap_opts)
 --
 
 -- barbar
 vim.g.bufferline = { animation = false, auto_hide = true }
 
-vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bC", "<cmd>BufferClose<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bO", "<cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>bC", "<cmd>BufferClose<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>bO", "<cmd>BufferCloseAllButCurrent<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", noremap_opts)
 --
 
 vim.cmd([[
