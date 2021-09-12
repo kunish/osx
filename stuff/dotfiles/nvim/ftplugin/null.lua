@@ -1,2 +1,2 @@
-vim.bo.number = false
-vim.bo.relativenumber = false
+vim.wo.number = false
+vim.wo.relativenumber = false
