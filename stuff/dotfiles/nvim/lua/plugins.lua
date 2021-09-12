@@ -20,6 +20,7 @@ require("paq")({
 	"kyazdani42/nvim-tree.lua",
 	"hoob3rt/lualine.nvim",
 	"norcalli/nvim-colorizer.lua",
+	"theHamsta/nvim-dap-virtual-text",
 	--
 
 	-- tool
@@ -29,6 +30,7 @@ require("paq")({
 	"houtsnip/vim-emacscommandline",
 	"ntpeters/vim-better-whitespace",
 	"nvim-telescope/telescope.nvim",
+	"nvim-telescope/telescope-dap.nvim",
 	"phaazon/hop.nvim",
 	"terrortylor/nvim-comment",
 	"terryma/vim-multiple-cursors",
@@ -60,5 +62,6 @@ require("paq")({
 	"p00f/nvim-ts-rainbow",
 	"mattn/emmet-vim",
 	"kunish/neoformat",
+	"mfussenegger/nvim-dap",
 	--
 })

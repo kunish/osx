@@ -1,3 +1,5 @@
+local noremap_opts = { noremap = true, silent = true }
+
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "maintained",
@@ -44,35 +46,38 @@ local on_attach = function(bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	local opts = { noremap = true, silent = true }
-
 	-- navigation
-	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	buf_set_keymap("n", "<leader>lgi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "<leader>lgt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", noremap_opts)
+	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lgi", "<cmd>lua vim.lsp.buf.implementation()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lgt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", noremap_opts)
 	--
 
 	-- workspace
-	buf_set_keymap("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-	buf_set_keymap("n", "<leader>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-	buf_set_keymap("n", "<leader>lwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-	buf_set_keymap("n", "<leader>lws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+	buf_set_keymap("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", noremap_opts)
+	buf_set_keymap(
+		"n",
+		"<leader>lwl",
+		"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+		noremap_opts
+	)
+	buf_set_keymap("n", "<leader>lws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", noremap_opts)
 	--
 
 	-- code action
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_set_keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-	buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", noremap_opts)
 	--
 
 	-- diagnostic
-	buf_set_keymap("n", "<leader>lee", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	buf_set_keymap("n", "<leader>leq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+	buf_set_keymap("n", "<leader>lee", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>leq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", noremap_opts)
+	buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", noremap_opts)
+	buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", noremap_opts)
 	--
 end
 
@@ -194,11 +199,27 @@ cmp.setup({
 })
 --
 
+-- dap
+require("telescope").load_extension("dap")
+
+vim.g.dap_virtual_text = true
+
+vim.api.nvim_set_keymap("n", "<Leader>da", "<cmd>Telescope dap commands<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>dc", "<cmd>Telescope dap configurations<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>dd", "<cmd>lua require'dap'.continue()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>dO", "<cmd>lua require'dap'.step_over()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", noremap_opts)
+--
+
 -- neoformat
 vim.g["neoformat_basic_format_align"] = 1
 vim.g["neoformat_basic_format_retab"] = 1
 vim.g["neoformat_basic_format_trim"] = 1
 vim.g["neoformat_try_node_exe"] = 1
 
-vim.api.nvim_set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", noremap_opts)
 --
