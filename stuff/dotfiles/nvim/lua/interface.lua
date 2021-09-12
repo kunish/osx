@@ -1,5 +1,7 @@
 require("which-key").setup()
-require("lualine").setup()
+require("lualine").setup({
+	options = { disabled_filetypes = { "NvimTree" } },
+})
 require("gitsigns").setup()
 require("nvim-web-devicons").setup({ default = true })
 
