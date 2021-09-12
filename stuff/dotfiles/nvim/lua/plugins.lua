@@ -61,7 +61,7 @@ require("paq")({
 	"andymass/vim-matchup",
 	"p00f/nvim-ts-rainbow",
 	"mattn/emmet-vim",
-	"kunish/neoformat",
+	"sbdchd/neoformat",
 	"mfussenegger/nvim-dap",
 	--
 })

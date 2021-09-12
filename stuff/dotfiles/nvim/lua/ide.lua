@@ -120,7 +120,7 @@ lspconfig.jsonls.setup({
 			},
 		},
 	},
-	get_language_id = function(bufnr, filetype)
+	get_language_id = function(filetype)
 		if vim.tbl_contains({ "json" }, filetype) then
 			return "jsonc"
 		end
