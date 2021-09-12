@@ -29,10 +29,10 @@ vim.g.bufferline = { animation = false, auto_hide = true }
 
 vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bc", "<cmd>BufferClose<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bo", "<cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bh", "<cmd>BufferCloseBuffersLeft<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bl", "<cmd>BufferCloseBuffersRight<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bC", "<cmd>BufferClose<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bO", "<cmd>BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", { noremap = true, silent = true })
 --
 
 vim.cmd([[
