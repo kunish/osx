@@ -47,6 +47,6 @@ vim.api.nvim_set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", {
 vim.cmd([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 500, on_visual = true })
   augroup end
 ]])
