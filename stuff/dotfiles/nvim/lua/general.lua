@@ -10,6 +10,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append("Ic")
+vim.opt.showmode = false
 vim.opt.signcolumn = "number"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
