@@ -11,10 +11,12 @@ node_pacakges:
   - diagnostic-languageserver
   - dockerfile-language-server-nodejs
   - eslint
+  - graphql-language-service-cli
   - lerna
   - neovim
   - nodemon
   - prettier
+  - pyright
   - semantic-release
   - serve
   - typescript
@@ -125,6 +127,7 @@ packages:
   - readline
   - redis
   - ripgrep
+  - rust-analyzer
   - rustup
   - shfmt
   - sqlite
