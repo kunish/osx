@@ -20,7 +20,7 @@ vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wrap = false
-vim.wo.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
