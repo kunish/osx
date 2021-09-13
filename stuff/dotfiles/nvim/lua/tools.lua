@@ -54,6 +54,7 @@ vim.api.nvim_set_keymap("n", "g#", "<Plug>(incsearch-nohl-g#)", {})
 -- fugitive
 vim.api.nvim_set_keymap("n", "<Leader>gg", "<cmd>Git<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader>gb", "<cmd>Git blame<CR>", noremap_opts)
+vim.api.nvim_set_keymap("n", "<Leader>gd", "<cmd>Gvdiffsplit!<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader>gp", "<cmd>Git pull<CR>", noremap_opts)
 vim.api.nvim_set_keymap("n", "<Leader>gP", "<cmd>Git push<CR>", noremap_opts)
 --
