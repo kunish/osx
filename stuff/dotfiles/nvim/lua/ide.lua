@@ -1,10 +1,20 @@
+vim.g.coq_settings = {
+	auto_start = true,
+	keymap = { recommended = false, manual_complete = "<C-J>" },
+}
+
 local ide = {}
 
 function ide.setup()
+	local tsConfigs = require("nvim-treesitter.configs")
+	local lspconfig = require("lspconfig")
+	local coq = require("coq")
+	local npairs = require("nvim-autopairs")
+
 	local noremap_opts = { noremap = true, silent = true }
 
 	-- treesitter
-	require("nvim-treesitter.configs").setup({
+	tsConfigs.setup({
 		ensure_installed = "maintained",
 		autopairs = { enable = true },
 		highlight = { enable = true },
@@ -40,7 +50,32 @@ function ide.setup()
 	--
 
 	-- lspconfig
-	local lspconfig = require("lspconfig")
+	vim.api.nvim_set_keymap("i", "<Esc>", [[pumvisible() ? "<C-E><Esc>" : "<Esc>"]], { expr = true, noremap = true })
+	vim.api.nvim_set_keymap("i", "<C-C>", [[pumvisible() ? "<C-E><C-C>" : "<C-C>"]], { expr = true, noremap = true })
+
+	K.CR = function()
+		if vim.fn.pumvisible() ~= 0 then
+			if vim.fn.complete_info({ "selected" }).selected ~= -1 then
+				return npairs.esc("<C-Y>")
+			else
+				return npairs.esc("<C-G><C-G>") .. npairs.autopairs_cr()
+			end
+		else
+			return npairs.autopairs_cr()
+		end
+	end
+
+	vim.api.nvim_set_keymap("i", "<CR>", "v:lua.K.CR()", { expr = true, noremap = true })
+
+	K.BS = function()
+		if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ "mode" }).mode == "eval" then
+			return npairs.esc("<C-E>") .. npairs.autopairs_bs()
+		else
+			return npairs.autopairs_bs()
+		end
+	end
+
+	vim.api.nvim_set_keymap("i", "<BS>", "v:lua.K.BS()", { expr = true, noremap = true })
 
 	local on_attach = function(bufnr)
 		local function buf_set_keymap(...)
@@ -99,18 +134,14 @@ function ide.setup()
 		"yamlls",
 	}
 
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
 	for _, lsp in ipairs(language_servers) do
-		lspconfig[lsp].setup({
+		lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
 			on_attach = on_attach,
-			capabilities = capabilities,
-		})
+		}))
 	end
 
-	lspconfig.jsonls.setup({
-		capabilities = capabilities,
+	lspconfig.jsonls.setup(coq.lsp_ensure_capabilities({
+		on_attach = on_attach,
 		settings = {
 			json = {
 				schemas = {
@@ -127,17 +158,16 @@ function ide.setup()
 			end
 			return filetype
 		end,
-	})
+	}))
 
-	lspconfig.tsserver.setup({
+	lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
 		on_attach = on_attach,
-		capabilities = capabilities,
 		init_options = {
 			preferences = {
 				disableSuggestions = true,
 			},
 		},
-	})
+	}))
 
 	local sumneko_root_path = vim.env.HOME .. "/.sdk/lua-language-server"
 	local sumneko_binary = sumneko_root_path .. "/bin/" .. "macOS" .. "/lua-language-server"
@@ -146,9 +176,8 @@ function ide.setup()
 	table.insert(runtime_path, "lua/?.lua")
 	table.insert(runtime_path, "lua/?/init.lua")
 
-	require("lspconfig").sumneko_lua.setup({
+	lspconfig.sumneko_lua.setup(coq.lsp_ensure_capabilities({
 		on_attach = on_attach,
-		capabilities = capabilities,
 		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 		settings = {
 			Lua = {
@@ -167,7 +196,7 @@ function ide.setup()
 				},
 			},
 		},
-	})
+	}))
 
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		signs = true,
@@ -176,9 +205,8 @@ function ide.setup()
 		virtual_text = false,
 	})
 
-	lspconfig.diagnosticls.setup({
+	lspconfig.diagnosticls.setup(coq.lsp_ensure_capabilities({
 		on_attach = on_attach,
-		capabilities = capabilities,
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -220,36 +248,7 @@ function ide.setup()
 				},
 			},
 		},
-	})
-	--
-
-	-- cmp
-	local cmp = require("cmp")
-	local luasnip = require("luasnip")
-
-	cmp.setup({
-		snippet = {
-			expand = function(args)
-				luasnip.lsp_expand(args.body)
-			end,
-		},
-		mapping = {
-			["<C-p>"] = cmp.mapping.select_prev_item(),
-			["<C-n>"] = cmp.mapping.select_next_item(),
-			["<C-j>"] = cmp.mapping.complete(),
-			["<CR>"] = cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = true,
-			}),
-		},
-		sources = {
-			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
-			{ name = "buffer" },
-			{ name = "path" },
-			{ name = "nvim_lua" },
-		},
-	})
+	}))
 	--
 
 	-- dap
