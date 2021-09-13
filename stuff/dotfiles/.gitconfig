@@ -1,5 +1,6 @@
 [core]
   ignorecase = false
+  pager = bat -pl diff
 [init]
   defaultBranch = main
 [pull]
@@ -12,8 +13,13 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[merge]
-  tool = smerge
-[mergetool "smerge"]
-  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+[diff]
+  tool = kitty
+  guitool = kitty.gui
+[difftool]
+  prompt = false
   trustExitCode = true
+[difftool "kitty"]
+  cmd = kitty +kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+  cmd = kitty kitty +kitten diff $LOCAL $REMOTE
