@@ -11,7 +11,9 @@ function tools.setup()
 		map_complete = true,
 		auto_select = true,
 	})
-	require("telescope").setup({
+
+	local telescope = require("telescope")
+	telescope.setup({
 		defaults = {
 			mappings = {
 				i = {
@@ -21,6 +23,7 @@ function tools.setup()
 			},
 		},
 	})
+	telescope.load_extension("dap")
 
 	-- emmet
 	vim.g.user_emmet_leader_key = "<C-Z>"

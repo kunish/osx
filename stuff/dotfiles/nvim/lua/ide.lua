@@ -2,9 +2,14 @@ local ide = {}
 
 function ide.setup()
 	local noremap_opts = { noremap = true, silent = true }
+	local lspconfig = require("lspconfig")
+	local ts_config = require("nvim-treesitter.configs")
+	local cmp = require("cmp")
+	local cmp_nvim_lsp = require("cmp_nvim_lsp")
+	local luasnip = require("luasnip")
 
 	-- treesitter
-	require("nvim-treesitter.configs").setup({
+	ts_config.setup({
 		ensure_installed = "maintained",
 		autopairs = { enable = true },
 		highlight = { enable = true },
@@ -40,8 +45,6 @@ function ide.setup()
 	--
 
 	-- lspconfig
-	local lspconfig = require("lspconfig")
-
 	local on_attach = function(bufnr)
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -100,7 +103,7 @@ function ide.setup()
 	}
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 	for _, lsp in ipairs(language_servers) do
 		lspconfig[lsp].setup({
@@ -146,7 +149,7 @@ function ide.setup()
 	table.insert(runtime_path, "lua/?.lua")
 	table.insert(runtime_path, "lua/?/init.lua")
 
-	require("lspconfig").sumneko_lua.setup({
+	lspconfig.sumneko_lua.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
@@ -224,9 +227,6 @@ function ide.setup()
 	--
 
 	-- cmp
-	local cmp = require("cmp")
-	local luasnip = require("luasnip")
-
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -253,8 +253,6 @@ function ide.setup()
 	--
 
 	-- dap
-	require("telescope").load_extension("dap")
-
 	vim.g.dap_virtual_text = true
 
 	vim.api.nvim_set_keymap("n", "<Leader>da", "<cmd>Telescope dap commands<CR>", noremap_opts)
