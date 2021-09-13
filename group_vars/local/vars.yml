@@ -116,6 +116,7 @@ packages:
   - mysql
   - neofetch
   - neovim
+  - ninja
   - nmap
   - nvm
   - openssh
