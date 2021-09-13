@@ -5,12 +5,12 @@ function tools.setup()
 
 	require("hop").setup()
 	require("nvim_comment").setup()
-	require("nvim-autopairs").setup({ map_bs = false, check_ts = true })
-	-- require("nvim-autopairs.completion.cmp").setup({
-	-- 	map_cr = true,
-	-- 	map_complete = true,
-	-- 	auto_select = true,
-	-- })
+	require("nvim-autopairs").setup({ check_ts = true })
+	require("nvim-autopairs.completion.cmp").setup({
+		map_cr = true,
+		map_complete = true,
+		auto_select = true,
+	})
 	require("telescope").setup({
 		defaults = {
 			mappings = {
