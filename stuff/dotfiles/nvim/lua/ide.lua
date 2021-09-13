@@ -41,8 +41,6 @@ function ide.setup()
 
 	-- lspconfig
 	local lspconfig = require("lspconfig")
-	local cmp = require("cmp")
-	local luasnip = require("luasnip")
 
 	local on_attach = function(bufnr)
 		local function buf_set_keymap(...)
@@ -226,6 +224,9 @@ function ide.setup()
 	--
 
 	-- cmp
+	local cmp = require("cmp")
+	local luasnip = require("luasnip")
+
 	cmp.setup({
 		snippet = {
 			expand = function(args)
