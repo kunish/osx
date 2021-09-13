@@ -273,6 +273,13 @@ function ide.setup()
 	vim.g["neoformat_try_node_exe"] = 1
 
 	vim.api.nvim_set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", noremap_opts)
+
+	vim.cmd([[
+    augroup fmt
+      autocmd!
+      autocmd BufWritePre * Neoformat
+    augroup END
+  ]])
 	--
 end
 
