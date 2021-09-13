@@ -130,6 +130,7 @@ packages:
   - rust-analyzer
   - rustup
   - shfmt
+  - slides
   - sqlite
   - ssh-copy-id
   - stow
