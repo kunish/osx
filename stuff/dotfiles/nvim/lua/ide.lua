@@ -121,6 +121,46 @@ function ide.setup()
 						fileMatch = { "tsconfig.json" },
 						url = "https://json.schemastore.org/tsconfig",
 					},
+					{
+						fileMatch = { "jsconfig.json" },
+						url = "https://json.schemastore.org/jsconfig",
+					},
+					{
+						fileMatch = { "package.json" },
+						url = "https://json.schemastore.org/package",
+					},
+					{
+						fileMatch = { ".commitlintrc" },
+						url = "https://json.schemastore.org/commitlintrc",
+					},
+					{
+						fileMatch = { ".huskyrc" },
+						url = "https://json.schemastore.org/huskyrc",
+					},
+					{
+						fileMatch = { "lerna.json" },
+						url = "https://json.schemastore.org/lerna",
+					},
+					{
+						fileMatch = { "nodemon.json" },
+						url = "https://json.schemastore.org/nodemon",
+					},
+					{
+						fileMatch = { "renovate.json" },
+						url = "https://json.schemastore.org/renovate-schema",
+					},
+					{
+						fileMatch = { ".babelrc" },
+						url = "https://json.schemastore.org/babelrc",
+					},
+					{
+						fileMatch = { ".eslintrc" },
+						url = "https://json.schemastore.org/eslintrc",
+					},
+					{
+						fileMatch = { ".prettierrc" },
+						url = "https://json.schemastore.org/prettierrc",
+					},
 				},
 			},
 		},
