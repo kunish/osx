@@ -24,6 +24,7 @@ function general.setup()
 	vim.opt.updatetime = 250
 	vim.opt.wrap = false
 	vim.opt.signcolumn = "yes"
+	vim.opt.fillchars = "eob: "
 
 	vim.g.mapleader = " "
 	vim.g.maplocalleader = " "
