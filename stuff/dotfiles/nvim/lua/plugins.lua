@@ -32,6 +32,7 @@ function plugins.setup()
 		"houtsnip/vim-emacscommandline",
 		"ntpeters/vim-better-whitespace",
 		"nvim-telescope/telescope.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		"nvim-telescope/telescope-dap.nvim",
 		"xiyaowong/telescope-emoji.nvim",
 		"phaazon/hop.nvim",

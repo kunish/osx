@@ -92,7 +92,9 @@ function ide.setup_lsp_config()
 		config.on_attach = on_attach
 		config.capabilities = capabilities
 
-		lspconfig[lsp].setup(config)
+		if lspconfig[lsp] ~= nil then
+			lspconfig[lsp].setup(config)
+		end
 	end
 
 	for _, lsp in ipairs(language_servers) do
@@ -203,7 +205,7 @@ function ide.setup_lsp_config()
 		virtual_text = false,
 	})
 
-	setup_lsp_config("diagnostics", {
+	setup_lsp_config("diagnosticls", {
 		filetypes = {
 			"javascript",
 			"javascriptreact",
