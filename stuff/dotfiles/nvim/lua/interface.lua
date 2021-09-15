@@ -1,8 +1,6 @@
 local interface = {}
 
 function interface.setup()
-	local noremap_opts = { noremap = true, silent = true }
-
 	require("which-key").setup()
 	require("colorizer").setup(nil, {
 		RRGGBBAA = true,
@@ -33,31 +31,12 @@ function interface.setup()
 		folders = 1,
 		git = 1,
 	}
-
-	vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", noremap_opts)
 	--
 
 	-- barbar
 	vim.g.bufferline = { animation = false, auto_hide = true }
-
-	vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bb", "<cmd>BufferPick<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bo", "<cmd>BufferOrderByBufferNumber<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bh", "<cmd>BufferMovePrevious<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bl", "<cmd>BufferMoveNext<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bC", "<cmd>BufferClose<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bO", "<cmd>BufferCloseAllButCurrent<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", noremap_opts)
 	--
 
-	vim.cmd([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 500, on_visual = true })
-  augroup end
-  ]])
 	vim.cmd("silent! colorscheme gruvbox")
 end
 

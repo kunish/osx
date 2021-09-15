@@ -1,14 +1,29 @@
+local lspconfig = require("lspconfig")
+local ts_config = require("nvim-treesitter.configs")
+local cmp = require("cmp")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local luasnip = require("luasnip")
+
 local ide = {}
 
 function ide.setup()
-	local noremap_opts = { noremap = true, silent = true }
-	local lspconfig = require("lspconfig")
-	local ts_config = require("nvim-treesitter.configs")
-	local cmp = require("cmp")
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-	local luasnip = require("luasnip")
+	ide.setup_ts()
+	ide.setup_lsp_config()
+	ide.setup_cmp()
 
-	-- treesitter
+	-- dap
+	vim.g.dap_virtual_text = true
+	--
+
+	-- neoformat
+	vim.g["neoformat_basic_format_align"] = 1
+	vim.g["neoformat_basic_format_retab"] = 1
+	vim.g["neoformat_basic_format_trim"] = 1
+	vim.g["neoformat_try_node_exe"] = 1
+	--
+end
+
+function ide.setup_ts()
 	ts_config.setup({
 		ensure_installed = "maintained",
 		autopairs = { enable = true },
@@ -42,47 +57,11 @@ function ide.setup()
 			},
 		},
 	})
-	--
+end
 
-	-- lspconfig
+function ide.setup_lsp_config()
 	local on_attach = function(bufnr)
-		local function buf_set_keymap(...)
-			vim.api.nvim_buf_set_keymap(bufnr, ...)
-		end
-
-		-- navigation
-		buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", noremap_opts)
-		buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lgi", "<cmd>lua vim.lsp.buf.implementation()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lgt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", noremap_opts)
-		--
-
-		-- workspace
-		buf_set_keymap("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", noremap_opts)
-		buf_set_keymap(
-			"n",
-			"<leader>lwl",
-			"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-			noremap_opts
-		)
-		buf_set_keymap("n", "<leader>lws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", noremap_opts)
-		--
-
-		-- code action
-		buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", noremap_opts)
-		--
-
-		-- diagnostic
-		buf_set_keymap("n", "<leader>lee", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", noremap_opts)
-		buf_set_keymap("n", "<leader>leq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", noremap_opts)
-		buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", noremap_opts)
-		buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", noremap_opts)
-		--
+		require("keymaps").buf_register(bufnr)
 	end
 
 	local language_servers = {
@@ -112,56 +91,58 @@ function ide.setup()
 		})
 	end
 
+	local json_schemas = {
+		{
+			fileMatch = { "tsconfig.json" },
+			url = "https://json.schemastore.org/tsconfig",
+		},
+		{
+			fileMatch = { "jsconfig.json" },
+			url = "https://json.schemastore.org/jsconfig",
+		},
+		{
+			fileMatch = { "package.json" },
+			url = "https://json.schemastore.org/package",
+		},
+		{
+			fileMatch = { ".commitlintrc" },
+			url = "https://json.schemastore.org/commitlintrc",
+		},
+		{
+			fileMatch = { ".huskyrc" },
+			url = "https://json.schemastore.org/huskyrc",
+		},
+		{
+			fileMatch = { "lerna.json" },
+			url = "https://json.schemastore.org/lerna",
+		},
+		{
+			fileMatch = { "nodemon.json" },
+			url = "https://json.schemastore.org/nodemon",
+		},
+		{
+			fileMatch = { "renovate.json" },
+			url = "https://json.schemastore.org/renovate-schema",
+		},
+		{
+			fileMatch = { ".babelrc" },
+			url = "https://json.schemastore.org/babelrc",
+		},
+		{
+			fileMatch = { ".eslintrc" },
+			url = "https://json.schemastore.org/eslintrc",
+		},
+		{
+			fileMatch = { ".prettierrc" },
+			url = "https://json.schemastore.org/prettierrc",
+		},
+	}
+
 	lspconfig.jsonls.setup({
 		capabilities = capabilities,
 		settings = {
 			json = {
-				schemas = {
-					{
-						fileMatch = { "tsconfig.json" },
-						url = "https://json.schemastore.org/tsconfig",
-					},
-					{
-						fileMatch = { "jsconfig.json" },
-						url = "https://json.schemastore.org/jsconfig",
-					},
-					{
-						fileMatch = { "package.json" },
-						url = "https://json.schemastore.org/package",
-					},
-					{
-						fileMatch = { ".commitlintrc" },
-						url = "https://json.schemastore.org/commitlintrc",
-					},
-					{
-						fileMatch = { ".huskyrc" },
-						url = "https://json.schemastore.org/huskyrc",
-					},
-					{
-						fileMatch = { "lerna.json" },
-						url = "https://json.schemastore.org/lerna",
-					},
-					{
-						fileMatch = { "nodemon.json" },
-						url = "https://json.schemastore.org/nodemon",
-					},
-					{
-						fileMatch = { "renovate.json" },
-						url = "https://json.schemastore.org/renovate-schema",
-					},
-					{
-						fileMatch = { ".babelrc" },
-						url = "https://json.schemastore.org/babelrc",
-					},
-					{
-						fileMatch = { ".eslintrc" },
-						url = "https://json.schemastore.org/eslintrc",
-					},
-					{
-						fileMatch = { ".prettierrc" },
-						url = "https://json.schemastore.org/prettierrc",
-					},
-				},
+				schemas = json_schemas,
 			},
 		},
 		get_language_id = function(filetype)
@@ -264,9 +245,9 @@ function ide.setup()
 			},
 		},
 	})
-	--
+end
 
-	-- cmp
+function ide.setup_cmp()
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -290,37 +271,6 @@ function ide.setup()
 			{ name = "nvim_lua" },
 		},
 	})
-	--
-
-	-- dap
-	vim.g.dap_virtual_text = true
-
-	vim.api.nvim_set_keymap("n", "<Leader>da", "<cmd>Telescope dap commands<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>dc", "<cmd>Telescope dap configurations<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>dd", "<cmd>lua require'dap'.continue()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>dO", "<cmd>lua require'dap'.step_over()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", noremap_opts)
-	vim.api.nvim_set_keymap("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", noremap_opts)
-	--
-
-	-- neoformat
-	vim.g["neoformat_basic_format_align"] = 1
-	vim.g["neoformat_basic_format_retab"] = 1
-	vim.g["neoformat_basic_format_trim"] = 1
-	vim.g["neoformat_try_node_exe"] = 1
-
-	vim.api.nvim_set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", noremap_opts)
-
-	vim.cmd([[
-    augroup fmt
-      autocmd!
-      autocmd BufWritePre * Neoformat
-    augroup END
-  ]])
-	--
 end
 
 return ide
