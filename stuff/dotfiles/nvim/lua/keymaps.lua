@@ -93,7 +93,7 @@ function keymaps.buf_register(bufnr)
 	end
 
 	-- ide navigation
-	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", noremap_opts)
+	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", noremap_opts)
 	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lgi", "<cmd>Telescope lsp_implementations<CR>", noremap_opts)

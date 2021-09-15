@@ -84,11 +84,19 @@ function ide.setup_lsp_config()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+	local setup_lsp_config = function(lsp, config)
+		if config == nil then
+			config = {}
+		end
+
+		config.on_attach = on_attach
+		config.capabilities = capabilities
+
+		lspconfig[lsp].setup(config)
+	end
+
 	for _, lsp in ipairs(language_servers) do
-		lspconfig[lsp].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
+		setup_lsp_config(lsp)
 	end
 
 	local json_schemas = {
@@ -138,8 +146,7 @@ function ide.setup_lsp_config()
 		},
 	}
 
-	lspconfig.jsonls.setup({
-		capabilities = capabilities,
+	setup_lsp_config("jsonls", {
 		settings = {
 			json = {
 				schemas = json_schemas,
@@ -153,9 +160,7 @@ function ide.setup_lsp_config()
 		end,
 	})
 
-	lspconfig.tsserver.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
+	setup_lsp_config("tsserver", {
 		init_options = {
 			preferences = {
 				disableSuggestions = true,
@@ -170,9 +175,7 @@ function ide.setup_lsp_config()
 	table.insert(runtime_path, "lua/?.lua")
 	table.insert(runtime_path, "lua/?/init.lua")
 
-	lspconfig.sumneko_lua.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
+	setup_lsp_config("sumneko_lua", {
 		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 		settings = {
 			Lua = {
@@ -200,9 +203,7 @@ function ide.setup_lsp_config()
 		virtual_text = false,
 	})
 
-	lspconfig.diagnosticls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
+	setup_lsp_config("diagnostics", {
 		filetypes = {
 			"javascript",
 			"javascriptreact",
