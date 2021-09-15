@@ -19,7 +19,6 @@ function interface.setup()
 
 	-- gruvbox
 	vim.g.gruvbox_contrast_dark = "hard"
-	vim.cmd("silent! colorscheme gruvbox")
 	--
 
 	-- nvimtree
@@ -43,6 +42,10 @@ function interface.setup()
 
 	vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", noremap_opts)
 	vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
+	vim.api.nvim_set_keymap("n", "<Leader>bb", "<cmd>BufferPick<CR>", noremap_opts)
+	vim.api.nvim_set_keymap("n", "<Leader>bo", "<cmd>BufferOrderByBufferNumber<CR>", noremap_opts)
+	vim.api.nvim_set_keymap("n", "<Leader>bh", "<cmd>BufferMovePrevious<CR>", noremap_opts)
+	vim.api.nvim_set_keymap("n", "<Leader>bl", "<cmd>BufferMoveNext<CR>", noremap_opts)
 	vim.api.nvim_set_keymap("n", "<Leader>bC", "<cmd>BufferClose<CR>", noremap_opts)
 	vim.api.nvim_set_keymap("n", "<Leader>bO", "<cmd>BufferCloseAllButCurrent<CR>", noremap_opts)
 	vim.api.nvim_set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", noremap_opts)
@@ -54,7 +57,8 @@ function interface.setup()
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 500, on_visual = true })
   augroup end
-]])
+  ]])
+	vim.cmd("silent! colorscheme gruvbox")
 end
 
 return interface
