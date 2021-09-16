@@ -3,20 +3,19 @@ local tools = {}
 function tools.setup()
 	require("hop").setup()
 	require("nvim_comment").setup()
-	require("nvim-autopairs").setup({ check_ts = true })
+	require("nvim-autopairs").setup({
+		check_ts = true,
+		disable_filetype = { "TelescopePrompt" },
+	})
 	require("nvim-autopairs.completion.cmp").setup({
 		map_cr = true,
 		map_complete = true,
 		auto_select = true,
 	})
+
 	require("telescope").setup({
 		defaults = {
-			mappings = {
-				i = {
-					["<C-U>"] = false,
-					["<C-D>"] = false,
-				},
-			},
+			layout_strategy = "vertical",
 		},
 	})
 	require("telescope").load_extension("fzf")
