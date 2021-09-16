@@ -17,11 +17,13 @@
     regexp: '\/usr\/local\/bin\/zsh'
     state: present
 
-- name: Change shell
+- name: Add fish into standard shell
   become: yes
-  user:
-    name: "{{ ansible_user }}"
-    shell: /usr/local/bin/zsh
+  lineinfile:
+    path: /etc/shells
+    line: /usr/local/bin/fish
+    regexp: '\/usr\/local\/bin\/zsh'
+    state: present
 
 - name: Clone oh-my-zsh
   git:
