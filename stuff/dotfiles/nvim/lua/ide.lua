@@ -85,9 +85,7 @@ function ide.setup_lsp_config()
 	capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 	local setup_lsp_config = function(lsp, config)
-		if config == nil then
-			config = {}
-		end
+		config = config or {}
 
 		config.on_attach = on_attach
 		config.capabilities = capabilities
