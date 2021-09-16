@@ -34,6 +34,7 @@ function plugins.setup()
 		"nvim-telescope/telescope.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		"nvim-telescope/telescope-dap.nvim",
+		"windwp/nvim-ts-autotag",
 		"xiyaowong/telescope-emoji.nvim",
 		"phaazon/hop.nvim",
 		"terrortylor/nvim-comment",
