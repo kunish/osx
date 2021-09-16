@@ -11,6 +11,7 @@ node_pacakges:
   - diagnostic-languageserver
   - dockerfile-language-server-nodejs
   - eslint
+  - eslint_d
   - graphql-language-service-cli
   - lerna
   - neovim
@@ -89,6 +90,7 @@ packages:
   - cowsay
   - deno
   - editorconfig
+  - efm-langserver
   - exa
   - fd
   - figlet
