@@ -193,6 +193,7 @@ function ide.setup_lsp_config()
 	})
 
 	local eslint = {
+		prefix = "eslint",
 		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
 		lintStdin = true,
 		lintFormats = { "%f:%l:%c: %m" },
