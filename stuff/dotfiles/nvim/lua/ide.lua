@@ -60,7 +60,6 @@ function ide.setup_lsp_config()
 		"ansiblels",
 		"bashls",
 		"cssls",
-		"diagnosticls",
 		"dockerls",
 		"gopls",
 		"graphql",
