@@ -16,6 +16,7 @@ function tools.setup()
 
 	require("telescope").setup({
 		defaults = {
+			prompt_prefix = "",
 			layout_strategy = "vertical",
 		},
 		pickers = {
