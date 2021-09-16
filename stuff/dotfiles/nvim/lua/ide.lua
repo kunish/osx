@@ -195,46 +195,41 @@ function ide.setup_lsp_config()
 		virtual_text = false,
 	})
 
-	setup_lsp_config("diagnosticls", {
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		},
-		init_options = {
-			filetypes = {
-				javascript = "eslint",
-				javascriptreact = "eslint",
-				typescript = "eslint",
-				typescriptreact = "eslint",
-			},
-			linters = {
-				eslint = {
-					command = "./node_modules/.bin/eslint",
-					args = {
-						"--stdin",
-						"--stdin-filename",
-						"%filepath",
-						"--format",
-						"json",
-					},
-					debounce = 100,
-					sourceName = "eslint",
-					parseJson = {
-						errorsRoot = "[0].messages",
-						line = "line",
-						column = "column",
-						endLine = "endLine",
-						endColumn = "endColumn",
-						message = "[eslint] ${message} [${ruleId}]",
-						security = "severity",
-					},
-					securities = {
-						[1] = "warning",
-						[2] = "error",
-					},
-				},
+	local util = require("lspconfig").util
+
+	local eslint = {
+		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+		lintStdin = true,
+		lintFormats = { "%f:%l:%c: %m" },
+		lintIgnoreExitCode = true,
+		formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+		formatStdin = true,
+	}
+
+	local eslint_root_markers = {
+		".eslintrc",
+		".eslintrc.cjs",
+		".eslintrc.js",
+		".eslintrc.json",
+		".eslintrc.yaml",
+		".eslintrc.yml",
+		".git/",
+	}
+
+	setup_lsp_config("efm", {
+		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		root_dir = function(fname)
+			return util.root_pattern("tsconfig.json")(fname)
+				or util.root_pattern(table.unpack(eslint_root_markers))(fname)
+		end,
+		init_options = { documentFormatting = true },
+		settings = {
+			rootMarkers = eslint_root_markers,
+			languages = {
+				javasrcript = { eslint },
+				javasrcriptreact = { eslint },
+				typescript = { eslint },
+				typescriptreact = { eslint },
 			},
 		},
 	})
