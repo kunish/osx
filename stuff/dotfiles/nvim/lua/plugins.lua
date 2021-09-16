@@ -12,7 +12,6 @@ function plugins.setup()
 		"savq/paq-nvim",
 		"nvim-lua/popup.nvim",
 		"nvim-lua/plenary.nvim",
-		--
 
 		-- interface
 		"gruvbox-community/gruvbox",
@@ -23,7 +22,6 @@ function plugins.setup()
 		"hoob3rt/lualine.nvim",
 		"norcalli/nvim-colorizer.lua",
 		"theHamsta/nvim-dap-virtual-text",
-		--
 
 		-- tool
 		"folke/which-key.nvim",
@@ -43,7 +41,6 @@ function plugins.setup()
 		"vim-scripts/ReplaceWithRegister",
 		"vim-scripts/undotree.vim",
 		"windwp/nvim-autopairs",
-		--
 
 		-- ide
 		"neovim/nvim-lspconfig",
@@ -67,7 +64,6 @@ function plugins.setup()
 		"mattn/emmet-vim",
 		"sbdchd/neoformat",
 		"mfussenegger/nvim-dap",
-		--
 	})
 end
 

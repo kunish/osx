@@ -27,11 +27,9 @@ function interface.setup()
 		folders = 1,
 		git = 1,
 	}
-	--
 
 	-- barbar
 	vim.g.bufferline = { animation = false, auto_hide = true }
-	--
 
 	vim.cmd("silent! colorscheme gruvbox")
 end

@@ -16,7 +16,6 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", noremap_opts)
 	set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", noremap_opts)
 	set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
-	--
 
 	-- telescope
 	set_keymap("n", "q:", "<cmd>Telescope command_history<CR>", noremap_opts)
@@ -32,17 +31,14 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>fl", "<cmd>Telescope file_browser<CR>", noremap_opts)
 	set_keymap("n", "<Leader>fm", "<cmd>Telescope man_pages<CR>", noremap_opts)
 	set_keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<CR>", noremap_opts)
-	--
 
 	-- nvimtree
 	set_keymap("n", "<leader>ft", "<cmd>NvimTreeToggle<CR>", noremap_opts)
-	--
 
 	-- hop
 	set_keymap("n", "<Leader><Leader><Leader>", "<cmd>HopLineStart<CR>", noremap_opts)
 	set_keymap("n", "<Leader><Leader>w", "<cmd>HopWord<CR>", noremap_opts)
 	set_keymap("n", "<Leader><Leader>s", "<cmd>HopChar1<CR>", noremap_opts)
-	--
 
 	-- fugitive
 	set_keymap("n", "<Leader>gg", "<cmd>Git<CR>", noremap_opts)
@@ -50,7 +46,6 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>gd", "<cmd>Gvdiffsplit!<CR>", noremap_opts)
 	set_keymap("n", "<Leader>gp", "<cmd>Git pull<CR>", noremap_opts)
 	set_keymap("n", "<Leader>gP", "<cmd>Git push<CR>", noremap_opts)
-	--
 
 	-- incsearch
 	set_keymap("n", "n", "<Plug>(incsearch-nohl-n)", {})
@@ -59,7 +54,6 @@ function keymaps.setup()
 	set_keymap("n", "#", "<Plug>(incsearch-nohl-#)", {})
 	set_keymap("n", "g*", "<Plug>(incsearch-nohl-g*)", {})
 	set_keymap("n", "g#", "<Plug>(incsearch-nohl-g#)", {})
-	--
 
 	-- dap
 	set_keymap("n", "<Leader>da", "<cmd>Telescope dap commands<CR>", noremap_opts)
@@ -71,11 +65,9 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", noremap_opts)
 	set_keymap("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", noremap_opts)
 	set_keymap("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", noremap_opts)
-	--
 
 	-- neoformat
 	set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", noremap_opts)
-	--
 
 	-- custom
 	set_keymap("n", "<C-S>", "<cmd>write<CR>", noremap_opts)
@@ -85,7 +77,6 @@ function keymaps.setup()
 	set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", noremap_opts)
 	set_keymap("i", "<C-A>", "<C-O>^", noremap_opts)
 	set_keymap("i", "<C-E>", "<C-O>$", noremap_opts)
-	--
 end
 
 function keymaps.buf_register(bufnr)
@@ -100,7 +91,6 @@ function keymaps.buf_register(bufnr)
 	buf_set_keymap("n", "<leader>lgi", "<cmd>Telescope lsp_implementations<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lgt", "<cmd>Telescope lsp_type_definitions<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lgs", "<cmd>Telescope lsp_document_symbols<CR>", noremap_opts)
-	--
 
 	-- ide workspace
 	buf_set_keymap("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", noremap_opts)
@@ -112,20 +102,17 @@ function keymaps.buf_register(bufnr)
 		"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
 		noremap_opts
 	)
-	--
 
 	-- ide code_action
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>la", "<cmd>Telescope lsp_code_actions<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", noremap_opts)
-	--
 
 	-- ide diagnostic
 	buf_set_keymap("n", "<leader>lee", "<cmd>Telescope lsp_document_diagnostics<CR>", noremap_opts)
 	buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", noremap_opts)
 	buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", noremap_opts)
-	--
 end
 
 return keymaps

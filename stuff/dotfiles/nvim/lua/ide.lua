@@ -13,14 +13,6 @@ function ide.setup()
 
 	-- dap
 	vim.g.dap_virtual_text = true
-	--
-
-	-- neoformat
-	vim.g["neoformat_basic_format_align"] = 1
-	vim.g["neoformat_basic_format_retab"] = 1
-	vim.g["neoformat_basic_format_trim"] = 1
-	vim.g["neoformat_try_node_exe"] = 1
-	--
 end
 
 function ide.setup_ts()
@@ -90,7 +82,7 @@ function ide.setup_lsp_config()
 		config.on_attach = on_attach
 		config.capabilities = capabilities
 
-		if lspconfig[lsp] ~= nil then
+		if lspconfig[lsp] then
 			lspconfig[lsp].setup(config)
 		end
 	end

@@ -9,7 +9,7 @@ function autocmd.setup()
   ]])
 
 	vim.cmd([[
-    augroup YankHighlight
+    augroup yank
       autocmd!
       autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 500, on_visual = true })
     augroup end
