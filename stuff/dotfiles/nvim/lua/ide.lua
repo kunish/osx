@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local lsp_util = require("lspconfig.util")
 local ts_config = require("nvim-treesitter.configs")
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -188,13 +189,8 @@ function ide.setup_lsp_config()
 	})
 
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		signs = true,
-		underline = true,
 		update_in_insert = true,
-		virtual_text = false,
 	})
-
-	local util = require("lspconfig").util
 
 	local eslint = {
 		lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
@@ -215,21 +211,24 @@ function ide.setup_lsp_config()
 		".git/",
 	}
 
+	local eslint_languages = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+
+	local efm_eslint_languages = {}
+
+	for _, language in ipairs(eslint_languages) do
+		efm_eslint_languages[language] = { eslint }
+	end
+
 	setup_lsp_config("efm", {
-		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		filetypes = eslint_languages,
 		root_dir = function(fname)
-			return util.root_pattern("tsconfig.json")(fname)
-				or util.root_pattern(table.unpack(eslint_root_markers))(fname)
+			return lsp_util.root_pattern("tsconfig.json")(fname)
+				or lsp_util.root_pattern(table.unpack(eslint_root_markers))(fname)
 		end,
 		init_options = { documentFormatting = true },
 		settings = {
 			rootMarkers = eslint_root_markers,
-			languages = {
-				javasrcript = { eslint },
-				javasrcriptreact = { eslint },
-				typescript = { eslint },
-				typescriptreact = { eslint },
-			},
+			languages = efm_eslint_languages,
 		},
 	})
 end
