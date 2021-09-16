@@ -15,10 +15,6 @@ function interface.setup()
 	require("gitsigns").setup()
 	require("nvim-web-devicons").setup({ default = true })
 
-	-- gruvbox
-	vim.g.gruvbox_contrast_dark = "hard"
-	--
-
 	-- nvimtree
 	vim.g.nvim_tree_auto_close = 1
 	vim.g.nvim_tree_follow = 1
