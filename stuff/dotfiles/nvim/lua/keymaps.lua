@@ -18,8 +18,6 @@ function keymaps.setup()
 	set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
 
 	-- telescope
-	set_keymap("n", "q:", "<cmd>Telescope command_history<CR>", noremap_opts)
-	set_keymap("n", "q?", "<cmd>Telescope search_history<CR>", noremap_opts)
 	set_keymap("n", "<Leader>bs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", noremap_opts)
 	set_keymap("n", "<Leader>fa", "<cmd>Telescope builtin<CR>", noremap_opts)
 	set_keymap("n", "<Leader>fb", "<cmd>Telescope buffers<CR>", noremap_opts)
