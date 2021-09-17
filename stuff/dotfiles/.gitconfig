@@ -1,6 +1,5 @@
 [core]
   ignorecase = false
-  pager = bat -pl diff
 [init]
   defaultBranch = main
 [pull]
