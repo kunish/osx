@@ -64,6 +64,7 @@ function plugins.setup()
 		"mattn/emmet-vim",
 		"sbdchd/neoformat",
 		"mfussenegger/nvim-dap",
+		"vim-test/vim-test",
 	})
 end
 
