@@ -20,6 +20,7 @@ alias k=kubectl
 alias n=nvim
 alias v=vim
 alias ls=exa
+alias la='exa -al'
 alias ld=lazydocker
 alias lg=lazygit
 alias s='kitty +kitten ssh'
