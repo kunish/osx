@@ -3,7 +3,6 @@ local tools = {}
 function tools.setup()
 	require("hop").setup()
 	require("nvim_comment").setup()
-	require("nvim-ts-autotag").setup()
 	require("nvim-autopairs").setup({
 		check_ts = true,
 		disable_filetype = { "TelescopePrompt" },

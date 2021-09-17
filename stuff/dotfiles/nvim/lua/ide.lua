@@ -20,6 +20,7 @@ function ide.setup_ts()
 	ts_config.setup({
 		ensure_installed = "maintained",
 		autopairs = { enable = true },
+		autotag = { enable = true },
 		highlight = { enable = true },
 		incremental_selection = { enable = true },
 		indent = { enable = true },
@@ -27,6 +28,7 @@ function ide.setup_ts()
 		rainbow = { enable = true, extended_mode = true },
 		textobjects = {
 			lsp_interop = { enable = true },
+			swap = { enable = true },
 			select = {
 				enable = true,
 				lookahead = true,
