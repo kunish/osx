@@ -70,13 +70,15 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>p", "<cmd>Neoformat<CR>", noremap_opts)
 
 	-- custom
-	set_keymap("n", "<C-S>", "<cmd>write<CR>", noremap_opts)
-	set_keymap("n", "<C-H>", "<cmd>wincmd h<CR>", noremap_opts)
-	set_keymap("n", "<C-J>", "<cmd>wincmd j<CR>", noremap_opts)
-	set_keymap("n", "<C-K>", "<cmd>wincmd k<CR>", noremap_opts)
-	set_keymap("n", "<C-L>", "<cmd>wincmd l<CR>", noremap_opts)
-	set_keymap("i", "<C-A>", "<C-O>^", noremap_opts)
-	set_keymap("i", "<C-E>", "<C-O>$", noremap_opts)
+	set_keymap("n", "<C-s>", "<cmd>write<CR>", noremap_opts)
+	set_keymap("n", "<C-h>", "<cmd>wincmd h<CR>", noremap_opts)
+	set_keymap("n", "<C-j>", "<cmd>wincmd j<CR>", noremap_opts)
+	set_keymap("n", "<C-k>", "<cmd>wincmd k<CR>", noremap_opts)
+	set_keymap("n", "<C-l>", "<cmd>wincmd l<CR>", noremap_opts)
+	set_keymap("i", "<C-a>", "<C-o>^", noremap_opts)
+	set_keymap("i", "<C-e>", "<C-o>$", noremap_opts)
+	set_keymap("i", "<M-f>", "<C-o>w", noremap_opts)
+	set_keymap("i", "<M-b>", "<C-o>b", noremap_opts)
 end
 
 function keymaps.buf_register(bufnr)

@@ -39,7 +39,7 @@ function tools.setup()
 	vim.g["neoformat_try_node_exe"] = 1
 
 	-- emmet
-	vim.g.user_emmet_leader_key = "<C-Z>"
+	vim.g.user_emmet_leader_key = "<C-z>"
 
 	-- incsearch
 	vim.g["incsearch#auto_nohlsearch"] = 1

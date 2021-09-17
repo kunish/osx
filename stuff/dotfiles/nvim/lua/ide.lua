@@ -242,9 +242,9 @@ function ide.setup_cmp()
 			end,
 		},
 		mapping = {
-			["<C-D>"] = cmp.mapping.scroll_docs(4),
-			["<C-U>"] = cmp.mapping.scroll_docs(-4),
-			["<C-J>"] = cmp.mapping.complete(),
+			["<C-d>"] = cmp.mapping.scroll_docs(4),
+			["<C-u>"] = cmp.mapping.scroll_docs(-4),
+			["<C-j>"] = cmp.mapping.complete(),
 			["<CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
