@@ -1,5 +1,6 @@
 export VISUAL=vim
 export EDITOR=$VISUAL
+export BAT_THEME=gruvbox-dark
 export NVM_DIR=$HOME/.nvm
 export GOPROXY=https://goproxy.io,direct
 export GOPATH=$HOME/.go

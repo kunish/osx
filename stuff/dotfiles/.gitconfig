@@ -12,6 +12,17 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[delta]
+  syntax-theme = gruvbox-dark
+  side-by-side = true
+  navigate = true
+[interactive]
+  diffFilter = delta --color-only
 [diff]
   tool = kitty
   guitool = kitty.gui
