@@ -77,6 +77,8 @@ function keymaps.setup()
 	set_keymap("i", "<C-e>", "<C-o>$", noremap_opts)
 	set_keymap("i", "<M-f>", "<C-o>w", noremap_opts)
 	set_keymap("i", "<M-b>", "<C-o>b", noremap_opts)
+	set_keymap("i", "<M-p>", "<C-o><Up>", noremap_opts)
+	set_keymap("i", "<M-n>", "<C-o><Down>", noremap_opts)
 end
 
 function keymaps.buf_register(bufnr)
