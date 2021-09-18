@@ -213,6 +213,7 @@ function ide.setup_lsp_config()
 		".eslintrc.yaml",
 		".eslintrc.yml",
 		".git/",
+		"package.json",
 	}
 
 	local eslint_languages = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
@@ -227,7 +228,7 @@ function ide.setup_lsp_config()
 		filetypes = eslint_languages,
 		root_dir = function(fname)
 			return lsp_util.root_pattern("tsconfig.json")(fname)
-				or lsp_util.root_pattern(table.unpack(eslint_root_markers))(fname)
+				or lsp_util.root_pattern(unpack(eslint_root_markers))(fname)
 		end,
 		init_options = { documentFormatting = true },
 		settings = {

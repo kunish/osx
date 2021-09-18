@@ -112,7 +112,9 @@ function keymaps.buf_register(bufnr)
 	buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", noremap_opts)
 
 	-- ide diagnostic
-	buf_set_keymap("n", "<leader>lee", "<cmd>Telescope lsp_document_diagnostics<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lee", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lel", "<cmd>Telescope lsp_document_diagnostics<CR>", noremap_opts)
+	buf_set_keymap("n", "<leader>lew", "<cmd>Telescope lsp_workspace_diagnostics<CR>", noremap_opts)
 	buf_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", noremap_opts)
 	buf_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", noremap_opts)
 end
