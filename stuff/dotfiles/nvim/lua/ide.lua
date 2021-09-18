@@ -147,11 +147,8 @@ function ide.setup_lsp_config()
 				schemas = json_schemas,
 			},
 		},
-		get_language_id = function(filetype)
-			if vim.tbl_contains({ "json" }, filetype) then
-				return "jsonc"
-			end
-			return filetype
+		get_language_id = function(_, filetype)
+			return filetype == "json" and "jsonc" or filetype
 		end,
 	})
 
