@@ -1,6 +1,6 @@
+local nvim_treesitter_configs = require("nvim-treesitter.configs")
 local lspconfig = require("lspconfig")
-local lsp_util = require("lspconfig.util")
-local ts_config = require("nvim-treesitter.configs")
+local lspconfig_util = require("lspconfig.util")
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lspkind = require("lspkind")
@@ -17,7 +17,7 @@ function ide.setup()
 end
 
 function ide.setup_ts()
-	ts_config.setup({
+	nvim_treesitter_configs.setup({
 		ensure_installed = "maintained",
 		autopairs = { enable = true },
 		autotag = { enable = true },
@@ -222,8 +222,8 @@ function ide.setup_lsp_config()
 	setup_lsp_config("efm", {
 		filetypes = eslint_languages,
 		root_dir = function(fname)
-			return lsp_util.root_pattern("tsconfig.json")(fname)
-				or lsp_util.root_pattern(unpack(eslint_root_markers))(fname)
+			return lspconfig_util.root_pattern("tsconfig.json")(fname)
+				or lspconfig_util.root_pattern(unpack(eslint_root_markers))(fname)
 		end,
 		init_options = { documentFormatting = true },
 		settings = {
