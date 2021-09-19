@@ -50,8 +50,9 @@ function plugins.setup()
 				vim.cmd("TSUpdate")
 			end,
 		},
-		"nvim-treesitter/playground",
+		"nvim-treesitter/nvim-treesitter-refactor",
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/playground",
 		"onsails/lspkind-nvim",
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",

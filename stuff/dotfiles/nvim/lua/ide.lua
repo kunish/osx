@@ -26,6 +26,7 @@ function ide.setup_ts()
 		indent = { enable = true },
 		matchup = { enable = true },
 		rainbow = { enable = true, extended_mode = true },
+		refactor = { highlight_definitions = { enable = true } },
 		textobjects = {
 			lsp_interop = { enable = true },
 			swap = { enable = true },
