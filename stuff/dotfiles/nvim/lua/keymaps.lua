@@ -15,7 +15,7 @@ function keymaps.setup()
 	set_keymap("n", "<Leader>bH", "<cmd>BufferCloseBuffersLeft<CR>", noremap_opts)
 	set_keymap("n", "<Leader>bL", "<cmd>BufferCloseBuffersRight<CR>", noremap_opts)
 	set_keymap("n", "<Tab>", "<cmd>BufferNext<CR>", noremap_opts)
-	set_keymap("n", "<S-tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
+	set_keymap("n", "<S-Tab>", "<cmd>BufferPrevious<CR>", noremap_opts)
 
 	-- telescope
 	set_keymap("n", "<Leader>bs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", noremap_opts)
@@ -107,6 +107,7 @@ function keymaps.buf_register(bufnr)
 
 	-- ide code_action
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", noremap_opts)
+	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>la", "<cmd>Telescope lsp_code_actions<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", noremap_opts)
 	buf_set_keymap("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", noremap_opts)
