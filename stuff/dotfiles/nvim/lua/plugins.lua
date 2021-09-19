@@ -60,6 +60,7 @@ function plugins.setup()
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
+		"rafamadriz/friendly-snippets",
 		"andymass/vim-matchup",
 		"p00f/nvim-ts-rainbow",
 		"mattn/emmet-vim",
