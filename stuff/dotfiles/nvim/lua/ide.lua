@@ -3,7 +3,7 @@ local lsp_util = require("lspconfig.util")
 local ts_config = require("nvim-treesitter.configs")
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 local ide = {}
 
@@ -55,8 +55,20 @@ function ide.setup_ts()
 end
 
 function ide.setup_lsp_config()
-	local on_attach = function(bufnr)
-		require("keymaps").buf_register(bufnr)
+	local setup_lsp_config = function(lsp, config)
+		config = config or {}
+
+		local on_attach = function(bufnr)
+			require("keymaps").buf_register(bufnr)
+		end
+		local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+		config.on_attach = on_attach
+		config.capabilities = capabilities
+
+		if lspconfig[lsp] then
+			lspconfig[lsp].setup(config)
+		end
 	end
 
 	local language_servers = {
@@ -75,20 +87,6 @@ function ide.setup_lsp_config()
 		"volar",
 		"yamlls",
 	}
-
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
-	local setup_lsp_config = function(lsp, config)
-		config = config or {}
-
-		config.on_attach = on_attach
-		config.capabilities = capabilities
-
-		if lspconfig[lsp] then
-			lspconfig[lsp].setup(config)
-		end
-	end
 
 	for _, lsp in ipairs(language_servers) do
 		setup_lsp_config(lsp)
@@ -237,9 +235,15 @@ end
 
 function ide.setup_cmp()
 	cmp.setup({
+		formatting = {
+			format = function(_, vim_item)
+				vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
+				return vim_item
+			end,
+		},
 		snippet = {
 			expand = function(args)
-				luasnip.lsp_expand(args.body)
+				vim.fn["vsnip#anonymous"](args.body)
 			end,
 		},
 		mapping = {
@@ -250,7 +254,7 @@ function ide.setup_cmp()
 		},
 		sources = {
 			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
+			{ name = "vsnip" },
 			{ name = "buffer" },
 			{ name = "path" },
 			{ name = "nvim_lua" },
