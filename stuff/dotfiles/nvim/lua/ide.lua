@@ -72,7 +72,6 @@ function ide.setup_lsp_config()
 	end
 
 	local language_servers = {
-		"angularls",
 		"ansiblels",
 		"bashls",
 		"cssls",
