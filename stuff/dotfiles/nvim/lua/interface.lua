@@ -1,7 +1,6 @@
 local interface = {}
 
 function interface.setup()
-	require("which-key").setup()
 	require("colorizer").setup(nil, {
 		RRGGBBAA = true,
 		css = true,
