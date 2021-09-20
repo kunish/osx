@@ -84,6 +84,7 @@ function ide.setup_lsp_config()
 		"html",
 		"pyright",
 		"rust_analyzer",
+		"taplo",
 		"terraformls",
 		"vimls",
 		"volar",
