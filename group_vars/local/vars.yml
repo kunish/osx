@@ -134,6 +134,7 @@ packages:
   - rustup
   - shfmt
   - slides
+  - sourcegraph/src-cli/src-cli
   - sqlite
   - ssh-copy-id
   - stow
