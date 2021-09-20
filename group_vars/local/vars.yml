@@ -2,7 +2,7 @@ ansible_connection: local
 ansible_user: shikun
 
 node_pacakges:
-  - "@angular/cli"
+  - "@angular/language-server"
   - "@volar/server"
   - ansible-language-server
   - bash-language-server
