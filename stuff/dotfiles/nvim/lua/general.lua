@@ -4,17 +4,19 @@ function general.setup()
 	vim.opt.clipboard = "unnamed"
 	vim.opt.completeopt = "menuone,noselect"
 	vim.opt.expandtab = true
+	vim.opt.fillchars = "eob: "
 	vim.opt.hidden = true
 	vim.opt.ignorecase = true
 	vim.opt.inccommand = "nosplit"
 	vim.opt.lazyredraw = true
+	vim.opt.modeline = false
 	vim.opt.mouse = "a"
 	vim.opt.number = true
 	vim.opt.relativenumber = true
 	vim.opt.shiftwidth = 2
 	vim.opt.shortmess:append("Ic")
 	vim.opt.showmode = false
-	vim.opt.signcolumn = "number"
+	vim.opt.signcolumn = "yes"
 	vim.opt.splitbelow = true
 	vim.opt.splitright = true
 	vim.opt.swapfile = false
@@ -23,8 +25,6 @@ function general.setup()
 	vim.opt.undofile = true
 	vim.opt.updatetime = 250
 	vim.opt.wrap = false
-	vim.opt.signcolumn = "yes"
-	vim.opt.fillchars = "eob: "
 
 	vim.g.mapleader = " "
 	vim.g.maplocalleader = " "
