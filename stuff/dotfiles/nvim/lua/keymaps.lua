@@ -7,11 +7,6 @@ local noremap_opts = { noremap = true, silent = true }
 function keymaps.setup()
 	wk.setup()
 
-	-- nvimtree
-	wk.register({
-		["."] = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
-	}, { prefix = "<Leader>" })
-
 	-- hop
 	wk.register({
 		name = "Hop",
@@ -48,7 +43,7 @@ function keymaps.setup()
 	-- telescope
 	wk.register({
 		f = {
-			name = "Telescope",
+			name = "Find",
 
 			a = { "<cmd>Telescope builtin<CR>", "Telescope Builtin" },
 			b = { "<cmd>Telescope buffers<CR>", "Telescope Buffers" },
@@ -66,6 +61,11 @@ function keymaps.setup()
 	}, {
 		prefix = "<Leader>",
 	})
+
+	-- nvimtree
+	wk.register({
+		ft = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
+	}, { prefix = "<Leader>" })
 
 	-- fugitive
 	wk.register({
