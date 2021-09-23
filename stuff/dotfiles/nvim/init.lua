@@ -1,7 +1,0 @@
-pcall(require("plugins").setup)
-pcall(require("general").setup)
-pcall(require("interface").setup)
-pcall(require("ide").setup)
-pcall(require("tools").setup)
-pcall(require("keymaps").setup)
-pcall(require("autocmd").setup)
