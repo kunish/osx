@@ -137,6 +137,7 @@ packages:
   - sourcegraph/src-cli/src-cli
   - sqlite
   - ssh-copy-id
+  - starship
   - stow
   - svn
   - terraform
