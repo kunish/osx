@@ -37,7 +37,6 @@ casks:
   - balenaetcher
   - brave-browser
   - clashx
-  - cmake
   - dingtalk
   - discord
   - docker
@@ -85,9 +84,11 @@ packages:
   - ack
   - ansible-lint
   - arping
+  - automake
   - bat
   - bat-extras
   - cloudflare/cloudflare/cloudflared
+  - cmake
   - cocoapods
   - cowsay
   - deno
