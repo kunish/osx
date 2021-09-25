@@ -3,6 +3,7 @@ ansible_user: shikun
 
 node_pacakges:
   - "@angular/language-server"
+  - "@taplo/cli"
   - "@volar/server"
   - ansible-language-server
   - bash-language-server
